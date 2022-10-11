@@ -2,15 +2,14 @@
 title: GAMR1520 lab materials
 ---
 
-# GAMR1520: Markup languages and scripting
-
 <div class="row">
     <img src="img/python-logo-only.svg" alt="Python logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JS logo">
 </div>
 
+# GAMR1520: Markup languages and scripting
 
-# GAMR1520 lab materials
+## lab materials
 
 This is a repository which contains exercises to be followed in lab sessions.
 

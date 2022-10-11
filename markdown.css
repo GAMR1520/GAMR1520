@@ -151,7 +151,6 @@ body > p > img {
 }
 
 img.logo {
-    min-width: 15em;
     min-height: 15em;
     margin: 1em auto;
 }

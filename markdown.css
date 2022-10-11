@@ -37,6 +37,17 @@ body {
     }
 }
 
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
 
 a {
     color: hsl(200, 100%, 30%);
@@ -139,12 +150,12 @@ body > p > img {
     object-fit: contain;
 }
 
-pre {
+pre > code {
     position: relative;
     padding-bottom: 1em;
 }
 
-pre::after {
+pre > code::after {
     content: "try it yourself";
     position: absolute;
     right: 0;
@@ -161,7 +172,7 @@ blockquote {
     background-color: hsl(var(--note-hue), 50%, 95%);
     border-color: hsl(var(--note-hue), 100%, 50%);
 }
-:not(pre):not(.hljs) > code {
+code:not(.hljs) {
     color: hsl(var(--note-hue), 100%, 40%);
 }
 

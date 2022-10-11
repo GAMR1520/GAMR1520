@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+:root {
+    --challenge-hue: 80;
+    --note-hue: 30;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo"; */
+    max-width: 80ch;
+    font-weight: 300;
+    margin: auto;    
+}
+@media screen {    
+    body {
+        max-width: 60ch;
+        font-size: 12pt;
+        line-height: 1.2em;
+    }
+    body::after {
+        content: "© Dr Graeme Stuart";
+        font-size: 12pt;
+    }
+}
+@media screen and (min-width: 800px) {
+    body {
+        font-size: 14pt;
+        line-height: 1.4em;
+    }
+}
+
+
+a {
+    color: hsl(200, 100%, 30%);
+}
+a:visited {
+    color: darkred;
+}
+p > a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+
+.toc + ul > li {
+    margin-bottom: 0.75em;
+    font-size: 14pt;
+}
+.toc + ul > li > ul > li {
+    font-size: 12pt;
+}
+@media print {
+    .toc + ul > li {
+    }
+}
+@media screen {
+    .toc + ul > li {
+        font-weight: 400;
+    }
+}
+
+em {
+    font-weight: 400;
+}
+strong {
+    font-weight: 500;
+}
+
+figure {
+    text-align: center;
+}
+
+figure, pre, blockquote {
+    break-inside: avoid;
+    overflow: auto;
+    margin-top: 1.5em;
+}
+table + figcaption {
+    margin-top: 0.5em;
+}
+
+h1:not(:nth-of-type(1)) {
+    page-break-before: always;
+    background-image: url("./Week 1/img/python-logo-only.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.4em;
+}
+
+table {
+    margin: auto;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+
+body > p > img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.row {
+    display: flex;
+    gap: 0.25em;
+    max-height: 17em;    
+}
+
+.row > img {
+    min-width: 0;
+    min-height: 0;
+    object-fit: contain;
+}
+
+pre.hljs {
+    position: relative;
+    padding-bottom: 1em;
+}
+
+pre::after {
+    content: "try it yourself";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0.125em 0.25em;
+    border-top-left-radius: 5px;
+    font-size: 0.65em;
+    background-color: hsl(var(--challenge-hue), 60%, 30%);
+    color: hsl(var(--challenge-hue), 50%, 90%);
+}
+
+blockquote {
+    border-radius: 0 5px 5px 0;
+    background-color: hsl(var(--note-hue), 50%, 95%);
+    border-color: hsl(var(--note-hue), 100%, 50%);
+}
+:not(pre):not(.hljs) > code {
+    color: hsl(var(--note-hue), 100%, 40%);
+}
+
+blockquote.challenge::before {
+    content: "work together on these";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 0.5em;
+    border-top-left-radius: 5px;
+    font-size: 0.65em;
+    background-color: hsl(var(--challenge-hue), 100%, 20%);
+    color: white;
+}
+
+blockquote.challenge {
+    position: relative;
+    border-color: darkgrey;
+    background-color: hsl(var(--challenge-hue), 50%, 85%);
+    border-style: solid;
+    border-width: 0 0.5px 0.5px 0.5px;
+    border-radius: 5px;
+    padding: 0 0 1.5em 0;
+}
+
+blockquote.challenge > header {
+    background-color: hsl(var(--challenge-hue), 50%, 30%);
+    background-image: url(https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg);
+    background-size: 2em;
+    background-repeat: no-repeat;
+    background-position: right 0.5em top 0.5em;
+    background-blend-mode: screen;
+    padding: 1em;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+}
+blockquote.challenge > p {
+    margin: 1em;
+}
+
+@media screen {    
+    h1:not(:nth-of-type(1)) {
+        padding-top: 50vh;
+        padding-right: 1.5em;
+        /* background-color: white; */
+        background-position: right bottom;
+        background-size: 1.2em;
+        background-blend-mode: normal;
+        border-top: 2px solid grey;
+        transition: 0.2s;
+        letter-spacing: -2px;
+        text-align: right;
+    }
+    li {
+        margin: 0.25em 0;
+    }    
+}
+

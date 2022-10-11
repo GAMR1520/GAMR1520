@@ -3,8 +3,8 @@ title: GAMR1520 lab materials
 ---
 
 <div class="row">
-    <img src="img/python-logo-only.svg" alt="Python logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JS logo">
+    <img class="logo" src="img/python-logo-only.svg" alt="Python logo">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JS logo">
 </div>
 
 # GAMR1520: Markup languages and scripting

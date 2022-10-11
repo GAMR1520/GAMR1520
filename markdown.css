@@ -10,10 +10,12 @@
 }
 
 body {
-    /* font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo"; */
+    font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo";
     max-width: 80ch;
     font-weight: 300;
     margin: auto;    
+	padding: 0 26px;
+	word-wrap: break-word;
 }
 @media screen {    
     body {

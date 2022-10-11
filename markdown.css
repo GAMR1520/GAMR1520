@@ -85,7 +85,7 @@ table + figcaption {
 
 h1:not(:nth-of-type(1)) {
     page-break-before: always;
-    background-image: url("./Week 1/img/python-logo-only.svg");
+    background-image: url("img/python-logo-only.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center right;

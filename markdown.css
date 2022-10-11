@@ -90,6 +90,19 @@ h1:not(:nth-of-type(1)) {
     background-repeat: no-repeat;
     background-position: center right;
 }
+@media screen {    
+    h1:not(:nth-of-type(1)) {
+        padding-top: 50vh;
+        padding-right: 1.5em;
+        background-position: right bottom;
+        background-size: 1.2em;
+        background-blend-mode: normal;
+        border-top: 2px solid grey;
+        transition: 0.2s;
+        letter-spacing: -2px;
+        text-align: right;
+    }
+}
 
 h2 {
     font-size: 1.7em;
@@ -191,18 +204,6 @@ blockquote.challenge > p {
 }
 
 @media screen {    
-    h1:not(:nth-of-type(1)) {
-        padding-top: 50vh;
-        padding-right: 1.5em;
-        /* background-color: white; */
-        background-position: right bottom;
-        background-size: 1.2em;
-        background-blend-mode: normal;
-        border-top: 2px solid grey;
-        transition: 0.2s;
-        letter-spacing: -2px;
-        text-align: right;
-    }
     li {
         margin: 0.25em 0;
     }    

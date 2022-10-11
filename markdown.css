@@ -140,7 +140,8 @@ body > p > img {
 .row {
     display: flex;
     gap: 0.25em;
-    max-height: 17em;    
+    max-height: 17em;
+    justify-content: space-between;
 }
 
 .row > img {

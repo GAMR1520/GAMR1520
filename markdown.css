@@ -150,6 +150,12 @@ body > p > img {
     object-fit: contain;
 }
 
+img.logo {
+    min-width: 15em;
+    min-height: 15em;
+    margin: 1em auto;
+}
+
 pre > code {
     position: relative;
     padding-bottom: 1em;

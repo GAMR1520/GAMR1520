@@ -139,7 +139,7 @@ body > p > img {
     object-fit: contain;
 }
 
-pre.hljs {
+pre {
     position: relative;
     padding-bottom: 1em;
 }

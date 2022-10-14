@@ -245,7 +245,7 @@ Because sequences are zero-indexed, the last index is always one less than the l
         Write a programme that takes user input and outputs a requested times table.
     </p>
         <pre>>>> Enter a number [1 - 12]: 5
->>> (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</pre>
+ (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</pre>
     <p>
         Can you use conditionals to restrict the programme to accept only integers between 1 and 12?
     </p>
@@ -257,9 +257,7 @@ Because sequences are zero-indexed, the last index is always one less than the l
 
 ## Lists
 
-Mos of the data types we have introduced so far (tuples, strings, booleans, integers and floats) are *immutable*, which means their values cannot be changed once created.
-Immutability is an important concept and allows immutable types to be very simple and efficiently implemented.
-
+Most of the data types we have introduced so far (tuples, strings, booleans, integers and floats) are *immutable*, which means their values cannot be changed once created.
 We can see this demonstrated if we try to change a character within a string.
 
 ```python
@@ -276,9 +274,24 @@ data = ('hello', 'world')
 data[1] = 'python'
 ```
 
-The Python `list` is effectively a mutable version of the tuple data type.
 There are three main built-in mutable data types in python, the `list`, `dict` and `set`.
+
+```python
+my_list = ['a', 'b']
+my_dict = {'a': 1, 'b': 2}
+my_set = {'a', 'b'}
+```
+
 Though they are deceptively simple, when used together, these simple types are powerful tools for creating flexible data structures within your programmes.
+
+The Python `list` is effectively a mutable version of the tuple data type.
+We can change the content of lists after they have been created.
+
+```python
+data = ['hello', 'world']
+data[1] = 'python'
+```
+
 
 ### Replacing elements
 

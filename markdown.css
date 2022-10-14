@@ -177,6 +177,7 @@ blockquote {
     background-color: hsl(var(--note-hue), 50%, 95%);
     border-color: hsl(var(--note-hue), 100%, 50%);
 }
+
 code:not(.hljs) {
     color: hsl(var(--note-hue), 100%, 40%);
 }
@@ -217,6 +218,11 @@ blockquote.challenge > header {
 }
 blockquote.challenge > p {
     margin: 1em;
+}
+
+blockquote.challenge > pre {
+    margin: 1em;
+    padding: 0.5em;
 }
 
 footer {

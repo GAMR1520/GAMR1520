@@ -3,7 +3,7 @@ title: GAMR1520 lab materials
 ---
 
 <div class="row">
-    <img class="logo" src="img/python-logo-only.svg" alt="Python logo">
+    <img class="logo" src="https://www.python.org/static/community_logos/python-logo-generic.svg" alt="Python logo">
     <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JS logo">
 </div>
 

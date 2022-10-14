@@ -244,15 +244,15 @@ Because sequences are zero-indexed, the last index is always one less than the l
     <p>
         Write a programme that takes user input and outputs a requested times table.
     </p>
-    <p>
-        <pre><code>
-Enter a number [1 - 12]: 5
-(5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</code></pre>
-    </p>
+        <pre>>>> Enter a number [1 - 12]: 5
+>>> (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</pre>
     <p>
         Can you use conditionals to restrict the programme to accept only integers between 1 and 12?
     </p>
-    <a class="solution" href="solutions/times_table.py" download>Download solution</a>
+    <p class="solution">
+        Once you have attempted this, download the <a href="solutions/times_tables.py" download>solution</a> and compare.
+        Can you improve the solution?
+    </p>
 </blockquote>
 
 ## Lists

@@ -19,18 +19,25 @@ We will also expand our exploration of compound statements by looking at `while`
 <div class="toc"></div>
 
 - [Sequences](#sequences)
-    - [Slicing](#slicing)
     - [Sequences have length](#sequences-have-length)
+    - [Indexing](#indexing)
+    - [Slicing](#slicing)
+        - [Specifying a step](#specifying-a-step)
     - [Tuples](#tuples)
+    - [Ranges](#ranges)
     - [Other sequence operations](#other-sequence-operations)
+    - [What is an object?](#whats-an-object)
+- [Mutable types](#mutable-types)
+- [Lists](#lists)
+    - [Replacing elements](#replacing-elements)
+    - [Deleting elements](#deleting-elements)
+    - [Appending elements](#appending-elements)
+- [Everything is an object](#everything-is-an-object)
+    - [Reassignment](#reassignment)
+    - [Mutability](#mutabilityimmutability)
 - [Iterables and looping](#iterables-and-looping)
     - [The while loop](#the-while-loop)
     - [The for loop](#the-for-loop)
-- [Everything is an object](#everything-is-an-object)
-    - [What is an object?](#whats-an-object)
-    - [Reassignment](#reassignment)
-    - [Mutability](#mutabilityimmutability)
-    - [Lists](#lists)
 
 # Sequences
 
@@ -84,16 +91,16 @@ len(message)    # 5
 > All sequences support this.
 > The `TypeError` occurs when no such method exists.
 
-## Slicing
+## Indexing
 
 If we want to access items from a sequence, we can do it by specifying the position of the items we want.
-This is known as *slicing*.
+This is known as *indexing*.
 
 Each item (character) has a position in the sequence (the string) known as the `index`.
 The `index` is an integer, beginning with `0` as the first item (character).
 In the above string, the character at position zero is `'h'`.
 
-Slicing syntax uses square brackets to indicate which character (or sequence of characters) we want to reference by index.
+Indexing syntax uses square brackets to indicate which character (or sequence of characters) we want to reference by index.
 This simple example gets the first character of a string.
 
 ```python
@@ -106,9 +113,10 @@ message[0]  # 'h'
 >print(f'Hello {name}, your name begins with "{name[0]}".')
 >```
 
-### Multiple characters
+## Slicing
 
-For multiple characters, we can specify the start and end indices, separated by a colon.
+For multiple elements, we can specify the start and end indices, separated by a colon.
+This is known as *slicing*.
 
 ```python
 message[1:4] # 'ell'
@@ -198,7 +206,7 @@ Note that tuple literals with a single element require a trailing comma within t
 ('hello',)  # evaluates to the tuple ('hello', )
 ```
 
-## The *range* type 
+## Ranges
 
 Consider a tuple like this.
 
@@ -237,137 +245,14 @@ fives[20]   # 100
 
 Because sequences are zero-indexed, the last index is always one less than the length.
 
-<blockquote class="challenge">
-    <header>
-        Slicing and ranges
-    </header>
-    <p>
-        Write a programme that takes user input and outputs a requested times table.
-    </p>
-        <pre>>>> Enter a number [1 - 12]: 5
- (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</pre>
-    <p>
-        Can you use conditionals to restrict the programme to accept only integers between 1 and 12?
-    </p>
-    <p class="solution">
-        Once you have attempted this, download the <a href="solutions/times_tables.py" download>solution</a> and compare.
-        Can you improve the solution?
-    </p>
-</blockquote>
-
-## Lists
-
-Most of the data types we have introduced so far (tuples, strings, booleans, integers and floats) are *immutable*, which means their values cannot be changed once created.
-We can see this demonstrated if we try to change a character within a string.
-
-```python
-message = 'hello'
-message[1] = 'a'
-```
-
-The result is a `TypeError` saying that the `str` object does not support item assignment.
-
-We get a similar result if we try to change an element of a tuple.
-
-```python
-data = ('hello', 'world')
-data[1] = 'python'
-```
-
-There are three main built-in mutable data types in python, the `list`, `dict` and `set`.
-
-```python
-my_list = ['a', 'b']
-my_dict = {'a': 1, 'b': 2}
-my_set = {'a', 'b'}
-```
-
-Though they are deceptively simple, when used together, these simple types are powerful tools for creating flexible data structures within your programmes.
-
-The Python `list` is effectively a mutable version of the tuple data type.
-We can change the content of lists after they have been created.
-
-```python
-data = ['hello', 'world']
-data[1] = 'python'
-```
-
-
-### Replacing elements
-
-It's perfectly OK to replace an element in a python list.
-We can do this by assigning to an element using the square bracket syntax we saw with slicing.
-
-```python
-my_list = ['apples', 'bananas']
-my_list[1] = ['blueberries']
-```
-
-We can also replace multiple elements in a list using the familiar slicing syntax.
-
-```python
-my_list = list('hello')
-my_list[2:4] = (1, 1)
-```
-
-> The above code first creates the list `['h', 'e', 'l', 'l', 'o'].
-> It then replaces the specified slice (the ['l', 'l'] part) with a new sequence.
-
-Any sequence can be used, and the length of the sequence doesn't have to be the same as the slice.
-
-```python
-my_list = list("abracadabra")
-my_list[5:6] = range(3)
-```
-
-> Be careful because this will not produce the same result
-> ```python
-> my_list = list("abracadabra")
-> my_list[5] = range(3)
-> ```
-> When assigning a sequence to an individual item, the sequence is inserted as a single item.
-> To inject a sequence into another sequence requires the slicing notation which specified a sub-sequence to be replaced rather than a single item, even if the sub-sequence has a length of one.
-
-If you want to, you can also use the slicing step notation to specify a distributed sequence.
-
-```python
-my_list = list("abracadabra")   # ['a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a']
-my_list[::2] = range(6)         # [ 0,  'b',  1 , 'a',  2 , 'a',  3 , 'a',  4 , 'r',  5 ]
-```
-
-### Deleting elements
-
-To remove an element from a mutable sequence, use the `del` keyword.
-
-```python
-my_list = list("abracadabra")   # ['a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a']
-del my_list[::2]
-my_list                         # ['b', 'a', 'a', 'a', 'r']
-```
-
-### Appending elements
-
-We can also add items to a list using the `append()` method.
-A *method* is a function that is defined within a class and so is associated with objects of that class.
-This means methods can modify an object directly in potentially complex ways.
-
-We call methods using dot notation like this:
-```python
-my_list = list('hello') # ['h', 'e', 'l', 'l', 'o']
-my_list.append('hello') # ['h', 'e', 'l', 'l', 'o', 'hello']
-```
-
-
-
-
 ## Other sequence operations
 
 In addition to indexing and slicing, all sequences benefit from some very convenient operators such as `in`.
 
 ```python
-'hello' in ('a', ('nested', 'tuple'), 'hello', [3, 2, 1])   # True
-15 in range(0, 101, 5)                                      # True
-'Q' in 'klnad87Qfadkna63kd'                                 # True
+'hello' in ('a', ('n', 5), 'hello', [3, 2, 1])   # True
+15 in range(0, 101, 5)                           # True
+'Q' in 'klnad87Qfadkna63kd'                      # True
 ```
 
 The `in` operator checks the sequence to see if the requested value appears as an item.
@@ -438,165 +323,157 @@ Attempting to use the `*` operator with the wrong types will raise a `TypeError`
 'hello' * 3.2
 ```
 
-# Iterables and looping
-
-There are two main ways to loop in python.
-We can either loop based on logic, using a `while` loop or we can loop over data, using a `for` loop.
-
-## The `while` loop
-
-A basic kind of loop is a `while` loop.
-This acts as a kind of extended and continuous conditional.
-
-The `while` clause is another compound statement and follows the same pattern as the `if` clause.
-The header begins with the `while` keyword and a conditional test followed by a colon.
-
-The indented code block following the header will be executed repeatedly as long as the conditional resolves to `True`.
-
-> There is a real danger that a `while` loop can continue forever.
-> If this happens, press `Ctrl + C` to exit the programme.
-
-Here's a modified version of the conditional code that repeatedly transfers an amount from `balanceA` to `balanceB`.
-It stops when `balanceA` is less than `amount`.
-
-```python
-balanceA = 95
-balanceB = 0
-amount = 10
-print(f"balance A {balanceA}, balance B {balanceB}")
-while balanceA >= amount:
-    balanceA -= amount
-    balanceB += amount
-    print(f"balance A {balanceA}, balance B {balanceB}")
-```
-
-> `while` clauses can have `else` clauses added too which will execute once, when the conditional expression resolves to `False`.
-
-One issue with the while loop is that the condition is always checked *before* the first execution of the code block.
-Many languages include a `do...until` construct which allows code to be executed one *before* the conditional is tested.
-Python has no such construct.
-
-A common way to use a `while` loop in this way is to create an infinite loop (`while True`) and use the `break` keyword to exit the loop based on some condition.
-This provides all the necessary flexibility.
-
-```python
-i = 0
-while True:
-    print(f"this is iteration {i}")
-    if input("break loop? [y/n] ").lower().startswith('y'):
-        break
-    i += 1
-```
-
-> Notice the use of string methods `str.lower()`, `str.startswith()` and the use of `f-strings`.
-> We will discuss these in the next section
-
-
-The infinite loop keeps our code clean and avoids repetition.
-
-## The `for` loop
-
-In python, an `iterable` is any object that can release one item at a time.
-Sequences are a special kind of *iterable* that yields its elements in order and supports integer indexing.
-
-In practice, this means (amongst other things) that an *iterable* object (such as a sequence) can be looped over using a `for` loop, yielding each element in turn.
-
-A `for` clause is similar to a `while` clause or an `if` clause.
-However, in place of a conditional test, we name a variable and an iterable object.
-The code block will repeat, setting the variable to each element in the iterable in turn and executing the code block.
-
-```python
-for i in (1, 2, 3):
-    print(i)
-```
-
-In the above case, we declare a variable `i` within the header to receive each element of the iterable in turn.
-the code block will be executed three times with the the variable `i` assigned to the values `1`, then `2` and then `3`.
-
-This allows for fun with sequences.
-
-```python
-for ch in input("Enter your name: "):
-    print(ch * 10 + "!")
-```
-
-The capabilities of `for` loops and `while` loops are subtly different.
-Though in many cases they can be used interchangeably, there is often a natural fit to the problem at hand.
-
-Consider how the following code uses looping to achieve a clear purpose.
-
-```python
-my_list = ()
-while True:
-    print('=' * 20)
-    print('shopping list'.center(20))
-    print('-' * 20)
-    for item in my_list or ("EMPTY LIST".center(20),):
-        print(item)
-    print('=' * 20)
-    keep_going = input("add an item to the list? [y/n]")
-    if not keep_going.lower().startswith('y'):
-        break
-    my_list += (input("New item: "),)
-```
-
-The code above uses many of the techniques we have introduced to maintain a tuple containing strings representing items on a shopping list.
-The programme starts by assigning an empty tuple to the `my_list` variable.
-> This could easily be a `list`, but we chose a `tuple`.
-
-The *infinite* `while` loop repeats the main code block until the `break` statement is reached when user decides to stop.
-
-In each loop, the programme prints out the list with some formatting.
-This takes most of the lines of code.
-Once the list is printed, the programme then asks the user if they want to add an item to the list.
-
-If their answer doesn't begin with a `'y'` then the programme breaks out of the loop and ends.
-If they indicate that they want to continue, they are asked for a new item and whatever they enter is appended to the `my_list` tuple.
-
-The programme can go on infinitely, but can easily be ended by the user.
-
-> Were the user to add enough items to the list, the available memory would eventually run out.
-However, it is likely that the user would run out of patience before this became a problem.
 
 <blockquote class="challenge">
-    <header>Write a thing</header>
+    <header>
+        Slicing and ranges
+    </header>
     <p>
-        OK, now you do a thing.
+        Write a programme that takes user input and outputs a requested times table.
     </p>
+        <pre>>>> Enter a number [1 - 12]: 5
+ (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60)</pre>
     <p>
-        Write a programme to ....
+        Can you use conditionals to restrict the programme to accept only integers between 1 and 12?
+    </p>
+    <p class="solution">
+        Once you have attempted this, download the <a href="solutions/times_tables.py" download>solution</a> and compare.
+        Can you improve the solution?
     </p>
 </blockquote>
 
+# Mutable types
 
+Most of the data types we have introduced so far (tuples, strings, booleans, integers and floats) are *immutable*, which means their values cannot be changed once created.
+We can see this demonstrated if we try to change a character within a string.
+
+```python
+message = 'hello'
+message[1] = 'a'
+```
+
+The result is a `TypeError` saying that the `str` object does not support item assignment.
+
+We get a similar result if we try to change an element of a tuple.
+
+```python
+data = ('hello', 'world')
+data[1] = 'python'
+```
+
+>There are three main built-in mutable data types in python, the `list`, `dict` and `set`.
+>
+>```python
+>my_list = ['a', 'b']
+>my_dict = {'a': 1, 'b': 2}
+>my_set = {'a', 'b'}
+>```
+>
+>These types are very simple to use as we shall see.
+>When used together, they provide powerful tools for creating flexible data structures within your programmes.
+
+## Lists
+
+The Python `list` is effectively a mutable version of the tuple data type.
+We can change the content of lists after they have been created.
+
+```python
+data = ['hello', 'world']
+data[1] = 'python'
+```
+
+### Replacing elements
+
+It's perfectly OK to replace an element in a python list.
+We can do this by assigning to an element using the square bracket syntax we saw with slicing.
+
+```python
+my_list = ['apples', 'bananas', 'cherries']
+my_list[1] = 'blueberries'
+```
+
+In the above example, the list contains three strings and we replace the 2nd element of the list (`'bananas'` at position 1) with a new string `'blueberries'`.
+
+We can also replace multiple elements in a list using the familiar slicing syntax.
+In this case, we need to assign to an iterable such as a sequence.
+
+```python
+my_list = list('hello')
+my_list[2:4] = (1, 1)
+```
+
+> The above code first creates the list `['h', 'e', 'l', 'l', 'o'].
+> It then replaces the specified slice (the ['l', 'l'] part) with a new sequence.
+
+Any sequence can be used, and the length of the sequence doesn't have to be the same as the slice.
+For example, in the following code, we insert five integers at position 5, replacing the string 'a'.
+
+```python
+my_list = list("abracadabra")
+my_list[5:6] = range(5)
+```
+
+
+> Be careful because the following will not produce the same result
+> ```python
+> my_list = list("abracadabra")
+> my_list[5] = range(5)
+> ```
+> When assigning a sequence to an individual item, the sequence is inserted as a single item.
+> To inject a sequence into another sequence requires the slicing notation which specified a sub-sequence to be replaced rather than a single item, even if the sub-sequence has a length of one.
+
+If you want to, you can also use the slicing step notation to specify a distributed sequence.
+
+```python
+my_list = list("abracadabra")   # ['a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a']
+my_list[::2] = range(6)         # [ 0,  'b',  1 , 'a',  2 , 'a',  3 , 'a',  4 , 'r',  5 ]
+```
+
+### Deleting elements
+
+To remove an element from a mutable sequence, use the `del` keyword.
+
+```python
+my_list = list("abracadabra")   # ['a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a']
+del my_list[::2]
+my_list                         # ['b', 'a', 'a', 'a', 'r']
+```
+
+The keyword `del` can also be used to delete objects from memory and *deassign* variables.
+We can see this in the following code.
+
+```python
+my_list = [1,2,3]   # define 'my_list'
+del my_list         # delete 'my_list'
+print(my_list)      # NameError: name 'my_list' is not defined
+```
+
+### Appending elements
+
+We can also add items to a list using the `append()` method.
+We call methods using dot notation like this:
+
+```python
+my_list = list('hello') # ['h', 'e', 'l', 'l', 'o']
+my_list.append('hello') # ['h', 'e', 'l', 'l', 'o', 'hello']
+```
+
+> A *method* is a function that is defined within a class and so is associated with objects of that class.
+> This means methods can modify an object directly in potentially complex ways.
+> When we create our own classes of objects, we will define our own custom methods.
+
+This produces a very similar result to the `+` operator.
+Although the `+` operator only works with other lists.
+
+```python
+my_list = list('hello') # ['h', 'e', 'l', 'l', 'o']
+my_list += ['hello']    # ['h', 'e', 'l', 'l', 'o', 'hello']
+```
 
 # Everything is an object
 
 In python, pretty much everything is an object.
 In this section, we will have a look at what that means in practice.
-
-Firstly, objects always have a **type**.
-We have seen that we can inspect the type of an object by using the `type` function.
-
-<figure>
-    <img src="img/types.png" alt="types in IDLE">
-    <figcaption>Everything has a type</figcaption>
-</figure>
-
-We can also `cast` objects into different types using built-in functions such as `int`, `float`, `str`, `list`, `dict`, `tuple` (and more).
-Essentially, every type has a built-in function which will attempt to convert data from one type into another.
-
-<figure>
-    <img src="img/casting.png" alt="casting in IDLE">
-    <figcaption>Casting an integer into a float, string, list and tuple</figcaption>
-</figure>
-
-This process does not convert data in place, it creates a new object of the appropriate type.
-In each case above, the original variable a still points to the original object.
-
->OK, we did this before, when we converted user input from a string to an float.
-
-## What's an object?
 
 We have seen that we can create variables by assigning values to them using the `=` operator.
 We can do this with literal values or any valid python expression.
@@ -607,24 +484,49 @@ Let's return to a simple assignment operation.
 a = 1
 ```
 
-What happens in the above example is not as simple as it looks.
-Python does a lot of work behind the scenes to achieve this simple result.
+What happens when the above code is executed is not as simple as it looks.
+Python does a bit of work behind the scenes.
 
 First, an object is created in memory.
-This object stores more than just the value (`1`).
-It also stores data such as a unique identifier and the `type` (the fact we are dealing with an integer).
+This object stores the value (in this case, `1`), but it also stores a unique identifier and the `type` (which records the fact we are dealing with an integer).
 
-Importantly, it also stores a reference counter, which keeps track of how many references are pointing to the object in your programme.
+We can explore these details using the built-in functions `id` (which gets the unique identifier of an object) and `type` (which gets the **type** of the object).
+
+<figure>
+    <img src="img/id_type.png" alt="Inspecting an integer in IDLE">
+    <figcaption>Inspecting an integer object in IDLE</figcaption>
+</figure>
+
+As we can see, our variable `a` is identified by the unique identifier `139942981894384`.
+This identifier may be different in your case but it will *never* change within a programme once an object is created.
+We can also see that `a` is currently pointing to an integer.
+
+Python has dynamically typed variables, which means the type is not associated with the variable itself, but is stored with the data.
+So objects in memory always have a **type**.
+We have seen that we can inspect the type of an object by using the `type` function.
+
+<figure>
+    <img src="img/types.png" alt="types in IDLE">
+    <figcaption>Everything has a type</figcaption>
+</figure>
+
+> The type information links our object to custom functionality such as the `append` method provided by lists.
+
+## Garbage collection
+
+All objects also store a reference counter, which keeps track of how many references are pointing to each object in your programme.
+
+We can think of our simple integer object as something like this.
 
 <figure>
     <table>
         <tr>
             <th>PyObject</th>
-            <th>#9801248</th>
+            <th>#139942981894384</th>
         </tr>
         <tr>
             <td>id</td>
-            <td>9801248</td>
+            <td>139942981894384</td>
         </tr>
         <tr>
             <td>type</td>
@@ -642,27 +544,16 @@ Importantly, it also stores a reference counter, which keeps track of how many r
     <figcaption>Integer object</figcaption>
 </figure>
 
-Our variable `a` is a pointer to this object.
-It's value is set to the location in memory where this object can be found.
-This provides a way to access the object in our programme.
+Our variable (`a`) is set to a pointer to the location in memory where this object can be found.
+This is a *reference*, it represents a way to access the object from our programme.
+Whenever a new reference to an object is created (e.g. by assignment), it's reference count is incremented.
+Similarly, when a reference is deleted (e.g. the `del` keyword), the reference count is decremented.
 
-> Python has dynamically typed variables, the type is not associated with the variable, but with the data.
-
-We can explore the object details by passing it into the built-in functions `id` (which gets the unique identifier of an object) and `type` (which gets the **type** of the object).
-These built-in functions are called by passing our variable between parentheses.
-
-<figure>
-    <img src="img/id_type.png" alt="Inspecting an integer in IDLE">
-    <figcaption>Inspecting an integer object</figcaption>
-</figure>
-
-As we can see, our variable `a` is identified by the unique identifier `9801248`.
-This identifier may be different in your case but it will *never* change within a programme.
-We can also see that `a` is currently pointing to an integer.
+When the reference count of an object reaches zero, the object can no longer be reached by our programme and it becomes a target for *garbage collection*.
 
 ## Reassignment
 
-Assignment can also be used to modify the value of a variable.
+Assignment can be used to modify the value of a variable.
 
 Following from the above example.
 We already have the value `1` stored in `a`.
@@ -674,17 +565,18 @@ Let's assign a new value to `a`.
 </figure>
 
 It's important to understand that the original value `1` is not replaced in memory by the value `2`.
+We are not editing our object here.
 In fact, a new object has been created in memory with the value `2`.
 
 <figure>
     <table>
         <tr>
             <th>PyObject</th>
-            <th>#9801280</th>
+            <th>#139942981894416</th>
         </tr>
         <tr>
             <td>id</td>
-            <td>9801280</td>
+            <td>139942981894416</td>
         </tr>
         <tr>
             <td>type</td>
@@ -702,18 +594,18 @@ In fact, a new object has been created in memory with the value `2`.
     <figcaption>New integer object with value 2</figcaption>
 </figure>
 
-The name `a` has simply been changed to point to the new object in memory.
-This process decrements the reference count of the original object.
+The variable `a` has simply been changed to point to the new object in memory.
+This process decrements the reference count of the original object which is no longer referenced by the programme.
 
 <figure>
     <table>
         <tr>
             <th>PyObject</th>
-            <th>#9801248</th>
+            <th>#139942981894384</th>
         </tr>
         <tr>
             <td>id</td>
-            <td>9801248</td>
+            <td>139942981894384</td>
         </tr>
         <tr>
             <td>type</td>
@@ -733,6 +625,8 @@ This process decrements the reference count of the original object.
 
 When nothing references an object, it's memory will be automatically freed up for reuse.
 The python **garbage collector** will clean up any objects with reference count of zero.
+
+
 
 
 ## Objects have special capabilities
@@ -841,11 +735,144 @@ With mutable data such as lists, the results are very different.
 
 
 
+# Iterables and looping
+
+There are two main ways to loop in python.
+We can either loop based on logic, using a `while` loop or we can loop over data, using a `for` loop.
+
+## The `while` loop
+
+A basic kind of loop is a `while` loop.
+This acts as a kind of extended and continuous conditional.
+The `while` clause behaves like an `if` clause that repeats itself until the condition fails.
+
+The header begins with the `while` keyword and a conditional test followed by a colon.
+The indented code block following the header will be executed repeatedly as long as the conditional resolves to `True`.
+
+> There is a real danger that a `while` loop can continue forever.
+> If this happens, press `Ctrl + C` to exit the programme.
+
+Here's a modified version of the conditional code that repeatedly transfers an amount from `balanceA` to `balanceB`.
+It stops when `balanceA` is less than `amount`.
+
+```python
+balanceA = 95
+balanceB = 0
+amount = 10
+print(f"balance A {balanceA}, balance B {balanceB}")
+while balanceA >= amount:
+    balanceA -= amount
+    balanceB += amount
+    print(f"balance A {balanceA}, balance B {balanceB}")
+```
+
+> `while` clauses can have `else` clauses added too which will execute once, when the conditional expression resolves to `False`.
+> Can you explain why these are not commonly used?
+
+One issue with the while loop is that the condition is always checked *before* the first execution of the code block.
+Many languages include a `do...until` construct which allows code to be executed once *before* the conditional is tested.
+Python has no such construct.
+
+A common way to use a `while` loop in this way is to create an infinite loop (`while True`) and use the `break` keyword to exit the loop based on some condition.
+This provides all the necessary flexibility.
+
+```python
+i = 0
+while True:
+    print(f"this is iteration {i}")
+    if input("break loop? [y/n] ").lower().startswith('y'):
+        break
+    i += 1
+```
+
+> Notice the use of string methods `str.lower()`, `str.startswith()` and the use of `f-strings`.
+> We will discuss these in the next section
+
+The infinite loop keeps our code clean and avoids repetition.
+
+
+## The `for` loop
+
+In python, an `iterable` is any object that can release one item at a time.
+Sequences are a special kind of *iterable* that yields its elements in order and supports integer indexing.
+
+In practice, this means (amongst other things) that an *iterable* object (such as a sequence) can be looped over using a `for` loop, yielding each element in turn.
+
+A `for` clause is similar to a `while` clause or an `if` clause.
+However, in place of a conditional test, we name a variable and an iterable object.
+The code block will repeat, setting the variable to each element in the iterable in turn and executing the code block.
+
+```python
+for i in (1, 2, 3):
+    print(i)
+```
+
+In the above case, we declare a variable `i` within the header to receive each element of the iterable in turn.
+the code block will be executed three times with the the variable `i` assigned to the values `1`, then `2` and then `3`.
+
+This allows for fun with sequences.
+
+```python
+for ch in input("Enter your name: "):
+    print(ch * 10 + "!")
+```
+
+The capabilities of `for` loops and `while` loops are subtly different.
+Though in many cases they can be used interchangeably, there is often a natural fit to the problem at hand.
+
+Consider how the following code uses looping to achieve a clear purpose.
+
+```python
+my_list = ()
+while True:
+    print('=' * 20)
+    print('shopping list'.center(20))
+    print('-' * 20)
+    for item in my_list or ("EMPTY LIST".center(20),):
+        print(item)
+    print('=' * 20)
+    keep_going = input("add an item to the list? [y/n]")
+    if not keep_going.lower().startswith('y'):
+        break
+    my_list += (input("New item: "),)
+```
+
+The code above uses many of the techniques we have introduced to maintain a tuple containing strings representing items on a shopping list.
+The programme starts by assigning an empty tuple to the `my_list` variable.
+> This could easily be a `list`, but we chose a `tuple`.
+
+The *infinite* `while` loop repeats the main code block until the `break` statement is reached when user decides to stop.
+
+In each loop, the programme prints out the list with some formatting.
+This takes most of the lines of code.
+Once the list is printed, the programme then asks the user if they want to add an item to the list.
+
+If their answer doesn't begin with a `'y'` then the programme breaks out of the loop and ends.
+If they indicate that they want to continue, they are asked for a new item and whatever they enter is appended to the `my_list` tuple.
+
+The programme can go on infinitely, but can easily be ended by the user.
+
+> Were the user to add enough items to the list, the available memory would eventually run out.
+However, it is likely that the user would run out of patience before this became a problem.
+
+<blockquote class="challenge">
+    <header>Write a thing</header>
+    <p>
+        OK, now you do a thing.
+    </p>
+    <p>
+        Write a programme to ....
+    </p>
+</blockquote>
+
+
+
+
+
 
 # Mutability/Immutability
 
 
-## Mutable types
 
 In programming in general, its often very useful to be able to change a complex object rather than to create a new, transformed version of the object in memory.
 

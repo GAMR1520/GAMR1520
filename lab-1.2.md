@@ -582,6 +582,38 @@ X X X </pre>
 
 ## Sets
 
+A [`set`](https://docs.python.org/3/library/stdtypes.html#set) is a collection of unique items. 
+We can create a set using a set literal, which has similarities to list and dict literals.
+
+```python
+my_set = {1, 2, 3, 2, 1, "A", "a", "A"} # {1, 2, 3, 'a', 'A'}
+```
+
+Alternatively, any iterable object (such as a sequence or a dict) can be passed into the `set()` function (which is actually the constructor for the set type).
+
+```python
+my_set = set('abracadabra') # {'b', 'r', 'c', 'a', 'd'}
+```
+
+Individual items can be added using the `add` method and removed using the `remove` method.
+
+```python
+my_set = set('abracadabra') # {'b', 'r', 'c', 'a', 'd'}
+my_set.add('z')             # {'b', 'r', 'c', 'a', 'd', 'z'}
+my_set.remove('a')          # {'b', 'r', 'c', 'd', 'z'}
+```
+
+We can also do useful set operations such as *union* (using the `|` operator), *intersection* (using the `&` operator) and *difference* (using the `-` operator).
+
+```python
+a = set('abracadabra')  # {'b', 'r', 'c', 'a', 'd'}
+b = set('hello world')  # {'l', 'w', 'r', 'h', 'o', ' ', 'd', 'e'}
+a | b                   # {'b', 'l', 'w', 'r', 'h', 'c', 'o', 'a', 'd', ' ', 'e'}
+a & b                   # {'r', 'd'}
+a - b                   # {'b', 'c', 'a'}
+b - a                   # {'l', 'w', 'h', 'o', ' ', 'e'}
+```
+
 # Everything is an object
 
 In python, pretty much everything is an object.

@@ -470,39 +470,121 @@ my_list = list('hello') # ['h', 'e', 'l', 'l', 'o']
 my_list += ['hello']    # ['h', 'e', 'l', 'l', 'o', 'hello']
 ```
 
+## Dictionaries
+
+The Python `dict` type is a mutable, compound data type like a list.
+However, it is not a sequence.
+Elements in a `dict` are not stored against their integer position but rather, each *value* is associated with a *key*.
+
+An empty `dict` literal is a pair of curly braces (`{}`).
+Indexing is just like the list, but rather than using integers, we can use any immutable value as the key.
+
+```python
+my_dict = {}
+my_dict['hello'] = 'world'
+```
+
+In the above example we are storing the value `'world'` against the key `'hello'`.
+We can retrieve the value like this:
+
+```python
+print(my_dict['hello'])
+```
+
+An example use case for a dictionary is to store lots of related values.
+Dictionary entries are *key: value* pairs separated by colons.
+Multiple entries can be comma-separated.
+
+```python
+stock = {
+    'apples': 15,
+    'bananas': 12,
+    'cherries': 126
+}
+```
+
+In the above code, we are storing integers against string keys within a single dictionary. 
+Adding or editing items would be simple.
+
+```python
+stock['bananas'] += 1
+stock['dates'] = 10
+```
+
+Lists containing dictionaries are a common way to gather complex related data.
+
+```python
+animals = [
+    {'name': 'Anteater', 'description': 'Eats ants'},
+    {'name': 'Bear', 'description': 'Grizzly'},
+    {'name': 'Chimp', 'description': 'Chump'},
+    {'name': 'Dog', 'description': 'Friend'}
+]
+
+choice = animals[2]
+
+print(choice['name'])
+print(choice['description'])
+
+```
+
+Dictionary keys don't need to be strings.
+The following example contains data for a noughts & crosses game using tuples of x, y coordinates as the key.
+
+```python
+grid = {
+    (1, 1): "X",
+    (0, 1): "O",
+    (1, 2): "X",
+} # The game is already won!
+
+grid[(1, 0)] = "O"  # Forced move
+grid[(2, 2)] = "X"  # The clincher
+grid[(0, 0)] = "O"  # Forced move
+grid[(0, 2)] = "X"  # X wins!
+```
+Notice the grid can be sparsely populated.
+It's not necessary to have items for all the cells.
+
+If we want to check for a value, we can use the `in` operator just as we did for sequences.
+For dictionaries, the `in` (and `not in`) operator will check to see if the requested value is in the keys.
+
+```python
+(1, 1) in grid      # True
+(1, 2) not in grid  # True
+```
+
+<blockquote class="challenge">
+    <header>Output the grid to the terminal</header>
+    <p>
+        Write a programme to print the *noughts & crosses* grid out to the terminal.
+    </p>
+    <pre>O O   
+O X   
+X X X </pre>
+    <p>or</p>
+    <pre> O | O |  
+--- --- ---
+ O | X |  
+--- --- ---
+ X | X | X </pre>
+
+ <p>
+    Look ahead to the f-string and looping sections for ideas to simplify the code.
+ </p>
+</blockquote>
+
+
+
+## Sets
+
 # Everything is an object
 
 In python, pretty much everything is an object.
 In this section, we will have a look at what that means in practice.
 
-We have seen that we can create variables by assigning values to them using the `=` operator.
-We can do this with literal values or any valid python expression.
-
-Let's return to a simple assignment operation.
-
-```python
-a = 1
-```
-
-What happens when the above code is executed is not as simple as it looks.
-Python does a bit of work behind the scenes.
-
-First, an object is created in memory.
-This object stores the value (in this case, `1`), but it also stores a unique identifier and the `type` (which records the fact we are dealing with an integer).
-
-We can explore these details using the built-in functions `id` (which gets the unique identifier of an object) and `type` (which gets the **type** of the object).
-
-<figure>
-    <img src="img/id_type.png" alt="Inspecting an integer in IDLE">
-    <figcaption>Inspecting an integer object in IDLE</figcaption>
-</figure>
-
-As we can see, our variable `a` is identified by the unique identifier `139942981894384`.
-This identifier may be different in your case but it will *never* change within a programme once an object is created.
-We can also see that `a` is currently pointing to an integer.
-
-Python has dynamically typed variables, which means the type is not associated with the variable itself, but is stored with the data.
-So objects in memory always have a **type**.
+Python has dynamically typed variables, which means the *type* is not associated with the variable itself, but is stored with the data.
+So objects in memory always have a *type*.
 We have seen that we can inspect the type of an object by using the `type` function.
 
 <figure>
@@ -511,6 +593,31 @@ We have seen that we can inspect the type of an object by using the `type` funct
 </figure>
 
 > The type information links our object to custom functionality such as the `append` method provided by lists.
+
+
+Let's return to a very simple, one-liner programme.
+
+```python
+a = 1
+```
+
+What happens when the above code is executed is not as simple as it looks.
+We are not simply putting the value `1` into memory and pointing at it.
+Python does a bit of work behind the scenes.
+
+First, an *object* is created in memory.
+This object stores the value (in this case, `1`), but it also stores a unique identifier and a reference to the `type` (which indicates that we are dealing with an integer).
+
+We can explore these details using the built-in functions `id` (which gets the unique identifier of an object) and `type` (which we have seen, gets the *type* of the object).
+
+<figure>
+    <img src="img/id_type.png" alt="Inspecting an integer in IDLE">
+    <figcaption>Inspecting an integer object in IDLE</figcaption>
+</figure>
+
+As we can see, our variable `a` is pointing to an integer object identified by the unique identifier `139942981894384`.
+This identifier may be different in your case but it will *never* change within a programme once an object is created.
+
 
 ## Garbage collection
 
@@ -541,10 +648,10 @@ We can think of our simple integer object as something like this.
             <td>1</td>
         </tr>
     </table>
-    <figcaption>Integer object</figcaption>
+    <figcaption>Our integer object</figcaption>
 </figure>
 
-Our variable (`a`) is set to a pointer to the location in memory where this object can be found.
+Our variable (`a`) points to the location in memory where this object can be found.
 This is a *reference*, it represents a way to access the object from our programme.
 Whenever a new reference to an object is created (e.g. by assignment), it's reference count is incremented.
 Similarly, when a reference is deleted (e.g. the `del` keyword), the reference count is decremented.
@@ -552,8 +659,6 @@ Similarly, when a reference is deleted (e.g. the `del` keyword), the reference c
 When the reference count of an object reaches zero, the object can no longer be reached by our programme and it becomes a target for *garbage collection*.
 
 ## Reassignment
-
-Assignment can be used to modify the value of a variable.
 
 Following from the above example.
 We already have the value `1` stored in `a`.
@@ -565,8 +670,8 @@ Let's assign a new value to `a`.
 </figure>
 
 It's important to understand that the original value `1` is not replaced in memory by the value `2`.
-We are not editing our object here.
-In fact, a new object has been created in memory with the value `2`.
+We are not editing the value stored in our object here.
+In fact, a new object has been created in memory with the value `2` and a new, unique identifier.
 
 <figure>
     <table>
@@ -595,7 +700,7 @@ In fact, a new object has been created in memory with the value `2`.
 </figure>
 
 The variable `a` has simply been changed to point to the new object in memory.
-This process decrements the reference count of the original object which is no longer referenced by the programme.
+This process decrements the reference count of the original object which still exists in memory, but is no longer referenced by the programme.
 
 <figure>
     <table>
@@ -623,13 +728,18 @@ This process decrements the reference count of the original object which is no l
     <figcaption>Original integer object now has ref count of 0</figcaption>
 </figure>
 
-When nothing references an object, it's memory will be automatically freed up for reuse.
 The python **garbage collector** will clean up any objects with reference count of zero.
+In this way, when nothing references an object, it's memory will be automatically freed up for reuse.
 
 
 
 
-## Objects have special capabilities
+
+
+
+
+
+# Objects have special capabilities
 
 Some objects have methods which can be used to manipulate or transform data.
 A good example of this is any object of the `string` type.

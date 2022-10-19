@@ -557,7 +557,7 @@ For dictionaries, the `in` (and `not in`) operator will check to see if the requ
 <blockquote class="challenge">
     <header>Output the grid to the terminal</header>
     <p>
-        Write a programme to print the *noughts & crosses* grid out to the terminal.
+        Write a programme to print the <em>noughts & crosses</em> grid out to the terminal.
     </p>
     <pre>O O   
 O X   
@@ -570,7 +570,11 @@ X X X </pre>
  X | X | X </pre>
 
  <p>
-    Look ahead to the f-string and looping sections for ideas to simplify the code.
+    Look ahead to the 
+    <a href="#f-strings">f-string</a>
+    and 
+    <a href="#iterables-and-looping">looping</a>
+    sections for ideas to simplify the code.
  </p>
 </blockquote>
 

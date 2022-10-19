@@ -576,6 +576,14 @@ X X X </pre>
     <a href="#iterables-and-looping">looping</a>
     sections for ideas to simplify the code.
  </p>
+ <p>
+    Once you have made an attempt, check out the solutions.
+    <ol>
+        <li><a href="solutions/grid_v1.py" download>basic</a></li>
+        <li><a href="solutions/grid_v2.py" download>much better</a></li>
+        <li><a href="solutions/grid_v3.py" download>with fancy formatting</a></li>
+    </ol>
+ </p>
 </blockquote>
 
 

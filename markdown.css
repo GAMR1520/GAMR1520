@@ -74,12 +74,15 @@ h3 {
     font-size: 1.4em;
 }
 
-
 a {
+    text-decoration: none;
     color: hsl(200, 100%, 30%);
 }
 a:visited {
     color: darkred;
+}
+a:hover {
+	text-decoration: underline;
 }
 p > a {
     text-decoration: underline;
@@ -124,12 +127,20 @@ table + figcaption {
 table {
     margin: auto;
     border: 1px solid black;
+    border-collapse: collapse;
 }
-
 td {
     border: 1px solid black;
 }
+th, td {
+	padding: 5px 10px;
+}
 
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
 
 body > p > img {
     max-width: 100%;
@@ -155,6 +166,12 @@ img.logo {
     margin: 1em auto;
 }
 
+pre {
+	border-radius: 3px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
 pre > code {
     position: relative;
     padding-bottom: 1em;
@@ -173,6 +190,10 @@ pre > code::after {
 }
 
 blockquote {
+    border-left-width: 5px;
+    border-left-style: solid;
+    margin-inline: 0.25em;
+    padding-inline: 1em;
     border-radius: 0 5px 5px 0;
     background-color: hsl(var(--note-hue), 50%, 95%);
     border-color: hsl(var(--note-hue), 100%, 50%);

@@ -582,6 +582,7 @@ X X X </pre>
         <li><a href="solutions/grid_v1.py" download>basic</a></li>
         <li><a href="solutions/grid_v2.py" download>much better</a></li>
         <li><a href="solutions/grid_v3.py" download>with fancy formatting</a></li>
+        <li><a href="solutions/grid_v4.py" download>example using functions</a></li>
     </ol>
  </p>
 </blockquote>

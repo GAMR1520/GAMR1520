@@ -11,18 +11,18 @@ title: User-defined functions
 We have already come across built-in functions such as `len()` and `print()` as well as methods available on objects such as `list.append()`.
 Here we will introduce user-defined functions using the `def` keyword.
 
-> See also the official python tutorial [section on function definitions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions).
+> See also [the official python tutorial section on function definitions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) for a nice introduction.
 
 ## Calling functions with arguments
 
 Functions and methods are known as *callable* objects which means they can be called with an argument list between parentheses.
 
-We have seen examples like this. 
-In the following example, `len()` is the function and `'hello world'` is a single argument.
+We have seen many examples like this. 
 
 ```python
 len("hello world")
 ```
+here `len()` is the function and `'hello world'` is a single argument.
 
 Similarly, functions and methods can be called with no arguments or multiple arguments.
 
@@ -44,9 +44,9 @@ Arguments can also be optional, with default values provided.
 A concrete example of positional and default arguments is the `str.center` method.
 
 ```python
-original = 'middle'                 # 'middle'
-centered = original.center(20)      # '       middle       '
-fancy = original.center(20, '=')    # '=======middle======='
+original = 'middle'              # 'middle'
+centered = original.center(20)   # '       middle       '
+fancy = original.center(20, '=') # '=======middle======='
 ```
 
 > Try printing the variables `original`, `centered` and `fancy` to see the results for yourself.
@@ -77,10 +77,10 @@ When passed by keyword, they can make function and method calls more explicit an
 Examples of basic usage are shown below.
 
 ```python
-p = '<p>\n\thello\n</p>'            # An HTML paragraph
-default = p.expandtabs()            # Use the default tabsize (8)
-four = p.expandtabs(4)              # Specify implicitly by position
-twelve = p.expandtabs(tabsize=12)   # Specify explicitly by keyword
+p = '<p>\n\thello\n</p>'          # An HTML paragraph
+default = p.expandtabs()          # default tabsize (8)
+four = p.expandtabs(4)            # Set implicitly by position
+twelve = p.expandtabs(tabsize=12) # Set explicitly by keyword
 ```
 
 > Try printing the variables `p`, `default`, `four` and `twelve` to see the results for yourself.

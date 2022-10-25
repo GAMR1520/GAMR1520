@@ -218,13 +218,13 @@ print(fancy_output)
 This produces the following output:
 
 ```
-**********
-* fruit  *
-*--------*
-* apples *
-*bananas *
-*cherries*
-**********
+**************
+*   FRUIT    *
+**************
+*   apples   *
+*  bananas   *
+*  cherries  *
+**************
 ```
 
 <blockquote class="challenge">

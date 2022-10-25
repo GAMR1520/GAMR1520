@@ -172,12 +172,12 @@ pre {
 	overflow-wrap: break-word;
 }
 
-pre > code {
+pre > code.language-python {
     position: relative;
     padding-bottom: 1em;
 }
 
-pre > code::after {
+pre > code.language-python::after {
     content: "try it yourself";
     position: absolute;
     right: 0;

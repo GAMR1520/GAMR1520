@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 :root {
     --challenge-hue: 80;
@@ -189,6 +190,17 @@ pre > code.language-python::after {
     color: hsl(var(--challenge-hue), 50%, 90%);
 }
 
+code {
+    font-family: "Ubuntu Mono", "Courier New", monospace;
+    font-size: 1em;
+    line-height: 1.357em;
+}
+
+
+code:not(.hljs) {
+    color: hsl(var(--note-hue), 100%, 40%);
+}
+
 blockquote {
     border-left-width: 5px;
     border-left-style: solid;
@@ -199,9 +211,6 @@ blockquote {
     border-color: hsl(var(--note-hue), 100%, 50%);
 }
 
-code:not(.hljs) {
-    color: hsl(var(--note-hue), 100%, 40%);
-}
 
 blockquote.challenge::before {
     content: "work together on these";

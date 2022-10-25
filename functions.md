@@ -98,7 +98,7 @@ This is followed by a block of code, which can include a `return` statement.
 Here's a simple example:
 
 ```python
-function greet():
+def greet():
     print('hello world!')
 ```
 

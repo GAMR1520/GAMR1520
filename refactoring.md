@@ -1,4 +1,12 @@
-# Refactoring
+---
+title: Refactoring
+---
+
+![python logo](https://www.python.org/static/community_logos/python-logo-generic.svg)
+
+# GAMR1520: Markup languages and scripting
+
+## Refactoring
 
 Great code does not emerge fully formed and beautiful.
 It usually starts off as a rough and limited prototype or proof-of-concept and evolves incrementally through multiple refactors.

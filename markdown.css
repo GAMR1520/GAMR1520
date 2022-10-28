@@ -25,7 +25,10 @@ body {
     }
     body::after {
         content: "© Dr Graeme Stuart";
-        font-size: 12pt;
+        font-size: 11pt;
+        display: block;
+        text-align: right;
+        margin-top: 4em;
     }
     p {
         max-width: 60ch;        

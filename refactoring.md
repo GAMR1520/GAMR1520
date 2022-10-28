@@ -16,8 +16,8 @@ With experience, the step sizes can increase.
 
 ## An example
 
+In a command-line application, we need to show our user lists of items.
 Let's design a function to print out a list of items to the terminal.
-In a command-line application, we need to show our user their lists of items.
 
 Imagine a shopping list.
 
@@ -26,7 +26,35 @@ shopping = ['apples', 'bananas', 'cherries']
 ```
 
 A function which takes a list as input is a good starting point.
-We can start by simply looping over the list and printing each item.
+We can start by literally just printing the list, as is.
+
+```python
+def formatted_list(items):
+    print(items)
+```
+
+We use the function in our application like this.
+
+```python
+shopping = ['apples', 'bananas', 'cherries']
+formatted_list(shopping)
+```
+
+...and the output looks like this:
+
+```plaintext
+['apples', 'bananas', 'cherries']
+```
+
+This works!
+It meets the core use case, allowing the user to see the items on their list.
+
+But our users don't like how it looks.
+The brackets are confusing.
+It wraps when the list gets long.
+They want each item on its own line.
+
+So we update the function to loop over the list and print each item.
 
 ```python
 def formatted_list(items):
@@ -34,16 +62,7 @@ def formatted_list(items):
         print(item)
 ```
 
-We use the function in our application like this.
-
-
-```python
-shopping = ['apples', 'bananas', 'cherries']
-formatted_list(shopping)
-```
-
-This works well in a basic way.
-It meets the core use case, allowing the user to see the items on their list.
+This works well in a basic way and can be used in the application.
 
 ```plaintext
 apples
@@ -55,9 +74,11 @@ cherries
 
 The scope of our application grows.
 Users now have multiple lists to manage and need to know which list they are viewing.
-So we need to display a title clearly above the list.
+We need to display a title clearly above the list.
 
-So we modify our function to optionally take a `title` argument like this.
+So we make a small modification to our function.
+The function now optionally takes a `title` argument.
+We print the title before we print the list items, like this.
 
 ```python
 def formatted_list(items, title="list"):
@@ -66,7 +87,7 @@ def formatted_list(items, title="list"):
         print(item)
 ```
 
-All our existing calling code still works, but the output is a bit confusing because its not clear whether the title is an item in the list.
+All our existing calling code still works, but the output is a bit confusing because the title is not differentiated from the list items.
 
 ```plaintext
 list
@@ -75,9 +96,11 @@ bananas
 cherries
 ```
 
+We need to upgrade again.
+
 ### Add a separator
 
-So we add a separator between the title and the list items.
+So we decide to add a separator between the title and the list items.
 
 ```python
 def formatted_list(items, title="list"):
@@ -97,7 +120,7 @@ bananas
 cherries
 ```
 
-We can also update our calling code to specify a title.
+We can also update our calling code to specify a different title.
 
 ```python
 shopping = ['apples', 'bananas', 'cherries']
@@ -128,7 +151,7 @@ B
 C
 ```
 
-Long items also.
+Long items also annoy us.
 
 ```plaintext
 Shopping
@@ -536,7 +559,23 @@ def formatted_list(items, title="list", border='*'):
     return "\n".join(result)
 ```
 
-The end result is a complex function with a lot going on.
+The end result is a function with a lot going on.
+Most of the lines in the function are doing fairly complex work.
+The output is exactly as intended.
+
+<blockquote class="challenge">
+    <header>
+        Your turn
+    </header>
+    <ol>
+        <li>Update the code to print the title in upper case.</li>
+        <li>
+            Update the code to allow the padding (currently 2 characters on each side) 
+            to be set via a keyword argument <code>padding</code>.
+        </li>
+    </ol>
+</blockquote>
+
 
 ## Conclusion
 

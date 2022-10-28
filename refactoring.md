@@ -37,7 +37,7 @@ formatted_list(shopping)
 This works well in a basic way.
 It meets the core use case, allowing the user to see the items on their list.
 
-```
+```plaintext
 apples
 bananas
 cherries
@@ -60,7 +60,7 @@ def formatted_list(items, title="list"):
 
 All our existing calling code still works, but the output is a bit confusing because its not clear whether the title is an item in the list.
 
-```
+```plaintext
 list
 apples
 bananas
@@ -81,7 +81,7 @@ def formatted_list(items, title="list"):
 
 This helps to differentiate the title from the list.
 
-```
+```plaintext
 list
 -------
 apples
@@ -98,7 +98,7 @@ formatted_list(shopping, title='shopping')
 
 This seems to be working well enough for our application.
 
-```
+```plaintext
 shopping
 -------
 apples
@@ -112,7 +112,7 @@ Now we have a couple of cases where it doesn't work so well.
 
 Short items are annoying us because the separator is too long.
 
-```
+```plaintext
 L1
 -------
 A
@@ -122,7 +122,7 @@ C
 
 Long items also.
 
-```
+```plaintext
 Shopping
 -------
 I need some red apples
@@ -147,7 +147,7 @@ def formatted_list(items, title="list"):
 
 The result in the case of long items is now less distressing.
 
-```
+```plaintext
 Shopping
 -------------------------
 I need some red apples
@@ -157,7 +157,7 @@ I need 400g of cherries
 
 But we notice that the title length should perhaps also be taken into account.
 
-```
+```plaintext
 My list of short items
 -
 A
@@ -179,7 +179,7 @@ def formatted_list(items, title="list"):
 
 This upgrade has the intended impact.
 
-```
+```plaintext
 My list of short items
 ----------------------
 A
@@ -193,7 +193,7 @@ C
 
 On a whim, we decide we want a border around the whole list like this.
 
-```
+```plaintext
 **************
 *  shopping  *
 **************
@@ -207,13 +207,13 @@ This means we need to make each string the same length and add a single characte
 
 We need to convert this:
 
-```
+```plaintext
 apples
 ```
 
 ...into something like this:
 
-```
+```plaintext
 *   apples   *
 ```
 
@@ -246,7 +246,7 @@ def formatted_list(items, title="list"):
 
 The output is not quite what we wanted, but we can see this just needs a bit of work.
 
-```
+```plaintext
 shopping
 --------
 * apples *
@@ -306,7 +306,7 @@ def formatted_list(items, title="list"):
 
 The result is still incomplete, but we can see we are making progress.
 
-```
+```plaintext
 **********
 shopping
 --------
@@ -333,7 +333,7 @@ def formatted_list(items, title="list"):
 
 The result is looking encouraging.
 
-```
+```plaintext
 **************
 shopping
 ------------
@@ -361,7 +361,7 @@ def formatted_list(items, title="list"):
 
 The result looks pretty good.
 
-```
+```plaintext
 **************
 *  shopping  *
 **************
@@ -453,7 +453,7 @@ def formatted_list(items, title="list", border='*'):
 
 This simplifies the code a bit, but we've lost our title and most of the border.
 
-```
+```plaintext
 *   apples   *
 *  bananas   *
 *  cherries  *

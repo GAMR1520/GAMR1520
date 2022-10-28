@@ -235,7 +235,7 @@ print(fancy_output)
 
 This produces the following output:
 
-```
+```plaintext
 **************
 *   fruit    *
 **************

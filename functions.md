@@ -20,7 +20,7 @@ Functions and methods are known as *callable* objects which means they can be ca
 We have seen many examples like this. 
 
 ```python
-len("hello world")
+len('hello world')
 ```
 here `len()` is the function and `'hello world'` is a single argument.
 
@@ -157,7 +157,7 @@ If we add `return` statements into a function, we can *return* a value for use b
 Return statements look like this.
 
 ```python
-return "some value"
+return 'some value'
 return 1000000
 return
 ```
@@ -203,11 +203,11 @@ They can be used to define more complex recipes for manipulating data.
 The following code returns a formatted string representation of a list with a title.
 
 ```python
-def formatted_list(items, title="list"):
+def formatted_list(items, title='list'):
     width = max([len(i) for i in items + [title]]) + 4
     hline = '*' * width
     result = [hline, title, hline] + items + [hline]
-    result = [f"*{i.center(width)}*" for i in result]
+    result = [f'*{i.center(width)}*' for i in result]
     return "\n".join(result)
 ```
 
@@ -227,7 +227,7 @@ Internal to the function we go through several steps to generate the formatted o
 In this case, we can call the function like this.
 
 ```python
-items = ["apples", "bananas", "cherries"]
+items = ['apples', 'bananas', 'cherries']
 title = 'fruit'
 fancy_output = formatted_list(items, title=title)
 print(fancy_output)

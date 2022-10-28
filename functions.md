@@ -27,12 +27,12 @@ here `len()` is the function and `'hello world'` is a single argument.
 Similarly, functions and methods can be called with no arguments or multiple arguments.
 
 ```python
-empty_list = list()           # No arguments
-print()                       # No arguments
-print('hello world')          # One argument
-print('hello', 'world')       # Two arguments
-'hello world'.center(20)      # One argument
-'hello world'.center(20, '-') # Two arguments
+empty_list = list()
+print()
+print('hello world')
+print('hello', 'world')
+'hello world'.center(20)
+'hello world'.center(20, '-')
 ```
 
 These are all valid usage. 
@@ -118,7 +118,7 @@ def greet(name):
 Now we can call the function with an argument.
 
 ```python
-greet('pytho')
+greet('python')
 ```
 
 If we don't pass an argument, a TypeError is raised with a useful error message.
@@ -149,30 +149,33 @@ greet('keyword arguments', greeting='I understand')
 
 ## Return statements
 
-When we call the above function, it has a *side-effect* of printing to the console. 
-We don't always want our functions to have side-effects like this.
-In fact, we rarely do, especially if we want our functions to be reusable.
+When we call the above function, it has a *side-effect* of printing to the console.
+For more direct interaction with functions we can take advantage of the fact that function calls resolve to a value that can be used in our programme.
 
-> Hint: We **do** want our functions to be reusable.
+If we add `return` statements into a function, we can *return* a value for use by the calling code. 
 
-A return statement looks like this:
+Return statements look like this.
 
 ```python
 return "some value"
+return 1000000
+return
 ```
 
-> return statements are only valid inside functions
+> return statements are only valid inside functions.
+> Without any return statements, functions return `None` by default when the code block completes.
 
-When a `return` statement is reached in a function, the code will exit the function and the function call will evaluate to whatever value was passed to the calling code.
-Without any return statements, functions return `None` by default when the code block completes.
+When a `return` statement is reached in a function, the code will exit the function back to the calling code and the function call will evaluate to whatever value was passed to the return statement.
 
 In the example above our function did not include a `return` statement. 
-So we can see that it returns `None` by assigning it to a variable.
+We can assign the function call to a variable.
 
 ```python
 result = greet('world')        # hello world!
 print(f'returned: {result}')   # returned: None
 ```
+
+As expected, the code prints `'returned: None'`.
 
 We can rewrite the function to return the greeting string rather than printing it.
 
@@ -188,6 +191,10 @@ message = greet('world')
 print(f'returned: {message}')  # returned: hello world!
 ```
 
+Functions are a powerful feature in any programming language.
+We can think of them as tools for extending the language with new capabilities.
+Extracting common operations into simple functions can make code more efficient, more maintainable and easier to read.
+
 ## Complex functions
 
 Of course, functions are not always *one-liners*.
@@ -197,21 +204,32 @@ The following code returns a formatted string representation of a list with a ti
 
 ```python
 def formatted_list(items, title="list"):
-    result = items[:]
-    result[0:0] = [title.upper()]
-    width = max([len(i) for i in result]) + 4
-    result[1:1] = ['*' * width]
-    result[0:0] = ['*' * width]
+    width = max([len(i) for i in items + [title]]) + 4
+    hline = '*' * width
+    result = [hline, title, hline] + items + [hline]
     result = [f"*{i.center(width)}*" for i in result]
-    result.append(result[0])
     return "\n".join(result)
 ```
+
+Internal to the function we go through several steps to generate the formatted output.
+
+- calculate a width for the list based on the longest element (including the title) plus four characters (to add two spaces on each side of the longest element)
+- define a horizontal line of the correct length
+- create a list of each row in the output including the title and several formatted rows 
+- format each element in the list to have the given width, adding extra formatting to the edges
+- return the elements as a string, joined with a newline character
+
+> Study the function and play with it.
+> Don't worry if it seems complex. 
+> This code evolved over time.
+> For details, see the [refactoring](refactoring) page.
 
 In this case, we can call the function like this.
 
 ```python
 items = ["apples", "bananas", "cherries"]
-fancy_output = formatted_list(items, title="fruit")
+title = 'fruit'
+fancy_output = formatted_list(items, title=title)
 print(fancy_output)
 ```
 
@@ -219,13 +237,15 @@ This produces the following output:
 
 ```
 **************
-*   FRUIT    *
+*   fruit    *
 **************
 *   apples   *
 *  bananas   *
 *  cherries  *
 **************
 ```
+
+
 
 <blockquote class="challenge">
     <header>Time to experiment</header>

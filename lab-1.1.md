@@ -10,9 +10,22 @@ title: Introduction to python
 
 In this set of exercises we are assuming that you have no experience with python.
 We will begin by getting familiar with some of the basics using the interactive python interpreter.
-The bulk of the exercises will cover some of the fundamental aspects of python programming in isolation and by the end of this set of exercises we will move on to putting them together into short python scripts.
+We will cover some fundamental aspects of python in isolation and by the end we will move on to putting them together into short python scripts.
 
 Following these exercises will help to develop some experience with the workflow involved in writing python code and to become familiar with how terms such as literals, variables, types and operators apply in a practical setting.
+
+> As you work through these exercises, make sure you experiment.
+> Try to enter expressions and predict what will happen. 
+> Be inquisitive, and see if your instincts are correct.
+
+> If something unexpected happens, this is good.
+> It's time to stop and think.
+
+> Ask the obvious questions, the material is just a guide, your task is to become a good python programmer.
+> Ask your colleagues or tutor as necessary.
+> If you understand the material, try to come up with really hard questions.
+> We don't know everything, if we don't know the answer, we can learn together.
+
 
 # Table of contents
 
@@ -42,37 +55,34 @@ It should look something like this.
     <figcaption>The IDLE shell</figcaption>
 </figure>
 
->It may not look exactly like this.
->These screenshots were created on a linux machine.
->It shouldn't matter what OS you are running.
->On Windows and MacOS IDLE is usually installed along with python.
+It may not look exactly like this.
+These screenshots were created on a linux machine.
+It shouldn't matter what OS you are running.
+On Windows and MacOS IDLE is usually installed along with python.
 On Linux distributions you may need to install it separately.
->
->Also, your python version may be different. 
->My system python was 3.8 when I took this screenshot (though I have now upgraded to 3.10).
->Hopefully you have a more recent version.
->As long as it's 3.6 or better you should be fine.
+
+> Your python version may also be different. 
+> My system python was 3.8 when I took this screenshot.
+> I have now upgraded to 3.10 which matches the 2022 lab version.
+> Hopefully you have a more recent version.
+> Python 3.11 was released on October 24th 2022, if you have this then, amongst many other improvements, the error messages are apparently a lot better.
 
 The main IDLE window provides an interactive python shell.
 The prompt allows the user to enter any valid python statement.
 Each expression entered will be evaluated and the result printed before another prompt will appear, waiting for the next statement.
 This kind of interface is known as a Read, Execute, Print Loop or REPL. 
 
->As you work through these exercises, make sure you experiment.
->Try to enter expressions and predict what will happen. 
->be inquisitive, and see if your instincts are correct.
->
->If something unexpected happens, stop and think.
->Ask your colleagues or tutor as necessary.
->Try to come up with really hard questions and challenge our knowledge so we can learn together.
-
 # Basic principles
 
-Research [literals](python/literals) in python (and other languages).
+In this first set of exercises we want to get to grips with the very basics of writing python code.
+We will take some time to learn some useful terms like [literals](python/literals), [operators](python/operators) and [variables](python/variables). 
+
+> These terms are used in most programming languages, but the details of each language are different. 
 
 <blockquote class="challenge">
-    <header>Time to experiment</header>
+    <header>Start simple</header>
     <p>
+        Research the concept of [literals](python/literals) in python.
         Practice entering literal expressions into IDLE.
         Make sure you understand what is going on.
     </p>

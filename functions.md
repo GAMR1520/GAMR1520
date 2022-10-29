@@ -259,6 +259,128 @@ This produces the following output:
     <p>
         Can you modify the function to add more optional parameters with default values?
     </p>
+    <p>
+        Try to generate something like this with a function call.
+    </p> 
+    <pre><code class="language-plaintext">++++++++++++++++++++++++++++++++
++            fruit             +
+++++++++++++++++++++++++++++++++
++            apples            +
++           bananas            +
++           cherries           +
+++++++++++++++++++++++++++++++++</code><pre>   
 </blockquote>
 
-# Argument decomposition
+# Special cases
+
+We have covered the basics of functions in python but there is some additional useful syntax it's worth knowing about.
+You will sometimes see code like this with an asterisk before an argument:
+
+```python
+def greet(*names):
+    for name in names:
+        print(f'hello {name}')
+
+greet("python", "functions", "arguments")
+```
+
+In this case the asterisk indicates that all positional arguments passed into the function should be merged into a single tuple containing all the values in order.
+In the example, the argument `names` will contain a tuple containing the three positional arguments provided.
+Since the tuple is a sequence, we can access values at a given index or simply loop over them all.
+
+We can see more detail in the following example:
+
+```python
+def print_argument_details(*args):
+    print(type(args), args)
+
+print_argument_details('hello', 'world', 15, True)
+```
+
+This produces the following output:
+
+```plaintext
+<class 'tuple'> ('hello', 'world', 15, True)
+```
+
+> Notice that the `print()` function makes use of this feature.
+> We can add as many items as we want to print.
+> ```python
+> print(1, 2, 3)
+> ```
+
+A similar but opposite result can also be achieved when calling functions or methods.
+We can pass a tuple into a function prepended with an asterisk to unpack the tuple into separate arguments
+
+```python
+args = (20, '+')
+print('hello world'.center(*args))
+```
+
+Our `args` tuple is split into two arguments.
+
+Try it without the asterisk.
+
+```python
+args = (20, '+')
+print('hello world'.center(args))
+```
+
+This generates an error because the first argument should be an integer, but we passed a tuple.
+
+We can in fact pass any iterable value in this way.
+Going back to the `greet()` function we defined earlier.
+
+
+```python
+greet(*"hello")
+print_argument_details(*'hello')
+```
+
+This decomposes the string into individual characters which are then passed as separate arguments and recombined into the tuple that is processed by the functions. 
+
+```plaintext
+hello h!
+hello e!
+hello l!
+hello l!
+hello o!
+<class 'tuple'> ('h', 'e', 'l', 'l', 'o')
+```
+
+The `**` operator works in a similar fashion to convert between keyword arguments and dictionaries.
+We can construct a similar set of examples as follows.
+
+```python
+def greet2(**things):
+    for name in things:
+        print(f'{name} is {things[name]}!')
+
+def print_kwargument_details(**kwargs):
+    print(type(kwargs), kwargs)
+
+greet2(python="amazing", mind="blown")
+print_kwargument_details(python="amazing", mind="blown")
+```
+
+This can be useful when passing unknown optional arguments through a function to another function.
+
+```python
+def complicated(a, b, c, d='default', e='default', f='default'):
+    print(a, b, c, d, e, f)
+
+
+def simple(**kwargs):
+    complicated(0, 0, 0, **kwargs)
+```
+
+In the above code we have created a new, simpler version of the complicated function that can be called with no arguments, but it still retains the optional arguments just like the original.
+
+```python
+simple()
+simple(d='new value')
+simple(e='new value')
+simple(f='new value')
+simple(d='new value', e='new value', f='new value')
+```
+

@@ -21,7 +21,7 @@ body {
 @media screen {    
     body {
         font-size: 12pt;
-        line-height: 1.2em;
+        line-height: 1.4em;
     }
     body::after {
         content: "© Dr Graeme Stuart";
@@ -99,11 +99,6 @@ p > a {
 }
 .toc + ul > li > ul > li {
     font-size: 12pt;
-}
-@media screen {
-    .toc + ul > li {
-        font-weight: 400;
-    }
 }
 
 em {

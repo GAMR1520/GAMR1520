@@ -1,9 +1,7 @@
 ---
-layout: lab
+layout: python_lab
 title: Introduction to python
 ---
-
-![python logo](img/python-logo.svg)
 
 In this set of exercises we are assuming that you have no experience with python.
 We will begin by getting familiar with some of the basics using the interactive python interpreter.

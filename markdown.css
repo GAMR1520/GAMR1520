@@ -265,6 +265,10 @@ img.logo {
     margin: 1em auto;
 }
 
+img.header {
+    height: 10em;
+}
+
 /* pre and code */
 
 pre {

@@ -1,10 +1,7 @@
 ---
-title: Introduction to python
+layout: python_lab
+title: Python operators
 ---
-
-{% include python_header.md %}
-
-## Python operators
 
 <div class="toc"></div>
 

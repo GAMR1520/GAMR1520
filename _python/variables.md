@@ -1,10 +1,7 @@
 ---
-title: Introduction to python
+layout: python_lab
+title: Variables and assignment
 ---
-
-{% include python_header.md %}
-
-## Variables and assignment
 
 <div class="toc"></div>
 
@@ -13,7 +10,6 @@ title: Introduction to python
     - [NameError](#nameerror)
     - [Assigning to expressions](#assigning-to-expressions)
 
-# Variables and assignment
 
 In the [operators](python/operators) examples we used literal values such as `True`, `'hello'`, `120` and `1.0`.
 When these literal values are interpreted, the data they represent are stored in memory.

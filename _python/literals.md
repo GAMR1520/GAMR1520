@@ -1,10 +1,7 @@
 ---
+layout: python_lab
 title: Python literals
 ---
-
-{% include python_header.md %}
-
-## Python literals
 
 *Literals* are constant values of built-in types.
 This may sound complicated, but they are just values, expressed directly in code.

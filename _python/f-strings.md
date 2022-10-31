@@ -1,10 +1,7 @@
 ---
+layout: python_lab
 title: Python string formatting
 ---
-
-{% include python_header.md %}
-
-## f-strings
 
 Consider this simple programme.
 

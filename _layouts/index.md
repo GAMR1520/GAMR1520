@@ -5,7 +5,7 @@ layout: default
 <header>
     <a href="{{ site.baseurl }}/">
         <img src="{{ site.baseurl }}/img/python-logo-only.svg" class="logo" alt="python logo">
-        {% include main_title.html %}
+        {% include main_title.md %}
         <img src="{{ site.baseurl }}/img/js-logo.svg" class="logo" alt="python logo">
     </a>
     <div id="menuToggler">

@@ -64,15 +64,15 @@ The module runs over six timetabled weeks with two one-hour lectures and eight h
 The lab materials can be followed during sessions but you should also review the materials in your own time.
 
 
-The [lectures](#lectures) will help you to develop an understanding of the context for the module as well as introduce theoretical material and details of the syntax and functionality of the core technologies.
+The [lectures](lectures) will help you to develop an understanding of the context for the module as well as introduce theoretical material and details of the syntax and functionality of the core technologies.
 
-The [lab exercises](#labs) are a critical component of this module.
+The [lab exercises](labs) are a critical component of this module.
 They will help to develop the procedural knowledge you will need to write your own code.
 
 > Perhaps more importantly, they will also help you to develop the perspective of a programmer and allow you to participate in the process of coding with your colleagues in the laboratory setting.
 
-Every Tuesday we will begin with a [lecture](#lectures) covering the key material and linking out to further information.
-This will be followed by five hours of practical sessions in which you will work through the [prepared lab exercises](#labs). 
+Every Tuesday we will begin with a [lecture](lectures) covering the key material and linking out to further information.
+This will be followed by five hours of practical sessions in which you will work through the [prepared lab exercises](labs). 
 On Thursday we have another lecture consolidating and expanding on the material and a final three-hour lab in which we will set coding challenges to test your developing skills.
 
 > These materials are maintained as a github repository.

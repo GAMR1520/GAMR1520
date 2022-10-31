@@ -4,9 +4,9 @@ layout: default
 
 <header>
     <a href="/">
-        <img src="img/python-logo-only.svg" class="logo" alt="python logo">
+        <img src="{{ site.baseurl }}/img/python-logo-only.svg" class="logo" alt="python logo">
         {% include main_title.html %}
-        <img src="img/js-logo.svg" class="logo" alt="python logo">
+        <img src="{{ site.baseurl }}/img/js-logo.svg" class="logo" alt="python logo">
     </a>
     <div id="menuToggler">
         <div></div>
@@ -16,7 +16,7 @@ layout: default
     {% include lab_menu.html %}
 </header>
 <main>
-    <img src="img/python-logo.svg" alt="python logo" class="header">
+    <img src="{{ site.baseurl }}/img/python-logo.svg" alt="python logo" class="header">
     <h2>{{page.title}}</h2>
     {{ content }}
 </main>

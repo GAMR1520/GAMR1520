@@ -1,12 +1,9 @@
 ---
+layout: lab
 title: Introduction to python
 ---
 
-![python logo](https://www.python.org/static/community_logos/python-logo-generic.svg)
-
-# GAMR1520: Markup languages and scripting
-
-## Introduction to python
+![python logo](img/python-logo.svg)
 
 In this set of exercises we are assuming that you have no experience with python.
 We will begin by getting familiar with some of the basics using the interactive python interpreter.
@@ -14,17 +11,6 @@ We will cover some fundamental aspects of python in isolation and by the end we 
 
 Following these exercises will help to develop some experience with the workflow involved in writing python code and to become familiar with how terms such as literals, variables, types and operators apply in a practical setting.
 
-> As you work through these exercises, make sure you experiment.
-> Try to enter expressions and predict what will happen. 
-> Be inquisitive, and see if your instincts are correct.
-
-> If something unexpected happens, this is good.
-> It's time to stop and think.
-
-> Ask the obvious questions, the material is just a guide, your task is to become a good python programmer.
-> Ask your colleagues or tutor as necessary.
-> If you understand the material, try to come up with really hard questions.
-> We don't know everything, if we don't know the answer, we can learn together.
 
 
 # Table of contents

@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 :root {
@@ -12,27 +11,14 @@
 
 body {
     font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo";
-    max-width: 80ch;
     font-weight: 300;
-    margin: auto;    
-	padding: 0 26px;
-	word-wrap: break-word;
+    margin: 0;
 }
 @media screen {    
     body {
         font-size: 12pt;
         line-height: 1.4em;
     }
-    body::after {
-        content: "© Dr Graeme Stuart";
-        font-size: 11pt;
-        display: block;
-        text-align: right;
-        margin-top: 4em;
-    }
-    p {
-        max-width: 60ch;        
-    }    
 }
 @media screen and (min-width: 800px) {
     body {
@@ -41,15 +27,126 @@ body {
     }
 }
 
+header, main, footer {
+    padding-inline: 1rem;
+}
+
+header {
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid #ccc;
+    gap: 0.5rem;
+    background-color: #fafafa;
+    margin-bottom: 2rem;
+}
+
+header > a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+header h1 {
+    margin-block: 0.5rem;
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+header h1 > span {
+    font-weight: 300;
+
+}
+
+header img.logo {
+    height: 1.6em;
+    min-height: 0;
+    margin: 0;
+}
+
+/* The menu */
+
+#menuToggler {
+    width: 1.5em;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+#menuToggler > div {
+    width: 100%;
+    height: 20%;
+    border-radius: 15%;
+    background: black;
+}
+
+header > nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* width: 100vw; */
+    height: 100vh;
+    background-color: hsla(0, 0%, 100%, 0.9);
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding: 2em 1em;
+    border-left: solid 2px darkred;
+    /* align-items: center; */
+    font-size: 2em;
+    gap: 1em;
+    transition: translate 0.5s;
+    translate: 100vw;
+}
+header > nav.open {
+    translate: none;
+}
+@media screen and (min-width: 600px) {
+    header > nav {
+        translate: none;
+        position: static;
+        height: auto;
+        background-color: initial;
+        font-size: inherit;
+        border: none;
+        flex-grow: 1;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 0;
+    }
+    #menuToggler {
+        display: none;
+    }
+}
+
+
+main {
+    overflow: auto;
+    max-width: 60ch;
+    margin: auto;    
+    padding: 0 .75rem;
+	word-wrap: break-word;
+}
+
+footer {
+    font-size: 0.7em;
+    text-align: right;
+    margin-top: 4em;
+}
+
+
+
+
+
+
+
 h1, h2, h3 {
 	font-weight: normal;
 }
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
+
 h1:not(:nth-of-type(1)) {
     page-break-before: always;
     background-image: url("img/python-logo-only.svg");
@@ -140,6 +237,10 @@ img {
     max-height: 100%;
 }
 
+img.inline {
+    height: 1em;
+}
+
 body > p > img {
     max-width: 100%;
     max-height: 150px;
@@ -163,6 +264,8 @@ img.logo {
     min-height: 15em;
     margin: 1em auto;
 }
+
+/* pre and code */
 
 pre {
 	border-radius: 3px;
@@ -198,6 +301,8 @@ code:not(.hljs) {
     color: hsl(var(--note-hue), 100%, 40%);
 }
 
+/* Normal blockquotes */
+
 blockquote {
     border-left-width: 5px;
     border-left-style: solid;
@@ -208,6 +313,7 @@ blockquote {
     border-color: hsl(var(--note-hue), 100%, 50%);
 }
 
+/* Challenges */
 
 blockquote.challenge::before {
     content: "work together on these";
@@ -268,4 +374,14 @@ select:focus,
 textarea:focus {
 	outline: 1px solid hsl(var(--note-hue), 100%, 20%);
 	outline-offset: -2px;
+}
+
+.expendable {
+    display: none;
+}
+
+@media screen and (min-width: 750px) {
+    .expendable {
+        display: initial;
+    }
 }

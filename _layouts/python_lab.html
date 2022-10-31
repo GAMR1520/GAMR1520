@@ -13,10 +13,10 @@ layout: default
         <div></div>
         <div></div>
     </div>
-    {% include lab_menu.html %}
+    {% include lab_menu.md %}
 </header>
 <main>
-    <img src="{{ site.baseurl }}/img/python-logo.svg" alt="python logo" class="header">
+    {% include python_header.md %}
     <h2>{{page.title}}</h2>
     {{ content }}
 </main>

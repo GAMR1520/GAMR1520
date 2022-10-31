@@ -1,3 +1,1 @@
-![python logo](https://www.python.org/static/community_logos/python-logo-generic.svg)
-
-# GAMR1520: Markup languages and scripting
+<img src="{{ site.baseurl }}/img/python-logo.svg" alt="python logo" class="header">

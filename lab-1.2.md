@@ -3,8 +3,6 @@ layout: python_lab
 title: Compound data types and looping
 ---
 
-![python logo](img/python-logo.svg)
-
 In the last set of exercises we introduced some basic python syntax and data types.
 We also introduced compound statements using the conditional `if` as an example.
 

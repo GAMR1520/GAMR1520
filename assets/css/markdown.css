@@ -15,7 +15,7 @@ body {
     font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo";
     font-weight: 300;
     margin: 0;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 header, main, footer {
@@ -79,17 +79,16 @@ header > nav {
     position: fixed;
     top: 0;
     right: 0;
-    /* width: 100vw; */
     height: 100vh;
-    background-color: hsla(0, 0%, 100%, 0.9);
+    background-color: hsla(0, 10%, 95%, 0.9);
+    border-left: solid 2px hsl(0, 10%, 50%);
 
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     padding: 2em 1em;
-    border-left: solid 2px darkred;
     /* align-items: center; */
-    font-size: 2em;
+    font-size: 1.6em;
     gap: 1em;
     transition: translate 0.5s;
     translate: 100vw;
@@ -97,23 +96,7 @@ header > nav {
 header > nav.open {
     translate: none;
 }
-@media screen and (min-width: 600px) {
-    /* header > nav {
-        translate: none;
-        position: static;
-        height: auto;
-        background-color: initial;
-        font-size: inherit;
-        border: none;
-        flex-grow: 1;
-        flex-direction: row;
-        justify-content: flex-end;
-        padding: 0;
-    }
-    #menuToggler {
-        display: none;
-    } */
-}
+
 
 main {
     overflow: auto;
@@ -215,7 +198,8 @@ a:hover, p > a {
 	text-decoration: underline;
 }
 a.current {
-    font-weight: 400;
+    color: hsl(200, 20%, 30%);
+    border-left: 2px solid green;
 }
 
 .toc + ul > li {

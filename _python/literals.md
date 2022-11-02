@@ -46,7 +46,7 @@ When interpreting these simple expressions, python is doing a surprising amount 
 The interpreter evaluates the literal values into complex objects in memory and outputs a representation of the python objects they generate.
 
 <figure>
-    <img src="../img/literals.png" alt="literals in IDLE">
+    <img src="../assets/img/literals.png" alt="literals in IDLE">
     <figcaption>Literal values evaluate to themselves</figcaption>
 </figure>
 

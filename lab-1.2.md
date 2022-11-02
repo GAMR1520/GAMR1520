@@ -1,5 +1,5 @@
 ---
-layout: python_lab
+layout: index
 title: Compound data types and looping
 ---
 
@@ -9,7 +9,7 @@ We also introduced compound statements using the conditional `if` as an example.
 In this set of exercises, we will introduce *compound data types* such as the `tuple`, `list`, `dictionary` and `set` and explore what they can do.
 We will also expand our exploration of compound statements by looking at `while` and `for` loops.
 
-# Table of contents
+## Table of contents
 
 <div class="toc"></div>
 
@@ -32,7 +32,7 @@ We will also expand our exploration of compound statements by looking at `while`
     - [The while loop](#the-while-loop)
     - [The for loop](#the-for-loop)
 
-# Sequences
+## Sequences
 
 In Python, a `sequence` is any object that contains items in a particular order.
 Sequences have a length and provide access to contained items using integer indices.
@@ -63,7 +63,7 @@ Start a new script file and add the above line.
 You can obviously choose any string you like.
 If you do use a different string then you can expect different results.
 
-## Sequences have length
+### Sequences have length
 
 We can use the built-in `len()` function to find the length of any sequence.
 If we pass a string into the `len()` function we get an integer back.
@@ -84,7 +84,7 @@ len(message)    # 5
 > All sequences support this.
 > The `TypeError` occurs when no such method exists.
 
-## Indexing
+### Indexing
 
 If we want to access items from a sequence, we can do it by specifying the position of the items we want.
 This is known as *indexing*.
@@ -106,7 +106,7 @@ message[0]  # 'h'
 >print(f'Hello {name}, your name begins with "{name[0]}".')
 >```
 
-## Slicing
+### Slicing
 
 For multiple elements, we can specify the start and end indices, separated by a colon.
 This is known as *slicing*.
@@ -335,7 +335,7 @@ Attempting to use the `*` operator with the wrong types will raise a `TypeError`
     </p>
 </blockquote>
 
-# Mutable types
+## Mutable types
 
 Most of the data types we have introduced so far (tuples, strings, booleans, integers and floats) are *immutable*, which means their values cannot be changed once created.
 We can see this demonstrated if we try to change a character within a string.
@@ -619,12 +619,12 @@ b - a                   # {'l', 'w', 'h', 'o', ' ', 'e'}
 
 
 
-# Iterables and looping
+## Iterables and looping
 
 There are two main ways to loop in python.
 We can either loop based on logic, using a `while` loop or we can loop over data, using a `for` loop.
 
-## The `while` loop
+### The `while` loop
 
 A basic kind of loop is a `while` loop.
 This acts as a kind of extended and continuous conditional.
@@ -675,7 +675,7 @@ while True:
 The infinite loop keeps our code clean and avoids repetition.
 
 
-## The `for` loop
+### The `for` loop
 
 In python, an `iterable` is any object that can release one item at a time.
 Sequences are a special kind of *iterable* that yields its elements in order and supports integer indexing.

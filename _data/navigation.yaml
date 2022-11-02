@@ -1,0 +1,11 @@
+- name: Home
+  link: /
+- name: Lecture slides
+  link: /lectures.html
+- name: Lab exercises
+  link: /labs.html
+  content:
+  - name: lab 1.1
+    link: /lab-1.1.html
+  - name: lab 1.2
+    link: /lab-1.2.html

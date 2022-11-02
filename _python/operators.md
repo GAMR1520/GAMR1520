@@ -3,20 +3,7 @@ layout: python_lab
 title: Python operators
 ---
 
-<div class="toc"></div>
-
-- [Operators](#operators)
-    - [Arithmetic operators](#arithmetic-operators)
-    - [Comparison operators](#comparison-operators)
-    - [Logical operators](#logical-operators)
-
-# Operators
-
-A valid expression requires two operands with an operator between them.
-
-`<operand> <operator> <operand>`
-
-Where an operand is a value of some kind (e.g. a literal) and an operator is something like a mathematical operator (`+`, `-` etc.).
+Operators are used to perform operations on data.
 
 For example:
 
@@ -27,6 +14,15 @@ For example:
 
 It is hopefully clear what these expressions mean.
 They will resolve to the integer values `2` and `4` respectively.
+
+A valid expression requires two operands with an operator between them.
+
+```plaintext
+<operand> <operator> <operand>
+```
+
+Where an operand is a value of some kind (e.g. a literal) and an operator is something like a mathematical operator (`+`, `-` etc.).
+
 
 >Getting the form wrong will lead to a syntax error.
 >```python
@@ -87,7 +83,7 @@ All of these can be used with integers and floats.
 If both of the operands are integers, then the output is usually an integer (except for division, which outputs a float), otherwise its usually a float.
 
 <figure>
-    <img src="img/arithmetic-operations.png" alt="arithmetic operations in IDLE">
+    <img src="{{site.baseurl}}/assets/img/arithmetic-operations.png" alt="arithmetic operations in IDLE">
     <figcaption>examples of arithmetic operations</figcaption>
 </figure>
 
@@ -124,15 +120,16 @@ For example we can test whether one value is greater than another value.
 
 In the above case, the result is `False`, since `10` is not greater than `10`.
 
-||||||comparison operators|
-|--:|:--|--:|:--|--:|:--|
-|`<`|less than|`<=`|less than or equal to|`>`|greater than|
-|`>=`|greater than or equal to|`==`|equal to|`!=`|not equal to| 
+||||comparison operators|
+|--:|:--|--:|:--|
+|`<`|less than|`<=`|less than or equal to|
+|`>`|greater than|`>=`|greater than or equal to|
+|`==`|equal to|`!=`|not equal to| 
 
 Their application to integers and floats are obvious.
 
 <figure>
-    <img src="img/logical-operations.png" alt="logical operations in IDLE">
+    <img src="{{site.baseurl}}/assets/img/logical-operations.png" alt="logical operations in IDLE">
     <figcaption>examples of logical operations</figcaption>
 </figure>
 

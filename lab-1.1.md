@@ -1,5 +1,5 @@
 ---
-layout: python_lab
+layout: index
 title: Introduction to python
 ---
 
@@ -9,15 +9,12 @@ We will cover some fundamental aspects of python in isolation and by the end we 
 
 Following these exercises will help to develop some experience with the workflow involved in writing python code and to become familiar with how terms such as literals, variables, types and operators apply in a practical setting.
 
-
-
-# Table of contents
+## Table of contents
 
 <div class="toc"></div>
 
 - [Getting started with IDLE](#getting-started-with-idle)
-
-
+- [Basic principles](#basic-principles)
 - [Writing larger programmes](#writing-larger-programmes)
     - [Managing source code](#managing-source-code)
 - [Compound statements](#compound-statements)
@@ -25,7 +22,7 @@ Following these exercises will help to develop some experience with the workflow
     - [Adding an else clause](#adding-an-else-clause)
 - [Obtaining user input](#obtaining-user-input)
 
-# Getting started with IDLE
+## Getting started with IDLE
 
 To get started, we will work with Python’s Integrated Development and Learning Environment (IDLE).
 
@@ -35,7 +32,7 @@ Open IDLE on your machine.
 It should look something like this.
 
 <figure>
-    <img src="img/IDLE.png" alt="IDLE">
+    <img src="assets/img/IDLE.png" alt="IDLE">
     <figcaption>The IDLE shell</figcaption>
 </figure>
 
@@ -56,7 +53,7 @@ The prompt allows the user to enter any valid python statement.
 Each expression entered will be evaluated and the result printed before another prompt will appear, waiting for the next statement.
 This kind of interface is known as a Read, Execute, Print Loop or REPL. 
 
-# Basic principles
+## Basic principles
 
 In this first set of exercises we want to get to grips with the very basics of writing python code.
 We will take some time to learn some useful terms like [literals](python/literals), [operators](python/operators) and [variables](python/variables). 
@@ -66,7 +63,7 @@ We will take some time to learn some useful terms like [literals](python/literal
 <blockquote class="challenge">
     <header>Start simple</header>
     <p>
-        Research the concept of [literals](python/literals) in python.
+        Research the concept of <a href="python/literals">literals</a> in python.
         Practice entering literal expressions into IDLE.
         Make sure you understand what is going on.
     </p>
@@ -121,12 +118,12 @@ Read through the [variables and assignment](python/variables) page and try all t
 </blockquote>
 
 
-# Writing larger programmes
+## Writing larger programmes
 
 So far we have been looking at very simple, one-liner programmes.
 At some point we need to move beyond this and write programmes consisting of several steps.
 
-## Managing source code
+### Managing source code
 
 In order to write longer programmes with multiple statements, we need to move from the interactive interpreter to working with source code files.
 
@@ -162,7 +159,7 @@ Go to `Run -> Run Module` (or use the shortcut key F5) to execute our first pyth
 You should see the code runs in the IDLE shell and outputs our message.
 
 <figure>
-    <img src="img/hello-world.png" alt="script running in IDLE">
+    <img src="assets/img/hello-world.png" alt="script running in IDLE">
     <figcaption>A script running in the IDLE shell</figcaption>
 </figure>
 
@@ -182,7 +179,7 @@ You should see the code runs in the IDLE shell and outputs our message.
 
 
 
-# Compound statements
+## Compound statements
 
 Now we can write more complex programmes, we need a way to control the flow of execution. 
 In Python, the main way we can do this is via [Compound statements](https://docs.python.org/3/reference/compound_stmts.html).
@@ -215,7 +212,7 @@ Often, if you get the indentation wrong, your code will not run.
 This is good because you can locate the problem and resolve it.
 However, in some cases, a mistake in the indentation can lead to code which runs without error, but does not behave as intended.
 
-## Conditionals
+### Conditionals
 
 The simplest example of a compound statement is probably a `conditional`.
 Conditional statements allow us to make decisions in our code based on Boolean values.
@@ -231,8 +228,11 @@ if balanceA >= amount:
 
 >Yes, we've seen this before as an example of a compound statement, now we are talking about `if` specifically.
 
-Notice that the `if` line ends with a colon.
-After the `if` line, there is an indented code block.
+Notice that the conditional statement includes a [comparison operator](python/operators#comparison-operators).
+This is one very common ways to use a conditional statement.
+But any expression that resolves to a Boolean value is fine.
+
+Notice also that the `if` line ends with a colon and that after the `if` line, there is an indented code block.
 The code block could contain any number of lines, but in this case it contains only two lines.
 
 The code is moving funds from one account to another.
@@ -267,14 +267,14 @@ Note that, if any of these variables was undefined, the code would raise a `Name
 >Continue typing the code block, line by line, pressing enter at the end of each line.
 >Once finished, press enter again to indicate the code block is complete.
 ><figure>
->    <img src="img/conditional.png" alt="compound statements in IDLE">
+>    <img src="assets/img/conditional.png" alt="compound statements in IDLE">
 >    <figcaption>Compound statements in the IDLE shell</figcaption>
 ></figure>
 >Its often easier to write small code snippets into files and add `print()` statements to see what's going on.
 
 
 
-## Adding an `else` clause
+### Adding an `else` clause
 
 Conditionals can be extended with an `else` clause to provide another code block to execute only if the condition fails.
 With this kind of conditional, we can be sure that one or other of the code blocks will execute, but never both.
@@ -318,8 +318,8 @@ Save the above code as **conditionals.py** and press F5 to execute.
 
 <figure>
     <div class="row">
-        <img src="img/script.png" alt="The IDLE script window">
-        <img src="img/shell.png" alt="The IDLE shell window">
+        <img src="assets/img/script.png" alt="The IDLE script window">
+        <img src="assets/img/shell.png" alt="The IDLE shell window">
     </div>
     <figcaption>The IDLE script and shell windows</figcaption>
 </figure>
@@ -343,7 +343,7 @@ Save the above code as **conditionals.py** and press F5 to execute.
     </p>
 </blockquote>
 
-# Obtaining user input
+## Obtaining user input
 
 We have already seen how we can use the built-in `print()` function to generate output from our scripts.
 If we want to take user input, we can use the `input()` function.

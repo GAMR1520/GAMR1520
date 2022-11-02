@@ -16,4 +16,3 @@ layout: default
     <h2>{{page.title}}</h2>
     {{ content }}
 </main>
-<footer>&copy; Dr Graeme Stuart</footer>

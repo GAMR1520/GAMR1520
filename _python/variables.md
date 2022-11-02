@@ -39,7 +39,7 @@ If we want to see the value of `a` we can simply evaluate the variable, just lik
 The expression `a` evaluates to `1`.
 
 <figure>
-    <img src="img/assignment.png" alt="assignment in IDLE">
+    <img src="assets/img/assignment.png" alt="assignment in IDLE">
     <figcaption>Assignment to, and subsequent evaluation of, a variable</figcaption>
 </figure>
 
@@ -127,7 +127,7 @@ my_instance=MyClass()           # Bad!
 If we try to evaluate a variable that has not yet been created, the result is a particular error called a `NameError`.
 
 <figure>
-    <img src="img/name_error.png" alt="NameError in IDLE">
+    <img src="assets/img/name_error.png" alt="NameError in IDLE">
     <figcaption>Accessing variables without defining them first results in a NameError</figcaption>
 </figure>
 

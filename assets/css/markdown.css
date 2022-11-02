@@ -3,6 +3,8 @@
 :root {
     --challenge-hue: 80;
     --note-hue: 30;
+    --aside-hue: 180;
+    --footer-hue: 0;
 }
 
 *, *::before, *::after {
@@ -13,18 +15,7 @@ body {
     font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo";
     font-weight: 300;
     margin: 0;
-}
-@media screen {    
-    body {
-        font-size: 12pt;
-        line-height: 1.4em;
-    }
-}
-@media screen and (min-width: 800px) {
-    body {
-        font-size: 14pt;
-        line-height: 1.4em;
-    }
+    font-size: 1em;
 }
 
 header, main, footer {
@@ -68,6 +59,8 @@ header img.logo {
 /* The menu */
 
 #menuToggler {
+    position: fixed;
+    right: 1rem;
     width: 1.5em;
     aspect-ratio: 1;
     display: flex;
@@ -105,7 +98,7 @@ header > nav.open {
     translate: none;
 }
 @media screen and (min-width: 600px) {
-    header > nav {
+    /* header > nav {
         translate: none;
         position: static;
         height: auto;
@@ -119,9 +112,8 @@ header > nav.open {
     }
     #menuToggler {
         display: none;
-    }
+    } */
 }
-
 
 main {
     overflow: auto;
@@ -131,71 +123,107 @@ main {
 	word-wrap: break-word;
 }
 
+
 footer {
-    font-size: 0.7em;
-    text-align: right;
-    margin-top: 4em;
+    margin-top: 2em;
+    display: grid;
+    gap: 2em;
+    place-items: end end;
+    padding-block: 4em 2em;
+    background-color: hsl(var(--footer-hue), 50%, 30%);
+    color: hsl(var(--footer-hue), 50%, 95%);
+}
+footer > nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
+    place-self: stretch;
+    place-items: center;
+    gap: 1em;
+}
+footer a {
+    color: hsl(200, 100%, 60%);
+}
+footer a:visited {
+    color: hsl(200, 50%, 60%);
 }
 
 
-
-
-
-
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-h1:not(:nth-of-type(1)) {
-    page-break-before: always;
-    background-image: url("img/python-logo-only.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center right;
-}
-@media screen {    
-    h1:not(:nth-of-type(1)) {
-        padding-top: 25vh;
-        padding-right: 1.5em;
-        background-position: right bottom;
-        background-size: 1.2em;
-        background-blend-mode: normal;
-        transition: 0.2s;
-        letter-spacing: -2px;
-        text-align: right;
+@media screen and (min-width: 800px) {
+    footer {
+        grid-template-columns: 1fr max-content;
+    }
+    footer > nav {
+        grid-column: span 2;
     }
 }
 
+
+p {
+    line-height: 1.6em;
+}
+@media screen and (min-width: 800px) {
+    p {
+        font-size: 1.1em;
+    }
+}
+
+
+
+
+/* headings */
+
+h1, h2 {
+	font-weight: 300;
+}
 h2 {
-    font-size: 1.7em;
+    font-size: 1.4em;
+    padding: 0.4em 1.25em;
+    border-bottom: 2px solid grey;
+    page-break-before: always;
+    background-image: url("../img/python-logo-only.svg"), url("../img/js-logo.svg");
+    background-size: 1em;
+    background-repeat: no-repeat;
+    background-position: left bottom 0.3em, right bottom 0.3em;
+    letter-spacing: -1px;
+}
+h2:not(:nth-of-type(1)) {
+    padding-top: 10vh;
 }
 h3 {
-    font-size: 1.4em;
+    font-size: 1.1em;
+    font-weight: 400;
 }
+@media screen and (min-width: 400px) {
+    h2 {
+        font-size: 1.7em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+}
+
 
 a {
     text-decoration: none;
+    text-underline-offset: 3px;
     color: hsl(200, 100%, 30%);
 }
 a:visited {
-    color: darkred;
+    color: hsl(200, 50%, 30%);
 }
-a:hover {
+a:hover, p > a {
 	text-decoration: underline;
 }
-p > a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+a.current {
+    font-weight: 400;
 }
-
 
 .toc + ul > li {
     margin-bottom: 0.75em;
-    font-size: 14pt;
+    /* font-size: 14pt; */
 }
 .toc + ul > li > ul > li {
-    font-size: 12pt;
+    /* font-size: 12pt; */
 }
 
 em {
@@ -207,6 +235,7 @@ strong {
 
 figure {
     text-align: center;
+    margin: 0;
 }
 
 figure, pre, blockquote {
@@ -325,9 +354,9 @@ blockquote.challenge::before {
     position: absolute;
     right: 0;
     bottom: 0;
-    padding: 0 0.5em;
+    padding: 0.25em 0.5em;
     border-top-left-radius: 5px;
-    font-size: 0.65em;
+    font-size: 0.9em;
     background-color: hsl(var(--challenge-hue), 100%, 20%);
     color: white;
 }
@@ -344,7 +373,7 @@ blockquote.challenge {
 
 blockquote.challenge > header {
     background-color: hsl(var(--challenge-hue), 50%, 30%);
-    background-image: url(https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg);
+    background-image: url("../img/python-logo-only.svg");
     background-size: 2em;
     background-repeat: no-repeat;
     background-position: right 0.5em top 0.5em;
@@ -363,9 +392,6 @@ blockquote.challenge > pre {
     padding: 0.5em;
 }
 
-footer {
-    padding-top: 2em;
-}
 
 @media screen {    
     li {
@@ -385,7 +411,7 @@ textarea:focus {
     display: none;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 900px) {
     .expendable {
         display: initial;
     }

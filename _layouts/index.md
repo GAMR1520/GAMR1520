@@ -9,10 +9,9 @@ layout: default
         <div></div>
         <div></div>
     </div>
-    {% include main_menu.md %}
+    {% include main_menu.md id="menu" %}
 </header>
 <main>
     <h2>{{page.title}}</h2>
     {{ content }}
 </main>
-<footer>&copy; Dr Graeme Stuart</footer>

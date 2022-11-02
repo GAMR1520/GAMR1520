@@ -1,5 +1,5 @@
 <nav id="menu">
-    <a href="{{ site.baseurl }}/labs">Lab home</a>
-    <a href="{{ site.baseurl }}/lab-1.1">Lab 1.1</a>
-    <a href="{{ site.baseurl }}/lab-1.2">Lab 1.2</a>
+    <a href="{{ "/labs" | relative_url }}">Lab home</a>
+    <a href="{{ "/lab-1.1" | relative_url }}">Lab 1.1</a>
+    <a href="{{ "/lab-1.2" | relative_url }}">Lab 1.2</a>
 </nav>

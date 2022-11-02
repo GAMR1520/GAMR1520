@@ -1,1 +1,1 @@
-<img src="{{ site.baseurl }}/assets/img/python-logo.svg" alt="python logo" class="header">
+<img src="{{ "/assets/img/python-logo.svg" | relative_url }}" alt="python logo" class="header">

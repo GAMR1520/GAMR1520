@@ -83,7 +83,7 @@ All of these can be used with integers and floats.
 If both of the operands are integers, then the output is usually an integer (except for division, which outputs a float), otherwise its usually a float.
 
 <figure>
-    <img src="{{site.baseurl}}/assets/img/arithmetic-operations.png" alt="arithmetic operations in IDLE">
+    <img src="{{"/assets/img/arithmetic-operations.png" | relative_url }}" alt="arithmetic operations in IDLE">
     <figcaption>examples of arithmetic operations</figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ In the above case, the result is `False`, since `10` is not greater than `10`.
 Their application to integers and floats are obvious.
 
 <figure>
-    <img src="{{site.baseurl}}/assets/img/logical-operations.png" alt="logical operations in IDLE">
+    <img src="{{"/assets/img/logical-operations.png" | relative_url }}" alt="logical operations in IDLE">
     <figcaption>examples of logical operations</figcaption>
 </figure>
 

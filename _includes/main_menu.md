@@ -6,7 +6,7 @@
 {% endfor %}
 
 {% for week in site.weeks %}
-    <a href="{{week.url}}"
+    <a href="{{week.url | relative_url }}"
         {% if page.url == item.link %}class="current"{% endif %}
     >Week {{week.week}}</a>
 {% endfor %}

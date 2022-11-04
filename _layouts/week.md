@@ -22,7 +22,7 @@ Back to <a href="{{"/" | relative_url }}">home</a>
 
 {% for ex in exercises %}
 
-<h3><a href="{{ex.url}}">Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}</a></h3>
+<h3><a href="{{ex.url | relative_url }}">Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}</a></h3>
 
 <p>{{ex.description}}</p>
 

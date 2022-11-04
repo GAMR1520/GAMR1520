@@ -16,7 +16,7 @@ layout: default
     {% include python_header.md %}
     <h2>{{page.title}}</h2>
     <small>
-    Part of <a href="{{week.url}}">week {{week.week}}: {{week.title}}</a>
+    Part of <a href="{{week.url | relative_url }}">week {{week.week}}: {{week.title}}</a>
     </small>
     {{ content }}
 </main>

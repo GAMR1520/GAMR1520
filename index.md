@@ -11,7 +11,7 @@ This module covers the dynamically typed languages *python* and *javascript*.
 {% for week in site.weeks %}
 
 
-## [Week {{week.week}}: {{week.title}}]({{week.url}})
+## [Week {{week.week}}: {{week.title}}]({{week.url | relative_url }})
 
 {{ week.content | markdownify }}
 

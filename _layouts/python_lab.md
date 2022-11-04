@@ -14,7 +14,7 @@ layout: default
 <main>
     {% assign week = site.weeks | where:"week", page.week | first %}
     {% include python_header.md %}
-    <h2>{{page.title}}</h2>
+    <h2>Lab {{page.week}}.{{page.lab}}: {{page.title}}</h2>
     <small>
     Part of <a href="{{week.url | relative_url }}">week {{week.week}}: {{week.title}}</a>
     </small>

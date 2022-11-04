@@ -1,6 +1,7 @@
 ---
 layout: python_lab
 title: Python string formatting
+week: 1
 ---
 
 Consider this simple programme.

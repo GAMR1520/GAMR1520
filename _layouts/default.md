@@ -24,6 +24,6 @@
         </aside>
         <small>&copy; Dr Graeme Stuart</small>
     </footer>
-    <script src="{{ "/menu.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/menu.js" | relative_url }}"></script>
 </body>
 </html>

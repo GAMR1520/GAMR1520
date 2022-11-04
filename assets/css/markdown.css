@@ -5,6 +5,8 @@
     --note-hue: 30;
     --aside-hue: 180;
     --footer-hue: 0;
+    --link-hue: 200;
+    --current-link-hue: 100;
 }
 
 *, *::before, *::after {
@@ -80,8 +82,8 @@ header > nav {
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: hsla(0, 10%, 95%, 0.9);
-    border-left: solid 2px hsl(0, 10%, 50%);
+    background-color: hsla(var(--link-hue), 10%, 95%, 0.9);
+    border-left: solid 2px hsl(var(--link-hue), 50%, 30%);
 
     display: flex;
     flex-direction: column;
@@ -160,13 +162,14 @@ h1, h2 {
 }
 h2 {
     font-size: 1.4em;
-    padding: 0.4em 1.25em;
+    padding-block: 0.4em;
+    /* padding: 0.4em 1.25em; */
     border-bottom: 2px solid grey;
     page-break-before: always;
-    background-image: url("../img/python-logo-only.svg"), url("../img/js-logo.svg");
+    /* background-image: url("../img/python-logo-only.svg"), url("../img/js-logo.svg");
     background-size: 1em;
     background-repeat: no-repeat;
-    background-position: left bottom 0.3em, right bottom 0.3em;
+    background-position: left bottom 0.3em, right bottom 0.3em; */
     letter-spacing: -1px;
 }
 h2:not(:nth-of-type(1)) {
@@ -189,25 +192,20 @@ h3 {
 a {
     text-decoration: none;
     text-underline-offset: 3px;
-    color: hsl(200, 100%, 30%);
+    color: hsl(var(--link-hue), 100%, 30%);
 }
 a:visited {
-    color: hsl(200, 50%, 30%);
+    color: hsl(var(--link-hue), 50%, 30%);
 }
 a:hover, p > a {
 	text-decoration: underline;
 }
 a.current {
-    color: hsl(200, 20%, 30%);
-    border-left: 2px solid green;
+    color: hsl(var(--current-link-hue), 100%, 30%);
 }
 
 .toc + ul > li {
     margin-bottom: 0.75em;
-    /* font-size: 14pt; */
-}
-.toc + ul > li > ul > li {
-    /* font-size: 12pt; */
 }
 
 em {
@@ -279,7 +277,7 @@ img.logo {
 }
 
 img.header {
-    height: 10em;
+    max-height: 10em;
     object-fit: contain;
 }
 
@@ -357,7 +355,6 @@ blockquote.challenge {
 
 blockquote.challenge > header {
     background-color: hsl(var(--challenge-hue), 50%, 30%);
-    background-image: url("../img/python-logo-only.svg");
     background-size: 2em;
     background-repeat: no-repeat;
     background-position: right 0.5em top 0.5em;
@@ -367,6 +364,14 @@ blockquote.challenge > header {
     font-weight: bold;
     color: white;
 }
+blockquote.challenge.python > header {
+    background-image: url("../img/python-logo-only.svg");
+}
+blockquote.challenge.js > header {
+    background-image: url("../img/js-logo.svg");
+}
+
+
 blockquote.challenge > p {
     margin: 1em;
 }

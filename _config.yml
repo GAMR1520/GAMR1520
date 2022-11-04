@@ -4,5 +4,18 @@ kramdown:
    syntax_highlighter_opts:
       disable : true
 collections:
+  challenges:
+    output: false
+  weeks:
+    output: true
   python:
     output: true
+  exercises:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "weeks"
+    values:
+      layout: "week"

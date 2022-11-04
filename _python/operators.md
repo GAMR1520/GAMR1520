@@ -1,6 +1,7 @@
 ---
 layout: python_lab
 title: Python operators
+week: 1
 ---
 
 Operators are used to perform operations on data.

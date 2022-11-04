@@ -1,6 +1,7 @@
 ---
 layout: python_lab
 title: Variables and assignment
+week: 1
 ---
 
 <div class="toc"></div>

@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <header>
     {% include main_title.md %}
     <div id="menuToggler">
@@ -9,10 +8,8 @@ layout: default
         <div></div>
         <div></div>
     </div>
-    {% include lab_menu.md %}
+    {% include main_menu.md id="menu" %}
 </header>
 <main>
-    {% include js_header.md %}
-    <h2>{{page.title}}</h2>
-    {{ content }}
+{{ content }}
 </main>

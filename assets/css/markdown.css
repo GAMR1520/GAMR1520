@@ -176,6 +176,7 @@ h2:not(:nth-of-type(1)) {
     padding-top: 10vh;
 }
 h3 {
+    padding-top: 5vh;
     font-size: 1.1em;
     font-weight: 400;
 }

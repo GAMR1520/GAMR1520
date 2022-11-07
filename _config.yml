@@ -12,6 +12,10 @@ collections:
     output: true
   exercises:
     output: true
+  lectures:
+    output: true
+  slides:
+    output: false
 
 defaults:
   - scope:
@@ -19,3 +23,8 @@ defaults:
       type: "weeks"
     values:
       layout: "week"
+  - scope:
+      path: ""
+      type: "lectures"
+    values:
+      layout: "lecture"

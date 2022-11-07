@@ -18,14 +18,35 @@ Back to <a href="{{"/" | relative_url }}">home</a>
 
 {{ content }}
 
+</section>
+
+{% assign lectures = site.lectures | where:"week", page.week | sort: "lecture" %}
+
+{% for lec in lectures %}
+
+<section>
+
+<h3><a href="{{lec.url | relative_url }}">Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}</a></h3>
+
+<p>{{lec.description}}</p>
+
+</section>
+
+{% endfor %}
+
+
+
 {% assign exercises = site.exercises | where:"week", page.week | sort: "lab" %}
 
 {% for ex in exercises %}
+
+<section>
 
 <h3><a href="{{ex.url | relative_url }}">Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}</a></h3>
 
 <p>{{ex.description}}</p>
 
+</section>
+
 {% endfor %}
 
-</section>

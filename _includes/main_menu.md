@@ -7,7 +7,7 @@
 
 {% for week in site.weeks %}
     <a href="{{week.url | relative_url }}"
-        {% if page.url == item.link %}class="current"{% endif %}
+        {% if page.url == week.url %}class="current"{% endif %}
     >Week {{week.week}}</a>
 {% endfor %}
 </nav>

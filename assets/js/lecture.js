@@ -7,7 +7,6 @@ async function convertSlides() {
         const slide = document.createElement('section');
         slide.classList.add('slide');
         const content = document.querySelectorAll('hr:last-of-type ~ *:not(section.slide)');
-        console.log(content[0]);
         rule.after(slide);
         slide.append(...content);
         rule.remove();
@@ -15,7 +14,6 @@ async function convertSlides() {
 }
 
 function showSlide(direction='right') {
-    console.log("showing slide", currentSlide, direction);
     const previous = document.querySelector("section.slide.previous");
     if(previous) {
         previous.classList.remove('previous');

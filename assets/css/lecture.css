@@ -74,9 +74,7 @@ section.slide {
     overflow-y: auto;
 }
 
-section.slide figure img {
-    max-width: 550px;
-}
+
 @media screen and (min-width: 800px) {
     section.slide {
         top: 1em;
@@ -87,6 +85,9 @@ section.slide figure img {
         border-radius: 1em;
         border: 2px solid var(--bg-color);
         box-shadow: 0 0 10px 10px #666;
+    }
+    section.slide figure img {
+        max-width: 550px;
     }
 }
 

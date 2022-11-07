@@ -1,5 +1,6 @@
+let queryParams = new URLSearchParams(window.location.search);
+let currentSlide = queryParams.has('slide') ? queryParams.get('slide') : 0;
 const slides = document.querySelectorAll("section.slide");
-let currentSlide = 0;
 
 showSlide();
 
@@ -21,6 +22,8 @@ function showSlide(direction='right') {
     slides[currentSlide].classList.add('current');
     slides[currentSlide].classList.remove('previous');
     slides[currentSlide].classList.add(direction);
+	queryParams.set('slide', currentSlide);
+	window.history.replaceState({}, "", `${window.location.origin}${window.location.pathname}?${queryParams.toString()}`);
 }
 
 function nextSlide(direction) {

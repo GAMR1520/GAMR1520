@@ -7,8 +7,7 @@ description: The first lecture introduces the module and covers some basic progr
 ---
 
 
-{% capture content %}
-
+---
 # Python as a dynamically typed language
 
 ![python logo]({{"assets/img/python-logo.svg" | relative_url}})
@@ -20,12 +19,8 @@ This is a brief introduction to the concepts necessary to understand what it mea
 >Its important to understand how to tell them what you want them to do.
 >But the most difficult part is knowing what you want them to do in the first place.
 
-{% endcapture %}
-{% include slide.md content=content %}
 
-
-
-{% capture content %}
+---
 
 ## A simple model of computation
 
@@ -40,12 +35,7 @@ A basic model of a computer has memory which holds data and a CPU which manages 
 
 Modern computers are said to be **computationally universal** because they can be programmed to do any computation.
 
-{% endcapture %}
-{% include slide.md content=content %}
-
-
-
-{% capture content %}
+---
 
 ## Instruction set
 Every processor has an **instruction set** which defines the primitive operations that it can perform.
@@ -61,12 +51,7 @@ These are the building blocks from which all computer programmes are constructed
 Such instructions are provided to the processor in **machine code**, the lowest-level of computer 'language', in which each instruction is represented by a unique combination of bits.
 
 
-{% endcapture %}
-{% include slide.md content=content %}
-
-
-
-{% capture content %}
+---
 
 ## Memory and data types
 
@@ -107,16 +92,7 @@ Complex data can be represented in binary format through standards such as ASCII
 >This is what we mean by the **type** of data.
 >All data in computers is ultimately stored as zeroes and ones but what those zeroes and ones **means** depends on what you are doing.
 
-
-
-{% endcapture %}
-{% include slide.md content=content %}
-
-
-
-
-
-{% capture content %}
+---
 
 ### Pointers
 
@@ -142,12 +118,7 @@ Pointers identify the location of some other data in memory.
 32-bits of data are enough to uniquely identify a single byte within 2<sup>32</sup> bytes (4,294,967,296 or 4 GB) of memory.
 Every location in memory has a unique address.
 
-{% endcapture %}
-{% include slide.md content=content %}
-
-
-
-{% capture content %}
+---
 
 ### Control
 
@@ -167,19 +138,9 @@ print(a)
 The CPU manages the flow through the sequence of instructions by incrementing a counter.
 Some instructions can be used to change the counter value.
 
-{% endcapture %}
-{% include slide.md content=content %}
-
-
-
-
-
-
-{% capture content %}
+---
 
 > When we talk about memory and computation its useful to think in terms of small blocks of data, a few zeros and ones.
 However, the modern reality is a vast capability.
 As a reference point, a Sony Playstation 5 has 16 billion bytes of RAM and can perform over 10 trillion floating point operations per second.
 
-{% endcapture %}
-{% include slide.md content=content %}

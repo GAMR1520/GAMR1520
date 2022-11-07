@@ -1,8 +1,19 @@
 let queryParams = new URLSearchParams(window.location.search);
 let currentSlide = queryParams.has('slide') ? queryParams.get('slide') : 0;
-const slides = document.querySelectorAll("section.slide");
 
-showSlide();
+async function convertSlides() {
+    while(document.querySelector('hr:last-of-type')) {
+        const rule = document.querySelector('hr:last-of-type');
+        const slide = document.createElement('section');
+        slide.classList.add('slide');
+        const content = document.querySelectorAll('hr:last-of-type ~ *:not(section.slide)');
+        console.log(content[0]);
+        rule.after(slide);
+        slide.append(...content);
+        rule.remove();
+    }
+}
+
 
 function showSlide(direction='right') {
     console.log("showing slide", currentSlide, direction);
@@ -48,3 +59,7 @@ document.addEventListener('keydown', ev => {
             break;
         }
 })
+
+convertSlides();
+let slides = document.querySelectorAll('section.slide');
+showSlide();

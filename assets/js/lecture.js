@@ -14,7 +14,6 @@ async function convertSlides() {
     }
 }
 
-
 function showSlide(direction='right') {
     console.log("showing slide", currentSlide, direction);
     const previous = document.querySelector("section.slide.previous");
@@ -58,7 +57,24 @@ document.addEventListener('keydown', ev => {
             nextSlide('right');
             break;
         }
-})
+});
+
+let touchX;
+document.addEventListener('touchstart', ev => {
+	touchX = ev.touches[0].clientX;
+});
+document.addEventListener('touchmove', ev => {
+	if(touchX) {
+		let moveX = touchX - ev.touches[0].clientX;
+		if (moveX < -50) {
+			previousSlide('left');
+			touchX = null;
+		}	else if (moveX > 50) {
+			nextSlide('right');
+			touchX = null;
+		}
+	}
+});
 
 convertSlides();
 let slides = document.querySelectorAll('section.slide');

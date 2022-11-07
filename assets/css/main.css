@@ -3,6 +3,7 @@
 :root {
     --link-hue: 200;
     --current-link-hue: 100;
+    --note-hue: 30;
 }
 
 
@@ -14,8 +15,19 @@ body {
     font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Droid Sans", sans-serif, "Meiryo";
     font-weight: 300;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.0em;
 }
+@media screen and (min-width: 400px) {
+    body {
+        font-size: 1.1em;
+    }
+}
+@media screen and (min-width: 800px) {
+    body {
+        font-size: 1.2em;
+    }
+}
+
 
 header, main, footer {
     padding-inline: 1rem;
@@ -112,6 +124,21 @@ footer {
     color: hsl(var(--footer-hue), 50%, 95%);
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+img.inline {
+    height: 1em;
+}
+
+body > p > img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
 
 
 a {
@@ -127,6 +154,72 @@ a:hover, p > a {
 }
 a.current {
     color: hsl(var(--current-link-hue), 100%, 30%);
+}
+
+
+
+p {
+    line-height: 1.5em;
+}
+
+
+figure, pre, blockquote {
+    break-inside: avoid;
+    overflow: auto;
+    margin-top: 1.5em;
+}
+
+figure {
+    text-align: center;
+    margin: 0;
+}
+/* Normal blockquotes */
+
+blockquote {
+    border-left-width: 5px;
+    border-left-style: solid;
+    margin-inline: 0;
+    padding-inline: 1em;
+    border-radius: 0 5px 5px 0;
+    background-color: hsl(var(--note-hue), 50%, 95%);
+    border-color: hsl(var(--note-hue), 100%, 50%);
+}
+
+table {
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid black;
+}
+th, td {
+	padding: 5px 10px;
+}
+
+/* pre and code */
+
+pre {
+	border-radius: 3px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre > code.language-python {
+    position: relative;
+    padding-bottom: 1em;
+}
+
+
+code {
+    font-family: "Ubuntu Mono", "Courier New", monospace;
+    font-size: 1em;
+    line-height: 1.357em;
+}
+
+
+code:not(.hljs) {
+    color: hsl(var(--note-hue), 100%, 40%);
 }
 
 

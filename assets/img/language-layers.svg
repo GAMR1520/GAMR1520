@@ -1,0 +1,22 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 310">
+    <style>
+        text {
+            font: 16pt sans-serif;
+            fill: white;
+        }
+        ellipse {
+            stroke: #fff;
+            stroke-width: 3px;
+        }
+    </style>
+    <ellipse cx="355" cy="155" rx="250" ry="150" fill="hsl(100, 100%, 30%)"/>
+    <text x="255" y="50" textlength="200">Higher level languages</text>
+    <ellipse cx="355" cy="185" rx="200" ry="120" fill="hsl(75, 100%, 30%)"/>
+    <text x="255" y="110" textlength="200">Assembly languages</text>
+    <ellipse cx="355" cy="215" rx="150" ry="90" fill="hsl(50, 100%, 30%)"/>
+    <text x="270" y="170" textlength="170">Machine language</text>
+    <ellipse cx="355" cy="245" rx="100" ry="60" fill="hsl(0, 100%, 30%)"/>
+    <text x="270" y="245" textlength="170">System hardware</text>
+
+</svg>

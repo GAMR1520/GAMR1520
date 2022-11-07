@@ -104,7 +104,7 @@ header > nav {
     padding: 2em 1em;
     font-size: 1.6em;
     gap: 1em;
-    transition: translate 0.5s;
+    transition: translate 0.3s;
     translate: 100vw;
     z-index: 10;
 }

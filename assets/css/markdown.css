@@ -123,12 +123,14 @@ img.header {
     object-fit: contain;
 }
 
-pre > code.hljs {
+/* repeated messages on certain elements */
+
+pre > code.hljs, blockquote.challenge {
     position: relative;
     padding-bottom: 2em;
 }
 
-pre > code::after {
+pre > code::after, blockquote.challenge::after {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -152,16 +154,10 @@ pre > code.language-plaintext::after {
 
 /* Challenges */
 
-blockquote.challenge::before {
-    content: "work together on these";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 0.25em 0.5em;
-    border-top-left-radius: 5px;
-    font-size: 0.9em;
-    background-color: hsl(var(--challenge-hue), 100%, 20%);
-    color: white;
+blockquote.challenge::after {
+    content: "if you have questions, ask them";
+    color: hsla(0, 0%, 0%, 0.85);
+    background-color: transparent;
 }
 
 blockquote.challenge {

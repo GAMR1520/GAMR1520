@@ -4,6 +4,8 @@
     --link-hue: 200;
     --current-link-hue: 100;
     --note-hue: 30;
+    --code-context-hue: 120;
+    --output-context-hue: 260;
 }
 
 
@@ -199,27 +201,47 @@ th, td {
 
 /* pre and code */
 
-pre {
-	border-radius: 3px;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre > code.language-python {
-    position: relative;
-    padding-bottom: 1em;
-}
-
-
 code {
     font-family: "Ubuntu Mono", "Courier New", monospace;
     font-size: 1em;
     line-height: 1.357em;
 }
 
-
 code:not(.hljs) {
     color: hsl(var(--note-hue), 100%, 40%);
+}
+
+
+pre > code.language-plaintext {
+    color: hsl(var(--output-context-hue), 60%, 85%);
+    background-color: hsl(var(--output-context-hue), 60%, 15%);
+}
+
+pre > code.hljs:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-size: 10em;
+    background-position: center right 1em;
+    opacity: 0.05;
+}
+
+pre > code.language-python:before {
+    background-image: url(../img/python-logo-only.svg);
+}
+pre > code.language-javascript:before {
+    background-image: url(../img/js-logo.svg);
+}
+
+pre {
+	border-radius: 3px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
 }
 
 

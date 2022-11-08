@@ -99,19 +99,6 @@ table + figcaption {
 
 
 
-pre > code.language-python::after {
-    content: "try it yourself";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 0.125em 0.25em;
-    border-top-left-radius: 5px;
-    font-size: 0.65em;
-    background-color: hsl(var(--challenge-hue), 60%, 30%);
-    color: hsl(var(--challenge-hue), 50%, 90%);
-}
-
-
 
 .row {
     display: flex;
@@ -136,6 +123,30 @@ img.header {
     object-fit: contain;
 }
 
+pre > code.hljs {
+    position: relative;
+    padding-bottom: 2em;
+}
+
+pre > code::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.125em 1em;
+    text-align: right;
+    font-size: 0.8em;
+    color: hsla(0, 0%, 100%, 0.8);
+    background-color: hsla(0, 0%, 0%, 0.25);
+}
+
+pre > code.language-python::after {
+    content: "try it yourself";
+}
+
+pre > code.language-plaintext::after {
+    content: "this is the output";
+}
 
 
 

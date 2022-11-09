@@ -4,11 +4,11 @@ layout: default
 
 <header>
     {% include main_title.md %}
-    <div id="menuToggler">
+    <button id="menuToggler">
         <div></div>
         <div></div>
         <div></div>
-    </div>
+    </button>
     {% include main_menu.md id="menu" %}
 </header>
 <main>

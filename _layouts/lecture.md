@@ -34,11 +34,11 @@
 <body>
     <header>
         {% include main_title.md %}
-        <div id="menuToggler">
+        <button id="menuToggler">
             <div></div>
             <div></div>
             <div></div>
-        </div>
+        </button>
         {% include main_menu.md id="menu" %}
     </header>
     <main class="{{page.lang}}">
@@ -50,8 +50,13 @@
             </div>
         </section>
         {{content}}
-    </main> 
+    </main>
     <footer>
+        <div class="controls">
+            <button id="previousSlide" aria-label="previous slide">◄</button>
+            <span id="slideNumber"></span>
+            <button id="nextSlide" aria-label="next slide">►</button>
+        </div>
         <small>&copy; Dr Graeme Stuart</small>
     </footer>
     <script src="{{ "/assets/js/lecture.js" | relative_url }}"></script>

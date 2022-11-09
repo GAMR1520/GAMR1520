@@ -36,7 +36,7 @@ header > nav {
 #menuToggler {
     background-color: hsla(0, 0%, 30%, 0.75);
 }
-#menuToggler > div {
+#menuToggler > span {
     background-color: white;
 }
 
@@ -83,7 +83,7 @@ section.slide {
     overflow-y: auto;
     user-select: none;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
     section.slide {
         top: 1em;
         bottom: 1em;

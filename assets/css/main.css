@@ -24,7 +24,7 @@ body {
         font-size: 1.1em;
     }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
     body {
         font-size: 1.2em;
     }
@@ -92,7 +92,7 @@ header img.logo {
     border-radius: 5px;
     box-sizing: content-box;
 }
-#menuToggler > div {
+#menuToggler > span {
     width: 100%;
     height: 20%;
     border-radius: 15%;
@@ -196,11 +196,16 @@ table {
     border: 1px solid black;
     border-collapse: collapse;
 }
-td {
-    border: 1px solid black;
-}
 th, td {
+    border: 1px solid black;
 	padding: 5px 10px;
+}
+td {
+    background-color: hsla(0, 50%, 80%);
+}
+th {
+    background-color: hsla(0, 50%, 60%);
+    color: white;
 }
 
 /* pre and code */

@@ -43,13 +43,25 @@
     </header>
     <main class="{{page.lang}}">
         <section class="slide home">
-            <div>
+            <section>
                 <h2>GAMR1520</h2>
                 <h3>Markup languages and scripting</h3>
                 <h4>{{page.title}}</h4>
-            </div>
+            </section>
+            <p>
+                <strong>Dr Graeme Stuart</strong><br>
+            </p>
         </section>
         {{content}}
+        <section class="slide home">
+            <div>
+                <h3>Thanks for listening</h3>
+                <h4>Any questions?</h4>
+            </div>
+            <p>
+                <strong>Dr Graeme Stuart</strong><br>
+            </p>
+        </section>
     </main>
     <footer>
         <div class="controls">

@@ -55,6 +55,8 @@
         <div class="controls">
             <button id="previousSlide" aria-label="previous slide">◄</button>
             <span id="slideNumber"></span>
+            of
+            <span id="slideCount"></span>
             <button id="nextSlide" aria-label="next slide">►</button>
         </div>
         <small>&copy; Dr Graeme Stuart</small>

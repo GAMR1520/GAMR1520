@@ -223,7 +223,7 @@ code:not(.hljs) {
 
 pre > code.language-plaintext {
     color: hsl(var(--output-context-hue), 60%, 85%);
-    background-color: hsl(var(--output-context-hue), 60%, 15%);
+    background-color: hsl(var(--output-context-hue), 0%, 15%);
 }
 
 pre > code.hljs {

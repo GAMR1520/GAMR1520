@@ -1,5 +1,5 @@
 let queryParams = new URLSearchParams(window.location.search);
-let currentSlide = queryParams.has('slide') ? queryParams.get('slide') : 0;
+let currentSlide = queryParams.has('slide') ? parseInt(queryParams.get('slide')) - 1 : 0;
 
 async function convertSlides() {
     while(document.querySelector('hr:last-of-type')) {
@@ -11,6 +11,7 @@ async function convertSlides() {
         slide.append(...content);
         rule.remove();
     }
+    document.querySelector('#slideCount').textContent = document.querySelectorAll('.slide').length;
 }
 
 function showSlide(direction='right') {
@@ -30,31 +31,39 @@ function showSlide(direction='right') {
     slides[currentSlide].classList.add('current');
     slides[currentSlide].classList.remove('previous');
     slides[currentSlide].classList.add(direction);
-	queryParams.set('slide', currentSlide);
+    document.querySelector('#slideNumber').textContent = (currentSlide + 1).toString().padStart(2, '0');
+	queryParams.set('slide', currentSlide + 1);
 	window.history.replaceState({}, "", `${window.location.origin}${window.location.pathname}?${queryParams.toString()}`);
 }
 
-function nextSlide(direction) {
+function nextSlide() {
     currentSlide++;
     currentSlide %= slides.length;
-    showSlide(direction);
+    showSlide('right');
 }
-function previousSlide(direction) {
+function previousSlide() {
     currentSlide--;
     currentSlide += slides.length;
     currentSlide %= slides.length;
-    showSlide(direction);
+    showSlide('left');
 }
 
 document.addEventListener('keydown', ev => {
     switch(ev.key) {
         case "ArrowLeft":
-            previousSlide('left');
+            previousSlide();
             break;
         case "ArrowRight":
-            nextSlide('right');
+            nextSlide();
             break;
         }
+});
+
+document.querySelector("#previousSlide").addEventListener('click', ev => {
+    previousSlide();
+});
+document.querySelector("#nextSlide").addEventListener('click', ev => {
+    nextSlide();
 });
 
 let touchX;
@@ -65,10 +74,10 @@ document.addEventListener('touchmove', ev => {
 	if(touchX) {
 		let moveX = touchX - ev.touches[0].clientX;
 		if (moveX < -50) {
-			previousSlide('left');
+			previousSlide();
 			touchX = null;
 		}	else if (moveX > 50) {
-			nextSlide('right');
+			nextSlide();
 			touchX = null;
 		}
 	}

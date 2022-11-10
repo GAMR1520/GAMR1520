@@ -104,8 +104,8 @@ header > nav {
     top: 0;
     right: 0;
     height: 100vh;
-    background-color: hsla(var(--link-hue), 10%, 95%, 0.9);
-    border-left: solid 2px hsl(var(--link-hue), 50%, 30%);
+    background-color: hsla(var(--link-hue), 5%, 95%, 0.9);
+    border-left: solid 2px hsl(var(--link-hue), 5%, 30%);
     display: flex;
     flex-direction: column;
     padding: 2em 1em;
@@ -145,8 +145,6 @@ body > p > img {
     max-height: 150px;
     object-fit: contain;
 }
-
-
 
 a {
     text-decoration: none;
@@ -240,7 +238,8 @@ pre > code.hljs:before {
     z-index: 3;
     background-repeat: no-repeat;
     background-size: 10em;
-    background-position: center right 1em;
+    background-position: center right -5em;
+    /* background-attachment: fixed; */
     opacity: 0.05;
 }
 

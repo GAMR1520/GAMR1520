@@ -30,8 +30,8 @@ a:visited {
 }
 
 header > nav {
-    background-color: hsla(var(--link-hue), 10%, 15%, 0.9);
-    border-left: solid 2px hsl(var(--link-hue), 50%, 30%);
+    background-color: hsla(var(--link-hue), 5%, 15%, 0.9);
+    border-left: solid 2px hsl(var(--link-hue), 5%, 30%);
 }
 #menuToggler {
     background-color: hsla(0, 0%, 30%, 0.75);
@@ -129,6 +129,11 @@ section.slide.previous.right {
 section.slide.home {
     display: grid;
     place-items: center;
+    grid-template-rows: 6fr 1fr;
+}
+
+section.slide.home p strong {
+    font-size: 1.4em;
 }
 
 section.slide.home h2,

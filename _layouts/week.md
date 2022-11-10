@@ -1,5 +1,5 @@
 ---
-layout: with_main_menu
+layout: index
 ---
 
 {% if page.lang == "python" %}
@@ -11,42 +11,45 @@ layout: with_main_menu
 {% endif %}
 
 <section>
-<h2> Week {{page.week}}: {{page.title}}</h2>
-<small>
-Back to <a href="{{"/" | relative_url }}">home</a>
-</small>
-
-{{ content }}
-
+    <h2> Week {{page.week}}: {{page.title}}</h2>
+    <small>
+        Back to <a href="{{"/" | relative_url }}">home</a>
+    </small>
+    {{ content }}
 </section>
-
-{% assign lectures = site.lectures | where:"week", page.week | sort: "lecture" %}
-
-{% for lec in lectures %}
 
 <section>
-
-<h3><a href="{{lec.url | relative_url }}">Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}</a></h3>
-
-<p>{{lec.description}}</p>
-
+    <h2>Lectures</h2>
+    {% assign lectures = site.lectures | where:"week", page.week | sort: "lecture" %}
+    {% for lec in lectures %}
+    <article>
+        <h3>
+            <a href="{{lec.url | relative_url }}">
+                Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}
+            </a>
+        </h3>
+        <p>{{lec.description}}</p>
+    </article>
+    {% endfor %}
 </section>
-
-{% endfor %}
-
-
-
-{% assign exercises = site.exercises | where:"week", page.week | sort: "lab" %}
-
-{% for ex in exercises %}
 
 <section>
-
-<h3><a href="{{ex.url | relative_url }}">Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}</a></h3>
-
-<p>{{ex.description}}</p>
-
+    <h2>Lab exercises</h2>
+    {% assign exercises = site.exercises | where:"week", page.week | sort: "lab" %}
+    {% for ex in exercises %}
+    <article>
+        <h3><a href="{{ex.url | relative_url }}">Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}</a></h3>
+        <p>{{ex.description}}</p>
+    </article>
+    {% endfor %}
 </section>
 
-{% endfor %}
-
+<section>
+    <h2>Other resources</h2>
+    {% assign references = site.python | where:"week", page.week %}
+    <ul>
+    {% for ref in references %}
+        <li><a href="{{ref.url | relative_url }}">{{ref.title}}</a></li>
+    {% endfor %}
+    </ul>
+</section>

@@ -1,5 +1,4 @@
 ---
-layout: python_lab
 title: Python string formatting
 week: 1
 ---

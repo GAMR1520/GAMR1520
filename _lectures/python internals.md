@@ -8,6 +8,32 @@ description: Python code is simple because python does  lot of the work for us. 
 
 ---
 
+## Reminder
+
+Even the simplest value in python is a complex object.
+If we create an integer, we are instantiating an object of type `int`.
+This gives us access to a lot of *magic*.
+
+```python
+a = 1
+```
+
+<figure>
+    <table>
+        <tr><th colspan="2">pyObject</th></tr><tr><th>id</th><td>0x7fa8655e00f0</td></tr>
+        <tr><th>type</th><td>&lt;class &#x27;int&#x27;&gt;</td></tr>
+        <tr><th>value</th><td>1</td></tr>
+        <tr class="highlight"><th>refs</th><td>1</td></tr>
+    </table>
+    <figcaption>A pyObject</figcaption>
+</figure>
+
+The memory allocated to our objects is managed for us by the python interpreter.
+Objects will be cleared from memory once they are no longer accessible to our programme.
+This is achieved by *counting references*.
+
+---
+
 ## Reference counting
 
 ```python

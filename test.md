@@ -1,6 +1,11 @@
 ---
-layout: index
+layout: everything
 title: Test
+css: [/assets/css/markdown.css]
+js: [/assets/js/menu.js]
+---
+
+
 ---
 
 ### This is a test page

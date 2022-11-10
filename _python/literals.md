@@ -1,5 +1,4 @@
 ---
-layout: python_lab
 week: 1
 title: Python literals
 ---

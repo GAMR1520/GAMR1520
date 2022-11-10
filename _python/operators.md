@@ -1,5 +1,4 @@
 ---
-layout: python_lab
 title: Python operators
 week: 1
 ---

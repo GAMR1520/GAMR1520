@@ -28,3 +28,14 @@ defaults:
       type: "lectures"
     values:
       layout: "lecture"
+  - scope:
+      path: ""
+      type: "exercises"
+    values:
+      layout: "exercise"
+  - scope:
+      path: ""
+      type: "python"
+    values:
+      lang: "python"
+      layout: "reference"

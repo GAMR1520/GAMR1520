@@ -46,7 +46,7 @@ layout: index
 
 <section>
     <h2>Other resources</h2>
-    {% assign references = site.python | where:"week", page.week %}
+    {% assign references = site.references | where:"week", page.week %}
     <ul>
     {% for ref in references %}
         <li><a href="{{ref.url | relative_url }}">{{ref.title}}</a></li>

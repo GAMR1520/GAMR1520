@@ -1,6 +1,7 @@
 ---
 title: Python string formatting
 week: 1
+lang: python
 ---
 
 Consider this simple programme.

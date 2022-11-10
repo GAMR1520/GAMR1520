@@ -1,6 +1,7 @@
 ---
 week: 1
 title: Python literals
+lang: python
 ---
 
 *Literals* are constant values of built-in types.

@@ -1,6 +1,7 @@
 ---
 title: Python operators
 week: 1
+lang: python
 ---
 
 Operators are used to perform operations on data.

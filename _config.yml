@@ -8,7 +8,7 @@ collections:
     output: false
   weeks:
     output: true
-  python:
+  references:
     output: true
   exercises:
     output: true
@@ -35,7 +35,6 @@ defaults:
       layout: "exercise"
   - scope:
       path: ""
-      type: "python"
+      type: "references"
     values:
-      lang: "python"
       layout: "reference"

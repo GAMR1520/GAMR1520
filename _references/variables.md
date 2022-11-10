@@ -1,6 +1,7 @@
 ---
 title: Variables and assignment
 week: 1
+lang: python
 ---
 
 <div class="toc"></div>

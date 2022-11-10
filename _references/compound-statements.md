@@ -1,6 +1,7 @@
 ---
 week: 1
 title: Compound statements
+lang: python
 ---
 
 Essentially, compound statements define blocks of code that should be executed in particular ways or under certain circumstances.

@@ -6,6 +6,8 @@ title: Python internals
 description: Python code is simple because python does  lot of the work for us. This lecture delves into the details, looking at what is actually happening under the hood when we write simple programmes.
 ---
 
+---
+
 ## Reference counting
 
 ```python

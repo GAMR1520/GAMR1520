@@ -76,8 +76,9 @@ Some computer languages (such as C and Rust) are **compiled** into a format suit
     flowchart LR;
         subgraph compiled ["Compiled languages (e.g. C, Rust)"]
             source["Source code"]-->compiler[Compiler]
+            compiler[Compiler]-->assembler["Assembler"]
         end
-        compiler[Compiler]-->machinecode["Machine code"]
+        assembler-->machinecode["Machine code"]
         input[Input]-->machinecode
         machinecode-->output[Output]
     </div>
@@ -86,6 +87,7 @@ Some computer languages (such as C and Rust) are **compiled** into a format suit
 This compilation step can produce very efficient code through careful analysis and optimisation. 
 However, it needs to be performed specifically for a given hardware architecture and typically requires the programmer to manage all the details of memory management.
 
+>Compilers are *bootstrapped* in another language and then *self-compiled*.
 >Assembly languages are said to be *assembled* rather than compiled.
 Each assembly language is typically restricted to one processor architecture.
 
@@ -216,12 +218,13 @@ b = "two";
 
 In dynamically typed languages, types are associated with values, not variables.
 All data in python are represented internally as `pyObjects`.
+The following code creates a pyObject of type `<int>` with the value `1`.
 
 ```python
 a = 1
 ```
 
-The above code creates a pyObject of type `<int>` with the value `1`.
+In python, variables are simply names, pointing to these complex objects.
 
 <figure>
     <table>
@@ -233,7 +236,10 @@ The above code creates a pyObject of type `<int>` with the value `1`.
     <figcaption>A pyObject</figcaption>
 </figure>
 
-In python, variables are simply names, pointing to these complex objects.
+
+>The size of the integer `1` in memory is *28 bytes*.
+The size of the type `<class 'int'>` is *408 bytes*.
+Both are pyObjects.
 
 ---
 
@@ -331,7 +337,7 @@ Simple operations are easy.
 'hello world'.split()
 'hello world'.split('o')
 ```
-```plaintext
+```python
 'HELLO WORLD'
 'Hello world'
 'Hello World'

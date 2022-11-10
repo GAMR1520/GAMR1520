@@ -6,6 +6,7 @@
     --note-hue: 30;
     --code-context-hue: 120;
     --output-context-hue: 260;
+    --highlight-hue: 100;
 }
 
 
@@ -206,7 +207,10 @@ th {
     background-color: hsla(0, 50%, 60%);
     color: white;
 }
-
+tr.highlight {
+    outline: 5px solid hsl(var(--highlight-hue), 80%, 30%);
+    border-radius: 5px;
+}
 /* pre and code */
 
 code {

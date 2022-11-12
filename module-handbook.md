@@ -1,6 +1,7 @@
 ---
 layout: index
 title: Module handbook
+menu: Module handbook
 ---
 
 ### Markup languages and scripting

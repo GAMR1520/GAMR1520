@@ -1,5 +1,6 @@
 ---
 layout: index
+menu: Home
 title: Welcome to GAMR1520!
 ---
 

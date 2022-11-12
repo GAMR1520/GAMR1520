@@ -6,11 +6,11 @@ title: Welcome to GAMR1520!
 description: The first lecture introduces the module and covers some basic programming concepts including dynamically typed variables.
 ---
 
-
 ---
 ## Python as a dynamically typed language
 
-<!-- ![python logo]({{"assets/img/python-logo.svg" | relative_url}}) -->
+>**TLDR;**
+>In dynamically typed languages **type information is associated with the data**, not the variable.
 
 Python has dynamically-typed variables.
 In practice, this means that variables can be changed fom one type to another.
@@ -22,11 +22,10 @@ a = 'two'
 
 This lecture provides a sketch of what is happening in this simple programme.
 
->**TLDR;**
+
 >There is a *lot* going on under the hood with python, even with this simple programme.
 >By relinquishing some control to python, your code can be simple and expressive.
 
->In dynamically typed languages **type information is associated with the data**, not the variable.
 
 ---
 
@@ -255,7 +254,7 @@ id(a)
 ```
 
 >In the CPython implementation, the id is a memory location.
->We can express it as a hexadecimal using an [f-string]({{"python/f-strings" | relative_url}}).
+>We can express it as a hexadecimal using an [f-string]({{"references/f-strings" | relative_url}}).
 >```python
 >f'{id(a):#x}'
 >```

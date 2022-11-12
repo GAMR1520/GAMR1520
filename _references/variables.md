@@ -12,7 +12,7 @@ lang: python
     - [Assigning to expressions](#assigning-to-expressions)
 
 
-In the [operators](python/operators) examples we used literal values such as `True`, `'hello'`, `120` and `1.0`.
+In the [operators]({{"references/operators" | relative_url}}) examples we used literal values such as `True`, `'hello'`, `120` and `1.0`.
 When these literal values are interpreted, the data they represent are stored in memory.
 In our very simple, one-line programmes we combined literals with operators and the calculations were also applied in memory before the result was displayed by the interactive interpreter.
 

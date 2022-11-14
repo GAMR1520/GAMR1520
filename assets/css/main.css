@@ -254,6 +254,9 @@ pre > code.language-python:before {
 pre > code.language-javascript:before {
     background-image: url(../img/js-logo.svg);
 }
+pre > code.language-json:before {
+    background-image: url(https://www.json.org/img/json160.gif);
+}
 
 pre {
 	border-radius: 3px;

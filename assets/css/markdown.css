@@ -150,8 +150,8 @@ pre > code.language-plaintext::after {
 
 blockquote.challenge::after {
     content: "if you have questions, ask them";
-    color: hsla(0, 0%, 0%, 0.85);
-    background-color: transparent;
+    color: hsl(var(--challenge-hue), 50%, 85%);
+    background-color: hsl(var(--challenge-hue), 50%, 40%);
 }
 
 blockquote.challenge {

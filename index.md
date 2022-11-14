@@ -23,15 +23,20 @@ Please read each page at least once and use your judgement as to whether you nee
 
 {{ week.content | markdownify }}
 
+
 {% for lec in lectures %}
 ### [Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}]({{lec.url | relative_url }})
 {{lec.description}}
+{% else %}
+Lectures coming soon
 {% endfor %}
 
 
 {% for ex in exercises %}
 ### [Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}]({{ex.url | relative_url }})
 {{ex.description}}
+{% else %}
+Lab exercises coming soon
 {% endfor %}
 
 

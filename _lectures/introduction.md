@@ -3,10 +3,97 @@ week: 1
 lecture: 1
 lang: python
 title: Welcome to GAMR1520!
-description: The first lecture introduces the module and covers some basic programming concepts including dynamically typed variables.
+description: The first lecture introduces the module and covers some basic programming concepts including dynamically typed variables in python.
 ---
 
 ---
+
+## Python and Javascript
+
+In this module we will learn the basics of two *dynamically typed languages*.
+
+<div class="hero">
+    <em class="python">Python</em>
+    <img src="{{"assets/img/python-logo-only.svg" | relative_url }}" alt="python logo">
+    <img src="{{"assets/img/js-logo.svg" | relative_url }}" alt="javascript logo">
+    <span>and</span>
+    <em class="javascript">Javascript</em>
+</div>
+
+---
+
+## Origins
+
+Python was initially designed by *Guido van Rossum* with emphasis on code readability, its syntax allows programmers to express concepts in fewer lines of code.
+
+<figure class="row short">
+    <img src="{{"assets/img/Guido.jpg" | relative_url }}" alt="A young Guido">
+    <img src="{{"assets/img/Guido-2014.jpg" | relative_url }}" alt="Guido in 2014">
+</figure>
+
+>**Readability counts**
+>"A programming language is more than how you tell a computer what to do. It is how programmers express and communicate ideas. The audience for your code is other programmers, not computers."
+*Guido van Rossum*
+
+---
+
+## Development
+
+The first official release was in 1991.
+By 2001, ten years later, [the Python Software Foundation](https://www.python.org/psf-landing/) was launched.
+
+Python has evolved over decades and been through some major changes in that time.
+In particular, the traumatic transition to *python3*.
+
+<figure class="auto-grid versions">
+    <div>
+        <strong>Python 0.9</strong>
+        <em>Feb 1991</em>
+    </div>
+    <div>
+        <strong>Python 1.0</strong>
+        <em>Jan 1994</em>
+    </div>
+    <div>
+        <strong>Python 2.0</strong>
+        <em>Oct 2000</em>
+    </div>
+    <div>
+        <strong>Python 2.7</strong>
+        <em>July 2010</em>
+    </div>
+    <div>
+        <strong>Python 3.0</strong>
+        <em>Dec 2008</em>
+    </div>
+    <div>
+        <strong>Python 3.7</strong>
+        <em>Jun 2016</em>
+    </div>
+    <div>
+        <strong>Python 3.8</strong>
+        <em>Oct 2019</em>
+    </div>
+    <div>
+        <strong>Python 3.9</strong>
+        <em>Oct 2020</em>
+    </div>
+    <div>
+        <strong>Python 3.10</strong>
+        <em>Oct 2021</em>
+    </div>
+    <div class="current">
+        <strong>Python 3.11</strong>
+        <em>Oct 2022</em>
+    </div>
+    <div class="future">
+        <strong>Python 3.12</strong>
+        <em>Oct 2023</em>
+    </div>
+</figure>
+
+---
+
 ## Python as a dynamically typed language
 
 >**TLDR;**
@@ -26,8 +113,8 @@ This lecture provides a sketch of what is happening in this simple programme.
 >There is a *lot* going on under the hood with python, even with this simple programme.
 >By relinquishing some control to python, your code can be simple and expressive.
 
-
 ---
+
 
 ## A simple model of computation
 
@@ -345,3 +432,14 @@ Simple operations are easy.
 ```
 
 >Strings are **immutable** so these methods never change the value of a string.
+
+---
+
+## Python comes with *batteries included*
+
+<figure>
+<img 
+    src="{{"assets/img/xkcd.png" | relative_url}}" 
+    alt="xkcd comic">
+
+</figure>

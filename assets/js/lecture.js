@@ -5,10 +5,12 @@ async function convertSlides() {
     while(document.querySelector('hr:last-of-type')) {
         const rule = document.querySelector('hr:last-of-type');
         const slide = document.createElement('section');
+        const wrapper = document.createElement('div');
         slide.classList.add('slide');
         const content = document.querySelectorAll('hr:last-of-type ~ *:not(section.slide)');
         rule.after(slide);
-        slide.append(...content);
+        wrapper.append(...content);
+        slide.append(wrapper);
         rule.remove();
     }
     document.querySelector('#slideCount').textContent = document.querySelectorAll('.slide').length;

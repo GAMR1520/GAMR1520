@@ -43,5 +43,8 @@ js: [assets/js/lecture.js, assets/js/menu.js]
         <span id="slideCount"></span>
         <button id="nextSlide" aria-label="next slide">►</button>
     </div>
+    <div class="fadeaway">
+        You can swipe left and right
+    </div>
     <small>&copy; Dr Graeme Stuart</small>
 </footer>

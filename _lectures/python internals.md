@@ -97,8 +97,8 @@ a = "world"
 </figure>
 
 A new pyObject is created at location `0x7f3b40d83f70` containing the string `'world'`.
-The variable `b` points to the new object.
-The variable `a` still points to the original object.
+The variable `a` points to the new object.
+The variable `b` still points to the original object.
 
 ---
 
@@ -131,7 +131,6 @@ It will be identified by the garbage collector and the memory will be freed for 
 
 ---
 
----
 
 ## Reference counting *implementation detail*
 
@@ -141,9 +140,8 @@ Simple objects like Boolean values and smaller integers are automatically reused
 id(100)
 id(100)
 ```
-These two statements, evaluated independently would be expected to generate different identifiers.
-The first statement should create a value in memory, return it's location, and immediately set the reference count to zero.
-The second statement is expected to do the same.
+These would be expected to generate different identifiers.
+Each statement should create a value in memory, return it's location, and immediately set the reference count to zero.
 
 ```plaintext
 140397168938320
@@ -177,7 +175,7 @@ Data in memory are erased very quickly once no longer referenced.
 
 ---
 
-## Control
+## Control flow
 
 Another form of data stored in memory is the computer programme itself. 
 The low-level machine-code instructions, e.g. 
@@ -196,115 +194,46 @@ if False:
 The CPU manages the flow through the sequence of instructions by incrementing a counter.
 Some instructions can be used to change the counter value.
 
----
-
-
-> Even the Boolean values `True` and `False` are objects and require 28 bytes of memory in python!
->
->Luckily there is only ever one copy of `True` and one copy of `False` stored in memory when running a python programme.
->
->The `bool` class is 408 bytes.
-
----
-
-
-## Byte code
-
-```python
-def nothing():
-    pass
-```
-
-```plaintext
-OPCODE  OPNAME        ARG   ARGVAL
-100     LOAD_CONST    0     None
- 83     RETURN_VALUE  None  None
-```
-
----
-
-## More byte code
-
-```python
-def something():
-    return True
-```
-
-```plaintext
-OPCODE  OPNAME        ARG   ARGVAL
-100     LOAD_CONST    1     True
- 83     RETURN_VALUE  None  None
-```
-
-```python
-def something_else():
-    return 'hello'
-```
-
-```plaintext
-OPCODE  OPNAME        ARG   ARGVAL
-100     LOAD_CONST    1     True
- 83     RETURN_VALUE  None  None
-```
-
----
-
-## Byte code
-
-```python
-def this_thing(a):
-    return a
-```
-
-```plaintext
-OPCODE  OPNAME        ARG   ARGVAL
-124     LOAD_FAST     0     'a'
- 83     RETURN_VALUE  None  None
-```
-
-```python
-def these_things(a, b):
-    return (a, b)
-```
-
-```plaintext
-OPCODE  OPNAME        ARG   ARGVAL
-124     LOAD_FAST     0     'a'
-124     LOAD_FAST     1     'b'
-102     BUILD_TUPLE   2     2
- 83     RETURN_VALUE  None  None
-```
-
----
-
-
+Python byte code is similar.
 
 ---
 
 ## A function that does nothing
 
+Here's a function that does nothing.
+
 ```python
 def nothing():
     pass
 ```
 
+>the `pass` does nothing but syntactically it is necessary to avoid an `IndentationError`
+
+This is the resulting *byte code*.
+
 ```plaintext
-nothing
 OPCODE  OPNAME          ARG     ARGVAL
 100     LOAD_CONST      0       None
 83      RETURN_VALUE    None    None
 ```
 
+This loads `None` and returns it.
+Functions always return a value and they will return `None` by default.
+
 ---
 
-## Assigning a value to a variable
+## A function that assigns a value to a variable
+
+Here's something a bit more advanced (!).
 
 ```python
 def assign():
     a = 1
 ```
+
+...and the resulting *byte code*.
+
 ```plaintext
-assign
 OPCODE  OPNAME          ARG     ARGVAL
 100     LOAD_CONST      1       1
 125     STORE_FAST      0       a
@@ -312,37 +241,24 @@ OPCODE  OPNAME          ARG     ARGVAL
 83      RETURN_VALUE    None    None
 ```
 
----
-
-## Assigning twice
-
-```python
-def assign_twice():
-    a = 1
-    b = 1
-```
-```plaintext
-assign_twice
-OPCODE  OPNAME          ARG     ARGVAL
-100     LOAD_CONST      1       1
-125     STORE_FAST      0       a
-100     LOAD_CONST      1       1
-125     STORE_FAST      1       b
-100     LOAD_CONST      0       None
-83      RETURN_VALUE    None    None
-```
+It loads the constant (literal), `1` and stores it in variable `a`.
+It then loads `None` and returns it.
 
 ---
 
-## Returning something
+## Returning a value
+
+This function does a tiny bit more, it returns the value of `a`.
 
 ```python
 def assign_and_return():
     a = 1
     return a
 ```
+
+...and the resulting *byte code*.
+
 ```plaintext
-assign_and_return
 OPCODE  OPNAME          ARG     ARGVAL
 100     LOAD_CONST      1       1
 125     STORE_FAST      0       a
@@ -350,6 +266,125 @@ OPCODE  OPNAME          ARG     ARGVAL
 83      RETURN_VALUE    None    None
 ```
 
+We can see, the code does the same but it loads from `a` rather than loading `None`.
+
 ---
 
+## Taking an argument
 
+This function receives a single argument and returns it.
+
+```python
+def return_argument(a):
+    return a
+
+```
+
+...and the resulting *byte code*.
+
+
+```plaintext
+OPCODE  OPNAME          ARG     ARGVAL
+124     LOAD_FAST       0       a
+83      RETURN_VALUE    None    None
+```
+
+The variable `a` is already available.
+So it just loads it and returns it.
+
+---
+
+## Addition
+
+What happens when we add numbers?
+
+```python
+def return_argument_plus_one(a):
+    return a + 1
+
+```
+
+The *byte code* includes a new `BINARY_ADD` code.
+
+```plaintext
+OPCODE  OPNAME          ARG     ARGVAL
+124     LOAD_FAST       0       a
+100     LOAD_CONST      1       1
+23      BINARY_ADD      None    None
+83      RETURN_VALUE    None    None
+```
+
+We load the value `a`, load the constant `1`, add them (presumably add can only take two arguments) and return.
+
+---
+
+## Multiple arguments
+
+A similar example, with two arguments.
+
+```python
+def return_argument_product_minus_one(a, b):
+    return a * b - 1
+
+```
+
+The resultant *byte code* loads the arguments `a` and `b`, multiplies them, loads the constant `1`, subtracts it and returns the result.
+
+
+```plaintext
+OPCODE  OPNAME          ARG     ARGVAL
+124     LOAD_FAST       0       a
+124     LOAD_FAST       1       b
+20      BINARY_MULTIPLY None    None
+100     LOAD_CONST      1       1
+24      BINARY_SUBTRACT None    None
+83      RETURN_VALUE    None    None
+
+```
+---
+
+## Conditionals
+
+A simple `if` statement, returning either `a` or `b`.
+
+```python
+def conditional_result(a, b):
+    if a:
+        return a
+    else:
+        return b
+```
+
+The *byte code* loads `a` and then includes a `POP_JUMP_IF_FALSE` code which will *jump* to code `8` if the loaded value (i.e. `a`) is `False`.
+There are two paths to a return code.
+
+```plaintext
+        OPCODE  OPNAME                  ARG     ARGVAL
+0       124     LOAD_FAST               0       a
+2       114     POP_JUMP_IF_FALSE       4       8
+4       124     LOAD_FAST               0       a
+6       83      RETURN_VALUE            None    None
+8       124     LOAD_FAST               1       b
+10      83      RETURN_VALUE            None    None
+```
+
+---
+
+## Alternative implementation
+
+A neater implementation takes advantage of the `or` operator. 
+
+```python
+def conditional_result_alt(a, b):
+    return a or b
+```
+
+The *byte code* is clearly more efficient, using `JUMP_IF_TRUE_OR_POP`.
+
+```plaintext
+        OPCODE  OPNAME                  ARG     ARGVAL
+0       124     LOAD_FAST               0       a
+2       112     JUMP_IF_TRUE_OR_POP     3       6
+4       124     LOAD_FAST               1       b
+6       83      RETURN_VALUE            None    None
+```

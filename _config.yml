@@ -35,6 +35,11 @@ defaults:
       layout: "exercise"
   - scope:
       path: ""
+      type: "challenges"
+    values:
+      layout: "challenge"
+  - scope:
+      path: ""
       type: "references"
     values:
       layout: "reference"

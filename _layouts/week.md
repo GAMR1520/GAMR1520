@@ -11,7 +11,7 @@ layout: index
 {% endif %}
 
 <section>
-    <h2> Week {{page.week}}: {{page.title}}</h2>
+    <h2 class="{{page.lang}}"> Week {{page.week}}: {{page.title}}</h2>
     <small>
         Back to <a href="{{"/" | relative_url }}">home</a>
     </small>
@@ -19,7 +19,7 @@ layout: index
 </section>
 
 <section>
-    <h2>Lectures</h2>
+    <h2 class="{{page.lang}}">Lectures</h2>
     {% assign lectures = site.lectures | where:"week", page.week | sort: "lecture" %}
     {% for lec in lectures %}
     <article>
@@ -34,7 +34,7 @@ layout: index
 </section>
 
 <section>
-    <h2>Lab exercises</h2>
+    <h2 class="{{page.lang}}">Lab exercises</h2>
     {% assign exercises = site.exercises | where:"week", page.week | sort: "lab" %}
     {% for ex in exercises %}
     <article>
@@ -45,7 +45,7 @@ layout: index
 </section>
 
 <section>
-    <h2>Other resources</h2>
+    <h2 class="{{page.lang}}">Other resources</h2>
     {% assign references = site.references | where:"week", page.week %}
     <ul>
     {% for ref in references %}

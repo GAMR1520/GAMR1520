@@ -15,8 +15,17 @@ Please read each page at least once and use your judgement as to whether you nee
 
 {% for week in site.weeks %}
 
-
 ## [Week {{week.week}}: {{week.title}}]({{week.url | relative_url }})
+{: .{{week.lang}}}
+
+{% if week.status == "draft" %}
+<blockquote>
+    <p>
+        This is currently <strong>draft</strong> content, it may be incomplete or wrong.
+    </p>
+</blockquote>
+{% endif %}
+
 
 {% assign exercises = site.exercises | where:"week", week.week | sort: "lab" %}
 {% assign lectures = site.lectures | where:"week", week.week | sort: "lecture" %}
@@ -39,5 +48,5 @@ Lectures coming soon
 Lab exercises coming soon
 {% endfor %}
 
-
 {% endfor %}<!-- end of week -->
+

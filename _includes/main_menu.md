@@ -8,9 +8,9 @@
 {% endfor %}
 
 {% for week in site.weeks %}
-    <a href="{{week.url | relative_url }}"
-        {% if page.url == week.url %}class="current"{% endif %}
-    >Week {{week.week}}</a>
+    <a href="{{week.url | relative_url }}" {% if page.url == week.url %}class="current"{% endif %}>
+        Week {{week.week}}{% if week.status == "draft" %} (draft){% endif %}
+    </a>
 {% endfor %}
 </nav>
 

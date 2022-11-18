@@ -7,6 +7,7 @@ layout: index
 {% elsif page.lang == "js" %}
 {% include js_header.md %}
 {% endif %}
+
 <h2>{{page.title}}</h2>
 {% if page.week %}
 {% assign week = site.weeks | where:"week", page.week | first %}

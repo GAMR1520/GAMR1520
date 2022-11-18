@@ -54,18 +54,25 @@ h1, h2 {
 h2 {
     font-size: 1.4em;
     padding-block: 0.4em;
-    /* padding: 0.4em 1.25em; */
+    padding-right: 1.25em;
     border-bottom: 2px solid grey;
     page-break-before: always;
-    /* background-image: url("../img/python-logo-only.svg"), url("../img/js-logo.svg");
     background-size: 1em;
     background-repeat: no-repeat;
-    background-position: left bottom 0.3em, right bottom 0.3em; */
+    background-position: right center;
     letter-spacing: -1px;
 }
 h2:not(:nth-of-type(1)) {
-    padding-top: 10vh;
+    margin-top: 10vh;
 }
+
+h2.python {
+    background-image: url(../img/python-logo-only.svg);
+}
+h2.js {
+    background-image: url(../img/js-logo.svg);
+}
+
 h3 {
     padding-top: 5vh;
     font-size: 1.1em;
@@ -198,7 +205,7 @@ blockquote.challenge > pre {
 
 @media screen {    
     li {
-        margin: 0.25em 0;
+        margin-block: 0.4em;
     }    
 }
 

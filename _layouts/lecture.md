@@ -3,16 +3,6 @@ layout: default
 css: [assets/css/lecture.css]
 js: [assets/js/lecture.js, assets/js/menu.js]
 ---
-
-<header>
-    {% include main_title.md %}
-    <button id="menuToggler">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-    {% include main_menu.md id="menu" %}
-</header>
 <main class="{{page.lang}}">
     <section class="slide home">
         <section>

@@ -240,7 +240,24 @@ blockquote {
     padding: 0.1em 0.5ch;
 }
 
+/* generic sections */
 
+.auto-grid > section {
+    background-color: #bbb;
+}
+.auto-grid > section header {
+    background-color: #ddd;
+    color: #333;
+}
+.auto-grid > section > * {
+    padding-inline: 0.5em;
+}
+.auto-grid > section > p {
+    margin-block: 0.5em;
+}
+
+
+/* python versions */
 
 .auto-grid.versions {
     grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));

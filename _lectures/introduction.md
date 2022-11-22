@@ -22,7 +22,30 @@ In this module we will learn the basics of two *dynamically typed languages*.
 
 ---
 
-## Origins
+## Assessment
+
+The module will be assessed in three parts.
+
+1. ### A python phase test (20%)
+- Next Thursday / Friday (**8th / 9th December**).
+- Covering the basics we will learn in the next two weeks
+- Automatically marked within blackboard 
+
+1. ### A python coding assignment (40%)
+- Deadline **January 20th**
+- You will be provided with automated unit tests
+- 80% of the marks will be awarded for passing the tests
+- 20% of the marks for style/efficiency
+
+1. ### A Javascript coding assignment (40%)
+- Deadline **February 3rd**.
+- A more creative coding challenge
+- Create an animated HTML canvas
+- Marked on functionality and code quality/readability
+
+---
+
+## Python origins
 
 Python was initially designed by *Guido van Rossum* with emphasis on code readability, its syntax allows programmers to express concepts in fewer lines of code.
 
@@ -400,7 +423,7 @@ For now, we can ignore them.
 [a for a in dir('hello') if not a.startswith('__')]
 ```
 
-The above is a *list comprehension* which filters the list to only those without the double underscore. 
+The above is a [*list comprehension*]({{"references/list-comprehensions" | relative_url }}) which filters the list to only those without the double underscore. 
 This leaves the following methods:
 
 ```plaintext
@@ -435,6 +458,33 @@ Simple operations are easy.
 
 ---
 
+## import this
+
+```plaintext
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
+---
+
 ## Python comes with *batteries included*
 
 <figure>
@@ -443,3 +493,4 @@ Simple operations are easy.
     alt="xkcd comic">
 
 </figure>
+

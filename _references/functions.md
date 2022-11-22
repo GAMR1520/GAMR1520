@@ -9,11 +9,7 @@ Here we will introduce user-defined functions using the `def` keyword.
 
 > See also [the official python tutorial section on function definitions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions) for a nice introduction.
 
-## Table of contents
-{:.no_toc}
-
 {% include toc.md %}
-
 
 ## Calling functions with arguments
 
@@ -110,9 +106,23 @@ When we call our function, it will print our message.
 greet()
 ```
 
+Choosing good names is famously one of the hardest problems in programming. 
+
+> "There are only two hard things in Computer Science: cache invalidation and naming things."
+> [*Phil Karlton*](https://www.karlton.org/2017/12/naming-things-hard/)
+
+Function names will become embedded in our programmes.
+We are effectively creating our own extensions to the language.
+When we read our code it should be obvious what we are doing.
+
+Obviously we need to avoid clashes, i.e. don't name your function `print()` or `def()`.
+
+
+> In terms of code style, we should be using lower-case letters and can use underscores as necessary (following [PEP8](https://peps.python.org/pep-0008/#function-and-variable-names)).
+
 ### Arguments
 
-Defining arguments is easy, just put their names (like variables) in the brackets. 
+Defining arguments is easy, just put argument names (like variables) in the brackets. 
 
 ```python
 def greet(name):
@@ -125,15 +135,26 @@ Now we can call the function with an argument.
 greet('python')
 ```
 
+The function can take our argument and use it to generate the output.
+
+```plaintext
+hello python!
+```
+
 If we don't pass an argument, a TypeError is raised with a useful error message.
 
+```python
+greet()
 ```
+```plaintext
 TypeError: greet() missing 1 required positional argument: 'name'
 ```
 
 If we pass too many arguments, a different message is provided.
-
+```python
+greet('python', 3)
 ```
+```plaintext
 TypeError: greet() takes 1 positional argument but 2 were given
 ```
 
@@ -152,7 +173,10 @@ This allows for a more flexible function that can be used in more situations.
 greet('python')
 greet('keyword arguments', greeting='I understand')
 ```
-
+```plaintext
+hello python!
+I understand keyword arguments!
+```
 ### Return statements
 
 When we call the above function, it has a *side-effect* of printing to the console.
@@ -163,22 +187,27 @@ If we add `return` statements into a function, we can *return* a value for use b
 Return statements look like this.
 
 ```python
-return 'some value'
-return 1000000
-return
+def my_function():    
+    return 'some value'
 ```
 
-> return statements are only valid inside functions.
-> Without any return statements, functions return `None` by default when the code block completes.
+> `return` statements are only valid inside functions.
+You can add as many as you need but be careful because code after a `return` statement will not be reached.
 
 When a `return` statement is reached in a function, the code will exit the function back to the calling code and the function call will evaluate to whatever value was passed to the return statement.
 
-In the example above our function did not include a `return` statement. 
+In the `greet` function above, we did not include a `return` statement. 
+Without any `return` statements, functions return `None` by default when the code block completes.
+
 We can assign the function call to a variable.
 
 ```python
-result = greet('world')        # hello world!
-print(f'returned: {result}')   # returned: None
+result = greet('world')
+print(f'returned: {result}')
+```
+```plaintext
+hello world!
+returned: None
 ```
 
 As expected, the code prints `'returned: None'`.
@@ -194,7 +223,10 @@ Now, in our calling code, we can store the value returned by the function and do
 
 ```python
 message = greet('world')
-print(f'returned: {message}')  # returned: hello world!
+print(f'returned: {message}')
+```
+```plaintext
+returned: hello world!
 ```
 
 Functions are a powerful feature in any programming language.
@@ -255,6 +287,11 @@ This produces the following output:
 ## Argument unpacking
 
 We have covered the basics of functions in python but there is some additional useful syntax it's worth knowing about.
+
+> The following covers advanced techniques for developing intuitive and useful functions.
+Don't worry if this is confusing.
+You can skip it if this is the first time you are working with functions.
+You can come back to this page when you have some more experience of writing code and hopefully it will make more sense.
 
 In particular we can `pack` and `unpack` arguments.
 In normal code, outside of functions, you might see this kind of thing:
@@ -325,8 +362,8 @@ hello functions
 hello arguments
 ```
 
-So no matter how many positional arguments are provided, they will be merged into a single tuple.
-Since they are positional arguments and the tuple is a sequence, we can access values at a given index or simply loop over them all as we do above.
+So no matter how many positional arguments are provided, they will be merged into a single tuple which will preserve the order in which the arguments were provided.
+Our function can access the third argument using `names[2]`, but this may raise an `indexError` since there is no guarantee that the calling code provided three arguments.
 
 We can see the tuple in the following example:
 
@@ -369,7 +406,7 @@ print('hello world'.center(args))
 This generates an error because the first argument should be an integer, but we passed a tuple.
 
 We can in fact pass any iterable value in this way.
-Going back to the `greet()` function we defined earlier.
+Going back to the `greet()` and `print_argument_details()` functions we defined earlier.
 
 
 ```python
@@ -388,6 +425,8 @@ hello o!
 <class 'tuple'> ('h', 'e', 'l', 'l', 'o')
 ```
 
+### Keyword argument packing
+
 The `**` operator works in a similar fashion to convert between keyword arguments and dictionaries.
 We can construct a similar set of examples as follows.
 
@@ -402,6 +441,12 @@ def print_kwargument_details(**kwargs):
 greet2(python="amazing", mind="blown")
 print_kwargument_details(python="amazing", mind="blown")
 ```
+```plaintext
+python is amazing!
+mind is blown!
+<class 'dict'> {'python': 'amazing', 'mind': 'blown'}
+```
+
 
 This can be useful when passing unknown optional arguments through a function to another function.
 
@@ -422,5 +467,13 @@ simple(d='new value')
 simple(e='new value')
 simple(f='new value')
 simple(d='new value', e='new value', f='new value')
+```
+
+```plaintext
+0 0 0 default default default
+0 0 0 new value default default
+0 0 0 default new value default
+0 0 0 default default new value
+0 0 0 new value new value new value
 ```
 

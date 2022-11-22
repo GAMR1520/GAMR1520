@@ -1,22 +1,26 @@
-fname = "shopping.txt"
+from pathlib import Path
+
+path = Path("./shopping.txt")
 
 # read data from file
-with open(fname, "r") as f:
-    my_list = f.read().splitlines()
+with path.open("r") as f:
+    shopping = f.read().splitlines()
 
+width = 20
+hline = '=' * width
 while True:
-    print('=' * 20)
-    print('shopping list'.center(20))
-    print('-' * 20)
-    for item in my_list or ("EMPTY LIST".center(20),):
-        print(item)
-    print('=' * 20)
+    print(hline)
+    print('shopping list'.center(width))
+    print(hline)
+    for item in shopping:
+        print(item.center(width))
+    print(hline)
     keep_going = input("add an item to the list? [y/n]")
     if not keep_going.lower().startswith('y'):
         break
-    my_list += (input("New item: "),)
+    shopping += (input("New item: "),)
 
 # write data back to file
-with open(fname, "w") as f:
-    for line in my_list:
-        f.write(f"line\n")
+with path.open("w") as f:
+    for line in shopping:
+        f.write(f"{line}\n")

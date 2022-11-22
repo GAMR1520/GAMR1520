@@ -5,6 +5,7 @@ lang: python
 ---
 
 Essentially, compound statements define blocks of code that should be executed in particular ways or under certain circumstances.
+They are used for conditional statements, loops, function and class definitions, context managers and error handling.
 
 Compound statements are made up of `clauses`.
 Clauses have a `header` and an indented code block.
@@ -24,6 +25,8 @@ We are just showing the structure of a compound statement.
 If you run this code, it will raise a NameError because the variables have not been defined.
 
 The details are different with different compound statements, but clause headers will always begin with a keyword (`if` in this case) and will end in a colon (`:`).
+
+## Indentation
 
 The code block following the header consists of one or more indented statements and must end with a *dedent*, when the code returns to the original indentation level, this indicates the end of the code block.
 
@@ -63,3 +66,18 @@ The difference between the two examples is the indentation level of the last lin
 > Try them both after changing the first line to `a = 0`.
 
 > For more information, check out the python documentation on [compound statements](https://docs.python.org/3/reference/compound_stmts.html).
+
+## Compound statements and interactive interpreters
+
+Compound statements can be entered into interactive interpreters such as the IDLE shell, but its a bit tricky and annoying.
+
+After entering the `if` clause (don't forget the colon), press enter and the prompt should automatically indent.
+Continue typing the code block, line by line, pressing enter at the end of each line.
+Once finished, press enter again to indicate the code block is complete.
+
+<figure>
+    <img src="{{"assets/img/conditional.png" | relative_url}}" alt="compound statements in IDLE">
+    <figcaption>Compound statements in the IDLE shell</figcaption>
+</figure>
+
+Its often easier to write small code snippets into files and add `print()` statements to see what's going on.

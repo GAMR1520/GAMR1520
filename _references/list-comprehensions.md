@@ -53,10 +53,14 @@ print(result)
 The above code defines a function to do a simple calculation.
 We then assign `result` to a list comprehension which iterates over `range(10)` applying the calculation to each value and returns a list containing all the results.
 
+> The function could be very complicated, calling other code and doing much more manipulation.
+> The key with list comprehensions is that they are a nice way to aggregate results into a list.
+> They convert one list (or any iterable) into another list. 
+
 ### Filtering
 
 Try adding a modified `if` clause to the end of the comprehension.
-This can be used to simply filter an iterable.
+This can be used to filter an iterable, ignoring values that don't meet the specified criteria.
 
 ```python
 [i for i in range(10) if i > 2]
@@ -82,6 +86,29 @@ But we can also return the input whilst filtering on the converted data.
 ```plaintext
 [4, 5, 6, 7, 8]
 ```
+
+Indeed, we can output whatever we want.
+For example, we can produce a tuple of values for each filtered input.
+
+```python
+[(i, i**2) for i in range(10) if do_something_complex(i) == 7]
+```
+```plaintext
+[(4, 16), (5, 25), (6, 36), (7, 49), (8, 64)]
+```
+
+If you ever need a list in which each element is calculated in some way, a list comprehension is usually the right thing to do.
+
+```python
+[list(range(1, i+2)) for i in range(3)]
+[tuple(word) for word in "hello world".split()]
+```
+
+If you find yourself declaring an empty list and appending items to it within a loop, then you should consider whether a list comprehension would make your code neater and clearer.
+
+> Sometimes complex list comprehension code can become very long and difficult to read.
+> In these cases, you may want to extract a function or perhaps fall back to a simple loop.
+> In the end, readability is what counts.
 
 ## Dictionary comprehensions
 

@@ -7,8 +7,12 @@
     --code-context-hue: 120;
     --output-context-hue: 260;
     --highlight-hue: 100;
+    --fa-primary-color: #333;
 }
 
+i::before {
+    color: var(--fa-primary-color);
+}
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -131,6 +135,7 @@ footer {
     padding-block: 4em 2em;
     background-color: hsl(var(--footer-hue), 50%, 30%);
     color: hsl(var(--footer-hue), 50%, 95%);
+    --fa-primary-color: hsl(var(--footer-hue), 50%, 95%);
 }
 
 img {
@@ -152,15 +157,18 @@ a {
     text-decoration: none;
     text-underline-offset: 3px;
     color: hsl(var(--link-hue), 100%, 30%);
+    --fa-primary-color: hsl(var(--link-hue), 100%, 30%);
 }
 a:visited {
     color: hsl(var(--link-hue), 50%, 30%);
+    --fa-primary-color: hsl(var(--link-hue), 50%, 30%);
 }
 a:hover, p > a {
 	text-decoration: underline;
 }
 a.current {
     color: hsl(var(--current-link-hue), 100%, 30%);
+    --fa-primary-color: hsl(var(--current-link-hue), 100%, 30%);
 }
 
 
@@ -227,6 +235,10 @@ code:not(.hljs) {
     color: hsl(var(--note-hue), 100%, 40%);
 }
 
+pre.small-code {
+    font-size: 0.8em;
+    margin: 0.1em;
+}
 
 pre > code.language-plaintext {
     color: hsl(var(--output-context-hue), 60%, 85%);

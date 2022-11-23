@@ -9,6 +9,7 @@ js: [assets/js/menu.js]
 <footer>
     {% include main_menu.md %}
     <aside>
+        <i class="fa-solid fa-message"></i>
         If you find any mistakes in these materials or have any suggestions then please report them to the module leader.
     </aside>
     <small>&copy; Dr Graeme Stuart</small>

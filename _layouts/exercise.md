@@ -16,7 +16,8 @@ layout: index
 </blockquote>
 {% endif %}
 
-<h2>Lab {{page.week}}.{{page.lab}}: {{page.title}}</h2>
+<h2 class="{{page.lang}}">Lab {{page.week}}.{{page.lab}}: {{page.title}}</h2>
+
 
 <small>
     Part of 

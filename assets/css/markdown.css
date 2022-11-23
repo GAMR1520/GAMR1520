@@ -172,6 +172,8 @@ blockquote.challenge > header {
     font-size: 1.4em;
     font-weight: bold;
     color: white;
+    --fa-primary-color: white;
+
 }
 blockquote.challenge > header > h4 {
     margin-block: 0;

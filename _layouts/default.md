@@ -19,6 +19,9 @@
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"
 >
+<link href={{"/assets/fontawesome-free-6.2.1-web/css/fontawesome.min.css" | relative_url }} rel="stylesheet">
+<link href={{"/assets/fontawesome-free-6.2.1-web/css/solid.min.css" | relative_url }} rel="stylesheet">
+
 {% for item in layout.css %}
 <link rel="stylesheet" href="{{ item | relative_url }}" type="text/css">
 {% endfor %}

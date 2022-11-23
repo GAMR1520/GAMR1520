@@ -15,10 +15,10 @@ Please read each page at least once and use your judgement as to whether you nee
 
 {% for week in site.weeks %}
 
-## [Week {{week.week}}: {{week.title}}]({{week.url | relative_url }})
-{: .{{week.lang}}}
 
 {% if week.status == "draft" %}
+{% break %}
+
 <blockquote>
     <p>
         This is currently <strong>draft</strong> content, it may be incomplete or wrong.
@@ -26,27 +26,17 @@ Please read each page at least once and use your judgement as to whether you nee
 </blockquote>
 {% endif %}
 
-
-{% assign exercises = site.exercises | where:"week", week.week | sort: "lab" %}
-{% assign lectures = site.lectures | where:"week", week.week | sort: "lecture" %}
-
+## [Week {{week.week}}: {{week.title}}]({{week.url | relative_url }})
+{: .{{week.lang}}}
 {{ week.content | markdownify }}
-
-
+### Lectures
+{% assign lectures = site.lectures | where:"week", week.week | sort: "lecture" %}
 {% for lec in lectures %}
-### [Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}]({{lec.url | relative_url }})
-{{lec.description}}
-{% else %}
-Lectures coming soon
-{% endfor %}
+ - [Lecture {{lec.week}}.{{lec.lecture}}: {{lec.title}}]({{lec.url | relative_url }}){% endfor %}
 
-
+### Exercises
+{% assign exercises = site.exercises | where:"week", week.week | sort: "lab" %}
 {% for ex in exercises %}
-### [Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}]({{ex.url | relative_url }})
-{{ex.description}}
-{% else %}
-Lab exercises coming soon
-{% endfor %}
-
+ - [Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}]({{ex.url | relative_url }}){% endfor %}
 {% endfor %}<!-- end of week -->
 

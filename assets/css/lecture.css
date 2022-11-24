@@ -62,8 +62,22 @@ footer {
     place-items: center;
 }
 footer small {
+    display: none;
     position: absolute;
     right: 1em;
+}
+@media (min-width: 440px) {
+    footer small {
+        display: inline;
+        position: absolute;
+        right: 1em;
+    }
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
 }
 
 section.slide {
@@ -231,7 +245,7 @@ blockquote {
 
 .auto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
     gap: 0.1em;
     margin-block: 0.5em 0.25em;
 }

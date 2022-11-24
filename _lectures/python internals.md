@@ -46,7 +46,7 @@ a = "hello"
         a
     end
     subgraph One reference to pyObject
-        hello
+        hello["hello (1)"]
     end
     a -- 0x7f3b40df00f0 ---> hello
     </div>
@@ -62,7 +62,7 @@ b = a
         b
     end
     subgraph Two references to pyObject
-        hello
+        hello["hello (2)"]
     end
 
     a -- 0x7f3b40df00f0 ---> hello
@@ -88,8 +88,8 @@ a = "world"
         b
     end
     subgraph One reference each
-        hello
-        world
+        world["world (1)"]
+        hello["hello (1)"]
     end
     a -- 0x7f3b40d83f70 ---> world
     b -- 0x7f3b40df00f0 ---> hello
@@ -118,8 +118,8 @@ b = "world"
         b
     end
     subgraph 'hello' has no more references
-        hello
-        world
+        world["world (2)"]
+        hello["hello (0)"]
     end
     a -- 0x7f3b40d83f70 ---> world
     b -- 0x7f3b40d83f70 ---> world
@@ -175,26 +175,35 @@ Data in memory are erased very quickly once no longer referenced.
 
 ---
 
-## Control flow
+## Machine code and byte code
 
-Another form of data stored in memory is the computer programme itself. 
-The low-level machine-code instructions, e.g. 
-
->1. Read a value from memory
->1. Read another value from memory 
->1. Multiply two numbers
->1. Write the result back to memory
->1. Go back to step 2
-
-```python
-if False:
-    print("never printed")
-```
-
+Code is a form of data too.
+Once compiled, instructions can be reduced to machine code.
 The CPU manages the flow through the sequence of instructions by incrementing a counter.
 Some instructions can be used to change the counter value.
 
-Python byte code is similar.
+
+> In interpreted languages like python, the interpreter consumes byte code.
+Every python programme is compiled to bytecode, we will look at a few examples to get a sense of what is going on.
+
+```python
+def conditional_return(a):
+    if a:
+        return "some value"
+
+```
+{: .small-code}
+```plaintext
+ 	OPCODE	OPNAME        		ARG	ARGVAL
+0	124	LOAD_FAST           	0	a
+2	114	POP_JUMP_IF_FALSE   	4	8
+4	100	LOAD_CONST          	1	some value
+6	83	RETURN_VALUE        	None	None
+8	100	LOAD_CONST          	0	None
+10	83	RETURN_VALUE        	None	None
+```
+{: .small-code}
+
 
 ---
 
@@ -202,27 +211,49 @@ Python byte code is similar.
 
 Here's a function that does nothing.
 
+>the `pass` does nothing but syntactically it is necessary to avoid an `IndentationError`
+
+
 ```python
 def nothing():
     pass
+
 ```
-
->the `pass` does nothing but syntactically it is necessary to avoid an `IndentationError`
-
-This is the resulting *byte code*.
+...and the resulting *byte code*.
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-100     LOAD_CONST      0       None
-83      RETURN_VALUE    None    None
+       OPCODE OPERATION            ARGUMENT
+     0    100 LOAD_CONST           None
+     2     83 RETURN_VALUE         
 ```
+
 
 This loads `None` and returns it.
 Functions always return a value and they will return `None` by default.
 
 ---
 
-## A function that assigns a value to a variable
+## Returning a value
+
+Here we add a return statement.
+
+```python
+def return_something():
+    return "some value"
+```
+
+...and the resulting *byte code*.
+
+```plaintext
+       OPCODE OPERATION            ARGUMENT
+     0    100 LOAD_CONST           'some value'
+     2     83 RETURN_VALUE         
+```
+Simple, the bytecode loads our value (a literal, so its constant) and returns it.
+
+---
+
+## Assignment
 
 Here's something a bit more advanced (!).
 
@@ -234,11 +265,11 @@ def assign():
 ...and the resulting *byte code*.
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-100     LOAD_CONST      1       1
-125     STORE_FAST      0       a
-100     LOAD_CONST      0       None
-83      RETURN_VALUE    None    None
+       OPCODE OPERATION            ARGUMENT
+     0    100 LOAD_CONST           1
+     2    125 STORE_FAST           a
+     4    100 LOAD_CONST           None
+     6     83 RETURN_VALUE         
 ```
 
 It loads the constant (literal), `1` and stores it in variable `a`.
@@ -246,7 +277,7 @@ It then loads `None` and returns it.
 
 ---
 
-## Returning a value
+## Returning the value
 
 This function does a tiny bit more, it returns the value of `a`.
 
@@ -259,18 +290,18 @@ def assign_and_return():
 ...and the resulting *byte code*.
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-100     LOAD_CONST      1       1
-125     STORE_FAST      0       a
-124     LOAD_FAST       0       a
-83      RETURN_VALUE    None    None
+       OPCODE OPERATION            ARGUMENT
+     0    100 LOAD_CONST           1
+     2    125 STORE_FAST           a
+     4    124 LOAD_FAST            a
+     6     83 RETURN_VALUE         
 ```
 
 We can see, the code does the same but it loads from `a` rather than loading `None`.
 
 ---
 
-## Taking an argument
+## Returning an argument
 
 This function receives a single argument and returns it.
 
@@ -284,9 +315,9 @@ def return_argument(a):
 
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-124     LOAD_FAST       0       a
-83      RETURN_VALUE    None    None
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2     83 RETURN_VALUE         
 ```
 
 The variable `a` is already available.
@@ -298,6 +329,7 @@ So it just loads it and returns it.
 
 What happens when we add numbers?
 
+
 ```python
 def return_argument_plus_one(a):
     return a + 1
@@ -307,20 +339,22 @@ def return_argument_plus_one(a):
 The *byte code* includes a new `BINARY_ADD` code.
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-124     LOAD_FAST       0       a
-100     LOAD_CONST      1       1
-23      BINARY_ADD      None    None
-83      RETURN_VALUE    None    None
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2    100 LOAD_CONST           1
+     4     23 BINARY_ADD           
+     6     83 RETURN_VALUE         
 ```
 
-We load the value `a`, load the constant `1`, add them (presumably add can only take two arguments) and return.
+We load the value `a`, load the constant `1`, add them (presumably BINARY_ADD takes the two arguments) and return.
 
 ---
 
 ## Multiple arguments
 
 A similar example, with two arguments.
+
+
 
 ```python
 def return_argument_product_minus_one(a, b):
@@ -332,59 +366,128 @@ The resultant *byte code* loads the arguments `a` and `b`, multiplies them, load
 
 
 ```plaintext
-OPCODE  OPNAME          ARG     ARGVAL
-124     LOAD_FAST       0       a
-124     LOAD_FAST       1       b
-20      BINARY_MULTIPLY None    None
-100     LOAD_CONST      1       1
-24      BINARY_SUBTRACT None    None
-83      RETURN_VALUE    None    None
-
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2    124 LOAD_FAST            b
+     4     20 BINARY_MULTIPLY      
+     6    100 LOAD_CONST           1
+     8     24 BINARY_SUBTRACT      
+    10     83 RETURN_VALUE         
 ```
+
 ---
 
 ## Conditionals
 
-A simple `if` statement, returning either `a` or `b`.
 
 ```python
-def conditional_result(a, b):
+def conditional_return1(a, b):
     if a:
         return a
     else:
         return b
+
 ```
 
 The *byte code* loads `a` and then includes a `POP_JUMP_IF_FALSE` code which will *jump* to code `8` if the loaded value (i.e. `a`) is `False`.
 There are two paths to a return code.
 
 ```plaintext
-        OPCODE  OPNAME                  ARG     ARGVAL
-0       124     LOAD_FAST               0       a
-2       114     POP_JUMP_IF_FALSE       4       8
-4       124     LOAD_FAST               0       a
-6       83      RETURN_VALUE            None    None
-8       124     LOAD_FAST               1       b
-10      83      RETURN_VALUE            None    None
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2    114 POP_JUMP_IF_FALSE    to 8
+     4    124 LOAD_FAST            a
+     6     83 RETURN_VALUE         
+     8    124 LOAD_FAST            b
+    10     83 RETURN_VALUE         
 ```
 
 ---
 
-## Alternative implementation
+## More efficient?
 
-A neater implementation takes advantage of the `or` operator. 
+Taking advantage of the `or` operator seems more efficient. 
 
 ```python
-def conditional_result_alt(a, b):
+def conditional_return2(a, b):
     return a or b
 ```
 
 The *byte code* is clearly more efficient, using `JUMP_IF_TRUE_OR_POP`.
 
 ```plaintext
-        OPCODE  OPNAME                  ARG     ARGVAL
-0       124     LOAD_FAST               0       a
-2       112     JUMP_IF_TRUE_OR_POP     3       6
-4       124     LOAD_FAST               1       b
-6       83      RETURN_VALUE            None    None
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2    112 JUMP_IF_TRUE_OR_POP  to 6
+     4    124 LOAD_FAST            b
+     6     83 RETURN_VALUE         
 ```
+
+---
+
+## Looping
+
+A simple while loop decrements `a` until it's less than `10`.
+This leads to some moderately complex byte code.
+
+```python
+def looping1(a):
+    while a > 10:
+        a -= 1
+    return a
+```
+{: .small-code}
+
+
+```plaintext
+       OPCODE OPERATION            ARGUMENT
+     0    124 LOAD_FAST            a
+     2    100 LOAD_CONST           10
+     4    107 COMPARE_OP           >
+     6    114 POP_JUMP_IF_FALSE    to 24
+     8    124 LOAD_FAST            a
+    10    100 LOAD_CONST           1
+    12     56 INPLACE_SUBTRACT     
+    14    125 STORE_FAST           a
+    16    124 LOAD_FAST            a
+    18    100 LOAD_CONST           10
+    20    107 COMPARE_OP           >
+    22    115 POP_JUMP_IF_TRUE     to 8
+    24    124 LOAD_FAST            a
+    26     83 RETURN_VALUE         
+```
+{: .small-code}
+
+
+---
+
+## Alternative loop
+
+A slightly different approach produces slightly different bytecode to achieve the same result.
+
+```python
+def looping2(a):
+    while True:
+        if a <= 10:
+            return a
+        a -= 1
+
+```
+{: .small-code}
+
+```plaintext
+       OPCODE OPERATION            ARGUMENT
+     0      9 NOP                  
+     2    124 LOAD_FAST            a
+     4    100 LOAD_CONST           10
+     6    107 COMPARE_OP           <=
+     8    114 POP_JUMP_IF_FALSE    to 14
+    10    124 LOAD_FAST            a
+    12     83 RETURN_VALUE         
+    14    124 LOAD_FAST            a
+    16    100 LOAD_CONST           1
+    18     56 INPLACE_SUBTRACT     
+    20    125 STORE_FAST           a
+    22    113 JUMP_ABSOLUTE        to 2
+```
+{: .small-code}

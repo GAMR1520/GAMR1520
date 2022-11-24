@@ -19,7 +19,8 @@ footer > nav {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
     place-self: stretch;
     place-items: center;
-    gap: 1em;
+    gap: 0.5em 1em;
+    margin-block: 1em;
 }
 footer a {
     color: hsl(200, 100%, 60%);
@@ -27,20 +28,6 @@ footer a {
 footer a:visited {
     color: hsl(200, 50%, 60%);
 }
-
-
-@media screen and (min-width: 800px) {
-    footer {
-        grid-template-columns: 1fr max-content;
-    }
-    footer > nav {
-        grid-column: span 2;
-    }
-}
-
-
-
-
 
 /* headings */
 
@@ -147,7 +134,7 @@ pre > code.language-plaintext::after {
 /* Challenges */
 
 blockquote.challenge::after {
-    content: "if you have questions, ask them";
+    content: "Work together. If you have questions, ask them";
     color: hsl(var(--challenge-hue), 50%, 85%);
     background-color: hsl(var(--challenge-hue), 50%, 40%);
 }

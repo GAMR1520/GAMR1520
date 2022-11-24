@@ -2,12 +2,11 @@ grid = {
     (1, 1): "X",
     (0, 1): "O",
     (1, 2): "X",
-} # The game is already won!
-
-grid[(1, 0)] = "O"  # Forced move
-grid[(2, 2)] = "X"  # The clincher
-grid[(0, 0)] = "O"  # Forced move
-grid[(0, 2)] = "X"  # X wins!
+    (1, 0): "O",
+    (2, 2): "X",
+    (0, 0): "O",
+    (0, 2): "X",
+}
 
 output = ""
 if (0, 0) in grid:

@@ -2,22 +2,26 @@ grid = {
     (1, 1): "X",
     (0, 1): "O",
     (1, 2): "X",
-} # The game is already won!
+    (1, 0): "O",
+    (2, 2): "X",
+    (0, 0): "O",
+    (0, 2): "X",
+}
 
-grid[(1, 0)] = "O"  # Forced move
-grid[(2, 2)] = "X"  # The clincher
-grid[(0, 0)] = "O"  # Forced move
-grid[(0, 2)] = "X"  # X wins!
+# Splitting the logic out into a function makes it longer, and a bit easier to read.
 
-# A function to generate cell output
-def cell(x, y):
-    return " " if (x, y) not in grid else grid[(x, y)]
 
-# Another function for a full row
+horizontal_line = "\n--- --- ---\n"
+vertical_line = "|"
+
+def format_cell(x, y):
+    value = grid.get((x, y), ' ')
+    return f" {value} "
+
 def row(y):
-    return "|".join([f" {cell(x, y)} " for x in range(3)])
+    cells = [format_cell(x, y) for x in range(3)]
+    return vertical_line.join(cells)
 
-# print it out, line-by-line
 print()
-print("\n--- --- ---\n".join([row(y) for y in range(3)]))
+print(horizontal_line.join([row(y) for y in range(3)]))
 print()

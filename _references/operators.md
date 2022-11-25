@@ -16,13 +16,13 @@ For example:
 It is hopefully clear what these expressions mean.
 They will resolve to the integer values `2` and `4` respectively.
 
-A valid expression requires two operands with an operator between them.
+A valid expression requires two *operands* with an operator between them.
 
 ```plaintext
 <operand> <operator> <operand>
 ```
 
-Where an operand is a value of some kind (e.g. a literal) and an operator is something like a mathematical operator (`+`, `-` etc.).
+Where an *operand* is a value of some kind (e.g. a literal) and an operator is something like a mathematical operator (`+`, `-` etc.).
 
 
 >Getting the form wrong will lead to a syntax error.
@@ -41,14 +41,10 @@ The addition operator (`+`) adds numbers together.
 The multiplication operator (`*`) multiplies numbers together.
 The following table lists the most common operators.
 
-<figure>
 <table>
     <thead>
         <tr>
-        <th style="text-align:right"></th>
-        <th style="text-align:left"></th>
-        <th style="text-align:right"></th>
-        <th style="text-align:left"></th>
+        <th colspan="4">Arithmetic operators</th>
         </tr>
     </thead>
     <tbody>
@@ -77,8 +73,6 @@ The following table lists the most common operators.
         </tr>
     </tbody>
 </table>
-<figcaption>arithmetic operators</figcaption>
-</figure>
 
 All of these can be used with integers and floats.
 If both of the operands are integers, then the output is usually an integer (except for division, which outputs a float), otherwise its usually a float.
@@ -110,7 +104,7 @@ False * 3.5     # 0.0
 
 ## Comparison operators
 
-Comparison operators allow two values to be compared (obviously!).
+Comparison operators allow two values to be compared (the clue is in the name!).
 They are tests for truth and so always produce boolean outputs.
 
 For example we can test whether one value is greater than another value.
@@ -121,11 +115,33 @@ For example we can test whether one value is greater than another value.
 
 In the above case, the result is `False`, since `10` is not greater than `10`.
 
-||||comparison operators|
-|--:|:--|--:|:--|
-|`<`|less than|`<=`|less than or equal to|
-|`>`|greater than|`>=`|greater than or equal to|
-|`==`|equal to|`!=`|not equal to| 
+<table>
+    <thead>
+        <tr>
+        <th colspan="4">Comparison operators</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code><</code></td>
+            <td>less than</td>
+            <td><code><=</code></td>
+            <td>less than or equal to</td>
+        </tr>
+        <tr>
+            <td><code>></code></td>
+            <td>greater than</td>
+            <td><code>>=</code></td>
+            <td>greater than or equal to</td>
+        </tr>
+        <tr>
+            <td><code>==</code></td>
+            <td>equal to</td>
+            <td><code>!=</code></td>
+            <td>not equal to</td>
+        </tr>
+    </tbody>
+</table>
 
 Their application to integers and floats are obvious.
 
@@ -198,7 +214,7 @@ bool([])        # False
 
 Basically, everything evaluates to `True` unless it is zero or empty.
 
->There are similar functions* to cast values to other types:
+>There are similar functions<sup>*</sup> to cast values to other types:
 >```python
 >bool("zero")   # True
 >int(1.0)       # 1
@@ -228,24 +244,122 @@ not 12      # False
 >The Python community values clarity very highly.
 
 Combinations of operators are fine, this can get as complicated as you like.
-The usual precedence applies (brackets are evaluated first, then exponentiation, multiplication and division, addition and subtraction and finally comparisons and boolean operations). 
+The usual precedence applies (brackets are evaluated first, then exponentiation, multiplication and division, addition and subtraction, comparisons, and finally boolean operations). 
 
 Higher precedence operations are evaluated before lower precedence operations.
+For example, boolean operations are evaluated last unless they are enclosed in brackets.
+So if an expression contains a boolean operator it will determine the meaning of the expression unless there are brackets around the boolean operator.
 
-Look at each of these expressions and try to predict how they will be evaluated.
+Study each of these expressions to understand how they are evaluated.
+
+Here, the comparison `>` is the last to be evaluated.
 
 ```python
 100 > 120 * 6 + 15
+```
+{: .small-margin}
+```plaintext
+False
+```
+{: .small-margin}
+
+Adding brackets changes the meaning.
+So the `False` inside the brackets is cast to `0` and becomes part of the calculation.
+
+```python
 (100 > 120) * 6 + 15
+```
+{: .small-margin}
+```plaintext
+15
+```
+{: .small-margin}
+
+Again, a comparison returns a Boolean value.
+
+```python
 200 / 25 != 2 ** 3
+```
+{: .small-margin}
+```plaintext
+False
+```
+{: .small-margin}
+
+Adding brackets change the meaning completely.
+
+```python
 200 / (25 != 2) ** 3
-100 > 120 * 6 + 15 or 200 / 25 != 2 ** 3
+```
+{: .small-margin}
+```plaintext
+200.0
+```
+{: .small-margin}
+
+Here the Boolean `or` returns the value of the right side.
+
+```python
 100 > 120 * 6 + 15 or 200 / (25 != 2) ** 3
+```
+{: .small-margin}
+```plaintext
+200.0
+```
+{: .small-margin}
+
+If the left side or an `or` is *truthy* then it is returned and the right side is not even evaluated.
+
+```python
 (100 > 120) * 6 + 15 or 200 / (25 != 2) ** 3
+```
+{: .small-margin}
+```plaintext
+15
+```
+{: .small-margin}
+
+Adding brackets completely changes the meaning again.
+
+```python
 (100 > 120) * 6 + (15 or 200) / (25 != 2) ** 3
 ```
+{: .small-margin}
+```plaintext
+15.0
+```
+{: .small-margin}
 
-Try them out in IDLE and see if you predicted correctly.
 
-Notice that, for example, the comparison operations are evaluated last unless they are enclosed in brackets.
+Write some of your own in IDLE and see if you can predict the output correctly.
 
+
+One wrinkle to note is that chaining comparison operators is allowed.
+
+```python
+1 < 2 < 3
+```
+
+This is equivalent to the following.
+
+```python
+1 < 2 and 2 < 3
+```
+
+This can be tricky to follow, so is probably best avoided in all but the simplest cases.
+
+```python
+50 > 40 != 50
+50 > 40 != 40
+50 > 50 != 40
+50 > 50 != 50
+```
+{: .small-margin}
+
+```plaintext
+True
+False
+False
+False
+```
+{: .small-margin}

@@ -4,13 +4,12 @@ title: Compound statements
 lang: python
 ---
 
-Essentially, compound statements define blocks of code that should be executed in particular ways or under certain circumstances.
+Compound statements define blocks of code that should be executed in particular ways or under certain circumstances.
 They are used for conditional statements, loops, function and class definitions, context managers and error handling.
 
-Compound statements are made up of `clauses`.
-Clauses have a `header` and an indented code block.
-The headers typically control whether and how the code blocks will be executed.
-There may be multiple clauses in a compound statement.
+Compound statements are made up of one or more *clauses*.
+Clauses have a *header* and an indented *code block*.
+The type of clause and any extra information provided, control whether and in what context the code block will be executed.
 
 This is a simple compound statement with just one clause:
 
@@ -20,8 +19,18 @@ if balanceA >= amount:
     balanceB += amount
 ```
 
+The header defines the type of clause with a keyword (one of `if`, `elif`, `else`, `while`, `for`, `def`, `with`, `try`, `except` or `class`).
+
+> There are a few newer compound statements, but we won't cover them in this module
+
+Different clauses have different syntax.
+Some (e.g. `try` or `else`) just include the keyword followed by a colon (`:`), whilst others (e.g. `if` or `for`) require additional expressions to be included as part of the header.
+
+> In the above example, an `if` clause requires an expression that evaluates to a boolean value.
+Comparison operators are commonly used for this, but any valid python expression is allowed.
+>
 > This example code is incomplete.
-We are just showing the structure of a compound statement.
+It demonstrates the structure of a compound statement.
 If you run this code, it will raise a NameError because the variables have not been defined.
 
 The details are different with different compound statements, but clause headers will always begin with a keyword (`if` in this case) and will end in a colon (`:`).
@@ -65,7 +74,48 @@ The difference between the two examples is the indentation level of the last lin
 > Hint, they initially appear to produce the same result.
 > Try them both after changing the first line to `a = 0`.
 
-> For more information, check out the python documentation on [compound statements](https://docs.python.org/3/reference/compound_stmts.html).
+
+## Nesting compound statement
+
+Compound statements can be nested.
+In the CPython implementation, there used to be a low limit to how deeply nested you could go.
+Reportedly 15 or 20 levels deep.
+I tried an extended version of this in 3.10.6 and could not find any limit.
+
+```python
+a = 1
+if a:
+    if a:
+        if a:
+            if a:
+                if a:
+                    if a:
+                        if a:
+                            if a:
+                                if a:
+                                    if a:
+                                        if a:
+                                            if a:
+                                                print(a)
+```
+
+Nevertheless, if you find your code is three levels deep and you need more levels of nesting you might want to think about refactoring your code for the sake of readability.
+
+> **"Flat is better than nested."** - The zen of python
+
+Adding a function is a nice way to break nesting across separate blocks and flatten out code.
+
+```python
+def something_nested(a):
+    for i in a:
+        for j in a:
+            print(i, j)
+
+data = [3, 2, 6]
+for d in data:
+    something_nested(range(d))
+
+```
 
 ## Compound statements and interactive interpreters
 
@@ -81,3 +131,5 @@ Once finished, press enter again to indicate the code block is complete.
 </figure>
 
 Its often easier to write small code snippets into files and add `print()` statements to see what's going on.
+
+> For more information, check out the python documentation on [compound statements](https://docs.python.org/3/reference/compound_stmts.html).

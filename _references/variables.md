@@ -4,15 +4,8 @@ week: 1
 lang: python
 ---
 
-<div class="toc"></div>
 
-- [Variables and assignment](#variables-and-assignment)
-    - [Variable names](#variable-names)
-    - [NameError](#nameerror)
-    - [Assigning to expressions](#assigning-to-expressions)
-
-
-In the [operators]({{"references/operators" | relative_url}}) examples we used literal values such as `True`, `'hello'`, `120` and `1.0`.
+In the [operators]({{"references/operators" | relative_url}}) examples we used [literal values]({{"references/literals" | relative_url}}) such as `True`, `'hello'`, `120` and `1.0`.
 When these literal values are interpreted, the data they represent are stored in memory.
 In our very simple, one-line programmes we combined literals with operators and the calculations were also applied in memory before the result was displayed by the interactive interpreter.
 
@@ -33,14 +26,14 @@ a = 1
 The code is assigning the value `1` to a name `a`.
 This causes the value `1` to be stored in memory and provides our programme with access to this value via the name `a`.
 
-> The data stored in memory includes more information than just the value `1`.
+> The data stored in memory includes more than just the value `1`.
 It includes information about the type of data and more.
 
 If we want to see the value of `a` we can simply evaluate the variable, just like we did with literals. 
 The expression `a` evaluates to `1`.
 
 <figure>
-    <img src="assets/img/assignment.png" alt="assignment in IDLE">
+    <img src="{{"assets/img/assignment.png" | relative_url}}" alt="assignment in IDLE">
     <figcaption>Assignment to, and subsequent evaluation of, a variable</figcaption>
 </figure>
 
@@ -98,9 +91,10 @@ This is the clue we need to review the code and identify where we assign a strin
 
 > Error messages usually hold the answer or a big clue about what went wrong.
 > It's very important to study the message in detail.
+> See [learning from errors]({{"references/errors" | relative_url }}) for more on this.
 
 In terms of style, there are guidelines.
-The classic design guide [PEP8](https://peps.python.org/pep-0008/) (the eighth Python Enhancement Proposal) suggests "lowercase with words separated by underscores as necessary to improve readability" for both variable and function names.
+The classic style guide for python code [PEP8](https://peps.python.org/pep-0008/) (the eighth Python Enhancement Proposal) suggests "lowercase with words separated by underscores as necessary to improve readability" for both variable and function names.
 
 ```python
 variable_name = function_name()
@@ -113,26 +107,27 @@ my_instance = MyClass()
 ```
 
 We also expect spaces around operators under most circumstances.
-So these are bad style.
 
 ```python
-variable_name= function_name()  # No!
-my_instance=MyClass()           # Bad!
+variable_name= function_name()   # No!
+variable_name = function_name()  # Yes!
+my_instance=MyClass()            # Bad!
+my_instance = MyClass()          # Good!
 ```
 
-> All moderately experienced developers will notice if you break the law and will consider it as a style bug in your code!
-> You should read PEP8 once you have a basic grasp of python concepts as it will help you to align your style with the community.
+> All moderately experienced developers will notice if you break these laws and will consider it as a style bug in your code!
+> You should read [PEP8](https://peps.python.org/pep-0008/) once you have a basic grasp of python concepts as it will help you to align your style with the community and write better code.
 
 ## NameError
 
 If we try to evaluate a variable that has not yet been created, the result is a particular error called a `NameError`.
 
 <figure>
-    <img src="assets/img/name_error.png" alt="NameError in IDLE">
+    <img src="{{"assets/img/name_error.png" | relative_url}}" alt="NameError in IDLE">
     <figcaption>Accessing variables without defining them first results in a NameError</figcaption>
 </figure>
 
-The error message is clear, "name 'b' is not defined".
+The error message is clear on the last line of output, *"NameError: name 'b' is not defined"*.
 This error would crash our programme if we did not handle it.
 
 ## Assigning to expressions
@@ -167,12 +162,13 @@ a = a + 1
 
 This can be done with all the arithmetic operations.
 
-||augmented assignment operators|
-|--:|:--|
-|`+=`|addition assignment|
-|`-=`|subtraction assignment|
-|`*=`|multiplication assignment|
-|`/=`|division assignment|
-|`%=`|modulo assignment|
-|`//=`|floor division assignment|
-|`**=`|exponentiation assignment|
+<table>
+    <tr><th colspan="2">augmented assignment operators</th></tr>
+    <tr><td><code>+=</code></td><td>addition assignment</td></tr>
+    <tr><td><code>-=</code></td><td>subtraction assignment</td></tr>
+    <tr><td><code>*=</code></td><td>multiplication assignment</td></tr>
+    <tr><td><code>/=</code></td><td>division assignment</td></tr>
+    <tr><td><code>%=</code></td><td>modulo assignment</td></tr>
+    <tr><td><code>//=</code></td><td>floor division assignment</td></tr>
+    <tr><td><code>**=</code></td><td>exponentiation assignment</td></tr>
+</table>

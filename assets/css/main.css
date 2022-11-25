@@ -298,3 +298,6 @@ strong {
 }
 
 
+.small-margin {
+    margin-block: 0.1em;
+}

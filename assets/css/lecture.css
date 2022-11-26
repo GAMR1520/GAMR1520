@@ -351,19 +351,37 @@ ul.libraries {
         grid-template-columns: repeat(3, 1fr);
     }    
 }
-
 ul.libraries li {
     border: 2px solid #333;
     border-radius: 2%;
     background-color: #eee;
 }
-
 ul.libraries li a img {
     aspect-ratio: 1;
     width: 100%;
     object-fit: contain;
 }
 
+
+ul.grid-code-2, ul.grid-code-3 {
+    list-style: none;
+    padding: 0;
+    gap: 0.25em;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(max-content, 1fr));    
+}
+@media screen and (min-width: 700px) {
+    ul.grid-code-2 {
+        grid-template-columns: repeat(2, minmax(max-content, 1fr));
+    }
+    ul.grid-code-3 {
+        grid-template-columns: repeat(3, minmax(max-content, 1fr));    
+    }
+}
+ul.grid-code-2 pre,
+ul.grid-code-3 pre {
+    margin: 0;
+}
 
 .hero {
     font-size: 2em;

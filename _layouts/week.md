@@ -10,6 +10,15 @@ layout: index
     {% include js_header.md %}
 {% endif %}
 
+{% if page.status == "draft" %}
+<blockquote>
+    <p>
+        This is currently <strong>draft</strong> content, it may be incomplete or wrong.
+    </p>
+</blockquote>
+{% endif %}
+
+
 <section>
     <h2 class="{{page.lang}}"> Week {{page.week}}: {{page.title}}</h2>
     <small>

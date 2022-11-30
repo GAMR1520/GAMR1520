@@ -100,6 +100,20 @@ def greet():
     print('hello world!')
 ```
 
+We can now access the function by name.
+The act of defining a function creates a variable of type `function`.
+
+```python
+print(greet)
+print(type(greet))
+```
+{: .small-margin}
+```plaintext
+<function greet at 0x7f7a8208fd90>
+<class 'function'>
+```
+{: .small-margin}
+
 When we call our function, it will print our message.
 
 ```python

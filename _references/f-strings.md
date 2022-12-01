@@ -63,9 +63,11 @@ For example, adding an `=` symbol after a variable will output a handy debug mes
 msg = 'hello world'
 print(f'{msg=}')
 ```
+{: .small-margin}
 ```plaintext
 msg='hello world'
 ```
+{: .small-margin}
 
 > Read more about formatting codes that can be used in f-strings in [the python documentation](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals).
 
@@ -85,9 +87,11 @@ We can generate an uppercase version of the string using the `upper()` method.
 ```python
 'hello world'.upper()
 ```
+{: .small-margin}
 ```plaintext
 HELLO WORLD
 ```
+{: .small-margin}
 
 > `lower()` has the equivalent effect, converting to lowercase. 
 
@@ -99,9 +103,11 @@ This capitalises each word.
 ```python
 'hello world'.title()
 ```
+{: .small-margin}
 ```plaintext
 Hello World
 ```
+{: .small-margin}
 
 ### `capitalize()`
 
@@ -111,9 +117,11 @@ This capitalises only the first word.
 ```python
 'hello world'.capitalize()
 ```
+{: .small-margin}
 ```plaintext
 Hello world
 ```
+{: .small-margin}
 
 ### `center()`
 
@@ -123,9 +131,11 @@ The new string contains the original string, centered and padded by the specifie
 ```python
 'hello world'.center(20, "=")
 ```
+{: .small-margin}
 ```plaintext
 ====hello world=====
 ```
+{: .small-margin}
 
 In this case, we need to specify arguments.
 The first argument is how long the string should be (in characters).
@@ -153,11 +163,13 @@ print('hello world'.istitle())
 print('hello world'.isupper())
 print('hello world'.islower())
 ```
+{: .small-margin}
 ```plaintext
 False
 False
 True
 ```
+{: .small-margin}
 
 Similarly, `endswith()`, `startswith()`, `isalpha()`, `isnumeric()` and `isalnum()` will test whether a string has certain properties.
 
@@ -168,6 +180,7 @@ print('hello world'.isalpha())
 print('hello world'.isnumeric())
 print('hello world'.isalnum())
 ```
+{: .small-margin}
 ```plaintext
 True
 True
@@ -175,10 +188,57 @@ False
 False
 False
 ```
+{: .small-margin}
 
 > `isalpha()` returns `False` due to the space character.
 `isalnum()` returns `False` because both `isalpha()` and `isnumeric()` return `False`.
 
-### Splitting
+## Splitting
 
-The `split()` method will divide the string on a specified character and return a list of the fragments.
+The `split()` method will divide the string into words and return a list of the fragments.
+
+```python
+a = 'this will become a list containing eight strings'
+b = a.split()
+print(b)
+```
+{: .small-margin}
+```plaintext
+['this', 'will', 'become', 'a', 'list', 'containing', 'eight', 'strings']
+```
+{: .small-margin}
+
+## Joining
+
+We can join a list of strings together with `str.join()`.
+This will use the string as a separator to glue together the items of any iterable.
+
+> The iterable must yield strings or it will raise an error.
+
+For example, the above operation can be reversed.
+
+```python
+a = 'this will be split into words and then merged back together'
+b = a.split()
+c = ' '.join(b)
+print(c)
+```
+{: .small-margin}
+```plaintext
+'this will be split into words and then merged back together'
+```
+{: .small-margin}
+
+We can use this to modify the separator, for example.
+
+```python
+a = 'this will be split into words and then joined with commas.'
+b = a.split()
+c = ', '.join(b)
+print(c)
+```
+{: .small-margin}
+```plaintext
+this, will, be, split, into, words, and, then, joined, with, commas.
+```
+{: .small-margin}

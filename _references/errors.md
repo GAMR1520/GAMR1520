@@ -96,6 +96,8 @@ The `IndexError` part is the generic error type.
 The message `list index out of range` tells us more precisely what we did wrong.
 
 It seems that the *list index* we used (`4`) was *out of range*.
+With this very specific information, we can study the code leading up to the error to establish what happened.
+In this case, we can see that the list has only two elements, so something in our logic is wrong.
 
 ## Start at the end and work backwards
 
@@ -143,14 +145,159 @@ SyntaxError: invalid syntax
 ```
 
 In this case you may get a simpler trace because no code was executed.
+The error was caught at *compile-time*, when the code ws parsed.
+
+> As opposed to *run-time*, when the code was executed.
+
 The output also may point to the error within the line using a caret (`^`).
 
+### NameError
+
+A `NameError` will be raised if we try to use a variable without assigning it a value first.
+
+```python
+print(hello)
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/name_error.py", line 1, in <module>
+    print(hello)
+NameError: name 'hello' is not defined. Did you mean: 'help'?
+```
+{: .small-margin}
+In recent versions of python the error messages may suggest built-in functions that are close in case of a typo.
 
 ### IndexError
 
+We have seen an index error.
+Here's the same example with a longer stack trace.
+
+```python
+def b(arg):
+    return a(arg).upper()
+
+def a(arg):
+    return arg[4]
+
+data = "hello world".split()
+c = b(data)
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/index_error.py", line 8, in <module>
+    c = b(data)
+  File "path/to/index_error.py", line 2, in b
+    return a(arg).upper()
+  File "path/to/index_error.py", line 5, in a
+    return arg[4]
+IndexError: list index out of range
+```
+{: .small-margin}
+
+Notice how the stack trace shows that the error occurred when calling `b()` which then called `a()` in which the actual error happened.
+This allows us to trace exactly what parameters were involved and where they came from.
+In this case we would need to look to see what the value of the `data` variable was.
 
 ### KeyError
+
+Similar to `IndexError`, when working with dictionaries we can raise a `KeyError` if we use a key that doesn't exist.
+
+```python
+data = {'hello': 'world'}
+print(data['banana'])
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/key_error.py", line 2, in <module>
+    print(data['banana'])
+KeyError: 'banana'
+```
+{: .small-margin}
+
+If a default value would be useful in your code then an approach is to use `dict.get()` which can return a default value if the requested key is not found.
+
+```python
+data = {'hello': 'world'}
+print(data.get('banana', None))
+```
+
+This will print `None` because the key was not found but we provided `None` as a default value to `dict.get()`.
+
+
 ### TypeError
+
+A `TypeError` indicates that you are trying to do something that cannot be done with the type of data you are using.
+Simple examples include basic operations.
+For example, we cannot divide a number by a string.
+
+```python
+1 / 'hello'
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/type_error1.py", line 1, in <module>
+    1 / 'hello'
+TypeError: unsupported operand type(s) for /: 'int' and 'str'
+```
+{: .small-margin}
+
+The error message for a `TypeError` is usually very clear.
+In this case it is clearly saying that the `int` and `str` types do not support the `/` operator. 
+
+A `TypeError` will also be raised if a function is called with the wrong number of arguments.
+
+```python
+def a():
+    pass
+
+a(1)
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/type_error2.py", line 4, in <module>
+    a(1)
+TypeError: a() takes 0 positional arguments but 1 was given
+```
+{: .small-margin}
+
 ### AttributeError
+
+An `AttributeError` refers to the attributes of a function, class or module. 
+It will be raised if code tries to access an attribute that doesn't exist.
+
+```python
+import random
+
+random.not_a_real_attribute
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/attribute_error.py", line 2, in <module>
+    random.not_a_real_attribute
+AttributeError: module 'random' has no attribute 'not_a_real_attribute'
+```
+{: .small-margin}
+
+If we try to call a missing attribute/method on any object, the same error will be raised.
+
+```python
+'hello'.missing_method()
+```
+{: .small-margin}
+```plaintext
+Traceback (most recent call last):
+  File "path/to/attribute_error.py", line 5, in <module>
+    'hello'.missing_method()
+AttributeError: 'str' object has no attribute 'missing_method'
+```
+{: .small-margin}
+
+Logically, python will try to access the method before it can call it.
 
 >See more on exceptions in [the python documentation](https://docs.python.org/3/library/exceptions.html)

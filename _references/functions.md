@@ -47,7 +47,8 @@ centered = original.center(20)   # '       middle       '
 fancy = original.center(20, '=') # '=======middle======='
 ```
 
-> Try printing the variables `original`, `centered` and `fancy` to see the results for yourself.
+> The comments are indicating the results here. 
+Try printing the variables `original`, `centered` and `fancy` to see the results for yourself.
 
 In the above case, the first argument to the `str.center()` method determines the length of the returned string.
 Using the method with only one argument will pad the string with spaces by default, creating a string with the requested length.
@@ -81,7 +82,8 @@ four = p.expandtabs(4)            # Set implicitly by position
 twelve = p.expandtabs(tabsize=12) # Set explicitly by keyword
 ```
 
-> Try printing the variables `p`, `default`, `four` and `twelve` to see the results for yourself.
+> Again, the comments are indicating the results.
+Try printing the variables `p`, `default`, `four` and `twelve` to see the results for yourself.
 
 As we shall see, keyword arguments are a great a way to make function arguments optional and to provide default values.
 
@@ -160,17 +162,21 @@ If we don't pass an argument, a TypeError is raised with a useful error message.
 ```python
 greet()
 ```
+{: .small-margin}
 ```plaintext
 TypeError: greet() missing 1 required positional argument: 'name'
 ```
+{: .small-margin}
 
 If we pass too many arguments, a different message is provided.
 ```python
 greet('python', 3)
 ```
+{: .small-margin}
 ```plaintext
 TypeError: greet() takes 1 positional argument but 2 were given
 ```
+{: .small-margin}
 
 ### Optional/default arguments
 
@@ -187,10 +193,13 @@ This allows for a more flexible function that can be used in more situations.
 greet('python')
 greet('keyword arguments', greeting='I understand')
 ```
+{: .small-margin}
 ```plaintext
 hello python!
 I understand keyword arguments!
 ```
+{: .small-margin}
+
 ### Return statements
 
 When we call the above function, it has a *side-effect* of printing to the console.
@@ -219,10 +228,12 @@ We can assign the function call to a variable.
 result = greet('world')
 print(f'returned: {result}')
 ```
+{: .small-margin}
 ```plaintext
 hello world!
 returned: None
 ```
+{: .small-margin}
 
 As expected, the code prints `'returned: None'`.
 
@@ -239,9 +250,11 @@ Now, in our calling code, we can store the value returned by the function and do
 message = greet('world')
 print(f'returned: {message}')
 ```
+{: .small-margin}
 ```plaintext
 returned: hello world!
 ```
+{: .small-margin}
 
 Functions are a powerful feature in any programming language.
 We can think of them as tools for extending the language with new capabilities.
@@ -455,11 +468,13 @@ def print_kwargument_details(**kwargs):
 greet2(python="amazing", mind="blown")
 print_kwargument_details(python="amazing", mind="blown")
 ```
+{: .small-margin}
 ```plaintext
 python is amazing!
 mind is blown!
 <class 'dict'> {'python': 'amazing', 'mind': 'blown'}
 ```
+{: .small-margin}
 
 
 This can be useful when passing unknown optional arguments through a function to another function.
@@ -482,7 +497,7 @@ simple(e='new value')
 simple(f='new value')
 simple(d='new value', e='new value', f='new value')
 ```
-
+{: .small-margin}
 ```plaintext
 0 0 0 default default default
 0 0 0 new value default default
@@ -490,4 +505,7 @@ simple(d='new value', e='new value', f='new value')
 0 0 0 default default new value
 0 0 0 new value new value new value
 ```
+{: .small-margin}
 
+So, functions are really nice.
+They are very useful for encapsulating a reusable recipe that may be used in multiple places.

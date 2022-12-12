@@ -407,6 +407,12 @@ ul.grid-code-3 pre {
     grid-row: span 2;
 }
 
+.bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
 
 .fadeaway {
     position: fixed;

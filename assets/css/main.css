@@ -223,6 +223,18 @@ tr.highlight {
     outline: 5px solid hsl(var(--highlight-hue), 80%, 30%);
     border-radius: 5px;
 }
+table.app td {
+    background-color: #ddd;
+    color: #000;
+}
+table.app th {
+    background-color: #333;
+    color: #ddd;
+}
+table.app td.entry,
+table.app td.listbox {
+    background-color: #fff;
+}
 /* pre and code */
 
 code {

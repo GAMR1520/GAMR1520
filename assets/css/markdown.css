@@ -8,7 +8,7 @@
 
 main {
     overflow: auto;
-    max-width: 65ch;
+    max-width: 70ch;
     margin: auto;    
     padding: 0 .75rem;
 	word-wrap: break-word;

@@ -39,4 +39,3 @@ Please read each page at least once and use your judgement as to whether you nee
 {% for ex in exercises %}
  - [Lab {{ex.week}}.{{ex.lab}}: {{ex.title}}]({{ex.url | relative_url }}){% endfor %}
 {% endfor %}<!-- end of week -->
-

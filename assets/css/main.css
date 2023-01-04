@@ -260,6 +260,9 @@ pre > code.language-plaintext {
     color: hsl(var(--output-context-hue), 60%, 85%);
     background-color: hsl(var(--output-context-hue), 0%, 15%);
 }
+pre.tight > code {
+    line-height: 0.5em;
+}
 
 pre > code.hljs {
     position: relative;

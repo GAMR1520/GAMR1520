@@ -19,6 +19,8 @@ js: [assets/js/lecture.js, assets/js/menu.js]
         <div>
             <h3>Thanks for listening</h3>
             <h4>Any questions?</h4>
+            <p>We should have plenty of time for questions and answers.</p>
+            <p>Just ask, you are probably not the only one who wants to know.</p>
         </div>
         <p>
             <strong>Dr Graeme Stuart</strong><br>

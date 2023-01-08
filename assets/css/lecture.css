@@ -231,14 +231,26 @@ section.slide::after {
 main.python section.slide::after {
     background-image: url(../img/python-logo-only.svg);
 }
-
 main.python section.slide.home::after {
     background-size: cover;
     background-position: center center;
 }
 
+main.js section.slide::after {
+    background-image: url(../img/js-logo.svg);
+}
+main.js section.slide.home::after {
+    background-color: #f7df1e;
+    background-size: 300px;
+    background-position: bottom right;
+}
+
+
 .large {
     font-size: 1.3em;
+}
+.small {
+    font-size: 0.8em;
 }
 section.slide.large h2 {
     font-size: 1.8em;
@@ -248,7 +260,8 @@ section.slide.centered div {
     display: grid;
     place-items: center;
 }
-ul.spaced li {
+ul.spaced li,
+ol.spaced li {
     margin-block: 0.5em;
 }
 
@@ -312,11 +325,24 @@ blockquote {
     background-image: url(../img/python-logo-only.svg);
 }
 
+.auto-grid.versions.js > div::before {
+    background-image: url(../img/js-logo.svg);
+    background-color: #f7df1e;
+    background-position: bottom right;
+
+}
+
 .auto-grid.versions .current,
 .auto-grid.versions .future {
     border: 5px solid hsl(200, 90%, 50%);
     background-color: hsla(200, 90%, 70%, 0.1);
 }
+.auto-grid.versions.js .current,
+.auto-grid.versions.js .future {
+    border: 5px solid hsl(62, 90%, 50%);
+    background: None;
+}
+
 .auto-grid.versions .future {
     opacity: 50%
 }
@@ -500,4 +526,8 @@ ul.grid-code-3 pre {
     100% {
         translate: 0;
     }
+}
+
+h1 {
+    font-size: 1.8em;
 }

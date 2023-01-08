@@ -6,6 +6,7 @@ async function convertSlides() {
         const rule = document.querySelector('hr:last-of-type');
         const slide = document.createElement('section');
         const wrapper = document.createElement('div');
+        rule.classList.forEach(cl => { slide.classList.add(cl); });
         slide.classList.add('slide');
         const content = document.querySelectorAll('hr:last-of-type ~ *:not(section.slide)');
         rule.after(slide);

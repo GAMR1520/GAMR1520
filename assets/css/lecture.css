@@ -116,6 +116,9 @@ section.slide figure.short img {
     section.slide figure img {
         max-width: 500px;
     }
+    section.slide figure.wide img {
+        max-width: 800px;
+    }
 }
 @media screen and (min-height: 900px) {
     .slide {
@@ -455,6 +458,11 @@ ul.grid-code-3 pre {
     bottom: 0;
 }
 
+.reference {
+    position: absolute;
+    right: 1em;
+    bottom: 0.5em;
+}
 
 .fadeaway {
     position: fixed;

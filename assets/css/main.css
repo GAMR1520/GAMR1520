@@ -322,6 +322,9 @@ strong {
 .small-margin {
     margin-block: 0.1em;
 }
+.zero-margin {
+    margin-block: 0;
+}
 
 .flex {
     display: flex;

@@ -8,7 +8,14 @@
     --output-context-hue: 260;
     --highlight-hue: 100;
     --fa-primary-color: #333;
+    --fg-lightness: 40%;
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg-lightness: 70%;
+    }
+}
+
 
 i::before {
     color: var(--fa-primary-color);
@@ -34,7 +41,12 @@ body {
         font-size: 1.2em;
     }
 }
-
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #eee;
+    }
+}
 
 header, main, footer {
     padding-inline: 1rem;
@@ -156,18 +168,18 @@ body > p > img {
 a {
     text-decoration: none;
     text-underline-offset: 3px;
-    color: hsl(var(--link-hue), 100%, 30%);
+    color: hsl(var(--link-hue), 100%, var(--fg-lightness));
     --fa-primary-color: hsl(var(--link-hue), 100%, 30%);
 }
 a:visited {
-    color: hsl(var(--link-hue), 50%, 30%);
+    color: hsl(var(--link-hue), 50%, var(--fg-lightness));
     --fa-primary-color: hsl(var(--link-hue), 50%, 30%);
 }
 a:hover, p > a {
 	text-decoration: underline;
 }
 a.current {
-    color: hsl(var(--current-link-hue), 100%, 30%);
+    color: hsl(var(--current-link-hue), 100%, var(--fg-lightness));
     --fa-primary-color: hsl(var(--current-link-hue), 100%, 30%);
 }
 

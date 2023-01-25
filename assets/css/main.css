@@ -2,17 +2,21 @@
 
 :root {
     --link-hue: 200;
+    --link-lightness: 30%;
     --current-link-hue: 100;
     --note-hue: 30;
     --code-context-hue: 120;
     --output-context-hue: 260;
     --highlight-hue: 100;
     --fa-primary-color: #333;
-    --fg-lightness: 40%;
+    --fg-lightness: 10%;
+    --bg-lightness: 100%;
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --fg-lightness: 70%;
+        --fg-lightness: 90%;
+        --bg-lightness: 10%;
+        --link-lightness: 70%;
     }
 }
 
@@ -30,6 +34,8 @@ body {
     font-weight: 300;
     margin: 0;
     font-size: 1.0em;
+    background: hsl(0, 0%, var(--bg-lightness));
+    color: hsl(0, 0%, var(--fg-lightness));
 }
 @media screen and (min-width: 400px) {
     body {
@@ -39,12 +45,6 @@ body {
 @media screen and (min-width: 1000px) {
     body {
         font-size: 1.2em;
-    }
-}
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: #eee;
     }
 }
 
@@ -168,11 +168,11 @@ body > p > img {
 a {
     text-decoration: none;
     text-underline-offset: 3px;
-    color: hsl(var(--link-hue), 100%, var(--fg-lightness));
+    color: hsl(var(--link-hue), 100%, var(--link-lightness));
     --fa-primary-color: hsl(var(--link-hue), 100%, 30%);
 }
 a:visited {
-    color: hsl(var(--link-hue), 50%, var(--fg-lightness));
+    color: hsl(var(--link-hue), 50%, var(--link-lightness));
     --fa-primary-color: hsl(var(--link-hue), 50%, 30%);
 }
 a:hover, p > a {
@@ -180,7 +180,7 @@ a:hover, p > a {
 }
 a.current {
     color: hsl(var(--current-link-hue), 100%, var(--fg-lightness));
-    --fa-primary-color: hsl(var(--current-link-hue), 100%, 30%);
+    --fa-primary-color: hsl(var(--current-link-hue), 100%, var(--link-lightness));
 }
 
 

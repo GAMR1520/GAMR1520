@@ -204,6 +204,16 @@ figcaption {
 }
 
 /* Normal blockquotes */
+blockquote {
+    --fg-lightness: 10%;
+    --bg-lightness: 80%;
+}
+@media (prefers-color-scheme: dark) {
+    blockquote {
+        --fg-lightness: 10%;
+        --link-lightness: 40%;
+    }
+}
 
 blockquote {
     border-left-width: 5px;
@@ -211,7 +221,8 @@ blockquote {
     margin-inline: 0;
     padding-inline: 1em;
     border-radius: 0 5px 5px 0;
-    background-color: hsla(var(--note-hue), 50%, 50%, 0.1);
+    background-color: hsl(var(--note-hue), 50%, var(--bg-lightness));
+    color: hsl(var(--note-hue), 50%, var(--fg-lightness));
     border-color: hsl(var(--note-hue), 100%, 50%);
 }
 
@@ -278,6 +289,11 @@ pre.tight > code {
 
 pre > code.hljs {
     position: relative;
+}
+@media (prefers-color-scheme: dark) {
+    pre > code.hljs {
+        border: 1px solid #666;
+    }
 }
 
 pre > code.hljs:before {

@@ -145,21 +145,11 @@ pre > code.language-plaintext::after {
 
 
 /* Challenges */
-blockquote.challenge {
-    --fg-lightness: 10%;
-    --bg-lightness: 80%;
-}
-@media (prefers-color-scheme: dark) {
-    blockquote.challenge {
-        --fg-lightness: 10%;
-        --link-lightness: 40%;
-    }
-}
 
 blockquote.challenge::after {
     content: "Work together. If you have questions, ask them";
     color: hsl(var(--challenge-hue), 50%, var(--fg-lightness));
-    background-color: hsl(var(--challenge-hue), 50%, var(--bg-lightness));
+    background-color: hsla(var(--challenge-hue), 100%, 20%, 0.25);
 }
 
 blockquote.challenge {

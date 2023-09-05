@@ -308,7 +308,7 @@ Here the Boolean `or` returns the value of the right side.
 ```
 {: .small-margin}
 
-If the left side or an `or` is *truthy* then it is returned and the right side is not even evaluated.
+If the left side of an `or` is *truthy* then it is returned and the right side is not even evaluated.
 
 ```python
 (100 > 120) * 6 + 15 or 200 / (25 != 2) ** 3

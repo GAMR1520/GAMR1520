@@ -141,14 +141,42 @@ header > nav.open {
 
 
 footer {
-    margin-top: 2em;
-    display: grid;
-    gap: 0.5em;
-    place-items: end end;
-    padding-block: 4em 2em;
     background-color: hsl(var(--footer-hue), 50%, 30%);
     color: hsl(var(--footer-hue), 50%, 95%);
     --fa-primary-color: hsl(var(--footer-hue), 50%, 95%);
+    margin-top: 2em;
+    padding-block: 4em 2em;
+    display: grid;
+    gap: 0.5em;
+    text-align: center;
+}
+
+footer > nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em 1em;
+    margin: 1em auto;
+    max-width: 1000px;
+}
+
+@media (width >=600px) {
+    footer > nav {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+footer > nav a {
+    background-color: hsl(var(--footer-hue), 50%, 20%);
+    padding: 0.5rem 1rem;
+    min-width: max-content;
+}
+
+footer a {
+    color: hsl(var(--footer-hue), 50%, 90%);
+}
+
+footer a:visited {
+    color: hsl(var(--footer-hue), 50%, 80%);
 }
 
 img {

@@ -329,9 +329,10 @@ pre > code.hljs:before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    /* left: 0; */
     bottom: 0;
     right: 0;
+    width: 10em;
     z-index: 3;
     background-repeat: no-repeat;
     background-size: 10em;

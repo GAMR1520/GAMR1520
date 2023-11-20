@@ -11,13 +11,18 @@ There are many to choose from.
 In the last few years, (since the [sunsetting](https://github.blog/2022-06-08-sunsetting-atom/) of [atom](https://github.com/atom/atom)), my editor of choice has become [vscode](https://code.visualstudio.com/). 
 Though it doesn't matter which editor you choose (if you have a favourite, then use it), I am currently recommending *vscode* for this module.
 
-Download and installation should be fairly simple, just [follow the instructions](https://code.visualstudio.com/).
+VSCode should already be installed on the lab machines (perhaps identified as *visual studio code*), though it can be installed if not.
 
-> You can do this on the lab machines and also on your personal machine.
+> Download and installation should be fairly simple, just [follow the instructions](https://code.visualstudio.com/).
 > You may also need to [install python](https://www.python.org/downloads/) on your personal machine.
 > If so, get the latest stable version or a version that matches the lab if you prefer.
 
-Once installed, use the *File -> Open folder* option to open your *GAMR1520-labs* folder and select a script from the panel on the left.
+## Create a file
+
+Once installed, use the *File -> Open folder* option to open your *GAMR1520-labs* folder.
+The folder contents should appear on the left panel.
+
+Select a script to edit or create a new one.
 
 > You can close all other tabs
 

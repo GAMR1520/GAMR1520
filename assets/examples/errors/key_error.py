@@ -1,2 +1,2 @@
-data = {'hello': 'world'}
-print(data['banana'])
+
+{'hello': 'world'}['banana']

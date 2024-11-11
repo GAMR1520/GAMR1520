@@ -103,6 +103,12 @@ section.slide figure img {
 section.slide figure.short img {
     max-height: 35vh;
 }
+section.slide figure.results {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr auto;
+    place-content: center;
+}
 @media screen and (min-width: 900px) {
     section.slide {
         top: 1em;

@@ -16,7 +16,7 @@ The game consists of a 4 &times; 4 grid of tiles.
 Tiles are empty by default, but can contain numbers.
 The game starts with two randomly selected tiles set to the number 2.
 
-![final game](/assets/img/2048/final.png)
+![final game]({{ "assets/img/2048/final.png" | relative_url }})
 
 The rules of the 2048 game are fairly simple:
 

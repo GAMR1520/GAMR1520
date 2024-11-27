@@ -60,7 +60,7 @@ tile = tk.Label(frame, textvariable=self.tiles[(row, col)], font=normal, bg=bg3,
 
 The result should be much closer to what we want.
 
-![step_01](/assets/img/2048/lab_08/step_01.png)
+![step_01]({{ "assets/img/2048/lab_08/step_01.png" | relative_url}})
 
 However, its not quite right. 
 The numbered tiles should each have a different colour. 
@@ -131,7 +131,7 @@ for row in range(4):
 
 Now, try to run the game and you should see the tiles change colour automatically.
 
-![step_02](/assets/img/2048/lab_08/step_02.png)
+![step_02]({{ "assets/img/2048/lab_08/step_02.png" | relative_url}})
 
 
 >Surprised? This works because we are already calling `set` on the tiles in the `update` method.
@@ -176,7 +176,7 @@ The game should look pretty much as we want.
 
 >Feel free to change the colour scheme
 
-![step_03](/assets/img/2048/lab_08/step_03.png)
+![step_03]({{ "assets/img/2048/lab_08/step_03.png" | relative_url }})
 
 The game is nearly complete.
 
@@ -240,7 +240,7 @@ self.game_over_message.grid(row=1, column=0, columnspan=2)
 
 Run the game and you should see the message slapped on top of the grid.
 
-![step_05](/assets/img/2048/lab_08/step_05.png)
+![step_05]({{ "assets/img/2048/lab_08/step_05.png" | relative_url }})
 
 But, obviously, we don't want to show the message unless the game is actually over.
 We can implement this very simply using `widget.remove_grid()` to hide the prepared message.

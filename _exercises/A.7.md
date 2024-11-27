@@ -78,7 +78,7 @@ Now add the following to the `__init__` method.
 
 The result should look something like this.
 
-![step_02](/assets/img/2048/lab_07/step_02.png)
+![step_02]({{ "assets/img/2048/lab_07/step_02.png" | relative_url }})
 
 We can set up a basic column configuration so the second column always takes the space.
 
@@ -123,12 +123,12 @@ To do this, we will loop over four rows and columns and set the `row` and `colum
 
 This should produce a result which looks something like this.
 
-![step_03](/assets/img/2048/lab_07/step_03.png)
+![step_03]({{ "assets/img/2048/lab_07/step_03.png" | relative_url }})
 
 It's not clear in the figure, but the label sizes are being determined by the content.
 Try setting the label colours (using the `bg` and `fg` arguments) to highlight the problem.
 
-![step_03b](/assets/img/2048/lab_07/step_03b.png)
+![step_03b]({{ "assets/img/2048/lab_07/step_03b.png" | relative_url }})
 
 To fix this, we can configure the grid rows and columns within the frame.
 
@@ -143,7 +143,7 @@ To fix this, we can configure the grid rows and columns within the frame.
 
 The result should be that each cell is expanded to fill the specified size.
 
-![step_04](/assets/img/2048/lab_07/step_04.png)
+![step_04]({{ "assets/img/2048/lab_07/step_04.png" | relative_url }})
 
 Now, we will need to update the text in the labels as the game grid updates.
 To do this, we can create a collection of `tk.StringVar` objects that we can manipulate.
@@ -178,7 +178,7 @@ Add the following method
 
 The result is encouraging, but not ideal.
 
-![step_05](/assets/img/2048/lab_07/step_05.png)
+![step_05]({{ "assets/img/2048/lab_07/step_05.png" | relative_url }})
 
 We want to leave the `None` tiles empty, just like we did in the command line version.
 We can do this by simply using an `or` statement, so if the tile value os `None` the result will be an empty string.
@@ -190,7 +190,7 @@ We can do this by simply using an `or` statement, so if the tile value os `None`
                 self.tiles[(row, col)].set(self.grid[row][col] or "")
 ```
 
-![step_05b](/assets/img/2048/lab_07/step_05b.png)
+![step_05b]({{ "assets/img/2048/lab_07/step_05b.png" | relative_url}})
 
 >Much better
 
@@ -244,7 +244,7 @@ Then it calls `self.update()` to reflect the changes to the GUI.
 
 The result should be that you can now play the game using the arrow keys!
 
-![step_06](/assets/img/2048/lab_07/step_06.png)
+![step_06]({{ "assets/img/2048/lab_07/step_06.png" | relative_url}})
 
 >Who would have thought it would be so easy?
 
@@ -272,7 +272,7 @@ self.score.set(self.score.get() + self.point_functions[command](self.grid))
 
 >Add the above line into the correct place in the `process_command` method.
 
-![step_07](/assets/img/2048/lab_07/step_07.png)
+![step_07]({{ "assets/img/2048/lab_07/step_07.png" | relative_url }})
 
 
 Now you should have a fully working game.... almost.
@@ -284,4 +284,4 @@ Try to implement these features.
 
 Can you match the colour scheme of the [online version](https://play2048.co/) of the game?
 
-![final](/assets/img/2048/final.png)
+![final]({{ "assets/img/2048/final.png" | relative_url}})

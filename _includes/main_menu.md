@@ -10,8 +10,7 @@
 {% for week in site.weeks %}
     {% if week.status == "draft" %}{% continue %}{% endif %}
     <a href="{{week.url | relative_url }}" {% if page.url == week.url %}class="current"{% endif %}>
-        Week {{week.week}}{% if week.status == "draft" %} (draft){% endif %}
+        {% if week.appendix %}Appendix{% else %}Week{% endif %} {{week.week}}{% if week.status == "draft" %} (draft){% endif %}
     </a>
 {% endfor %}
 </nav>
-

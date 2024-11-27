@@ -22,10 +22,12 @@ layout: index
 
 <h2 class="{{page.lang}}">Lab {{page.week}}.{{page.lab}}: {{page.title}}</h2>
 
-
 <small>
     Part of 
-    <a href="{{week.url | relative_url }}">Week {{week.week}}: {{week.title}}</a>
+    <a href="{{week.url | relative_url }}">
+        {% if week.appendix %}Appendix{% else %}Week{% endif %}
+        {{week.week}}: {{week.title}}
+    </a>
 </small>
 
 <blockquote>

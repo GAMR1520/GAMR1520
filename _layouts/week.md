@@ -20,7 +20,7 @@ layout: index
 
 
 <section>
-    <h2 class="{{page.lang}}"> Week {{page.week}}: {{page.title}}</h2>
+    <h2 class="{{page.lang}}"> {% if page.appendix %}Appendix{% else %}Week{% endif %} {{page.week}}: {{page.title}}</h2>
     <small>
         Back to <a href="{{"/" | relative_url }}">home</a>
     </small>

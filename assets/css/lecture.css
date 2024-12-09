@@ -545,3 +545,28 @@ ul.grid-code-3 pre {
 h1 {
     font-size: 1.8em;
 }
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+ul.grid-3 {
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    > li {
+        padding: 0.5rem;
+        background: #eee;
+        border-radius: 5px;
+        border: 1px solid #666;
+    }
+}
+.two-one {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    place-items: center;
+}

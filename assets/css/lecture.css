@@ -312,14 +312,26 @@ blockquote {
 
 .auto-grid.versions {
     grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
-    gap: 1em 0.5em;
+    gap: 0.5em;
+    
+    div {
+        padding: 0.25em;
+        border: 0.5px solid black;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: lighten;
+
+    }
 }
 
 .auto-grid.versions > div {
-    position: relative;
-    padding: 0.25em;
+    /* position: relative; */
+    background-image: 
+        linear-gradient(hsl(0 0% 90% / 0.6), hsl(0 0% 90% / 0.8)),
+        url(../img/python-logo-only.svg);
 }
-.auto-grid.versions > div::before {
+/* .auto-grid.versions > div::before {
     content: "";
     background-size: contain;
     background-position: center;
@@ -332,13 +344,15 @@ blockquote {
     position: absolute;
     z-index: -1;   
     background-image: url(../img/python-logo-only.svg);
-}
+} */
 
-.auto-grid.versions.js > div::before {
-    background-image: url(../img/js-logo.svg);
-    background-color: #f7df1e;
+.auto-grid.versions.js > div {
+    background-image:
+        linear-gradient(#f7df1e, #f7df1e),
+        url(../img/js-logo.svg);
     background-position: bottom right;
-
+    background-size: cover, 2em 2em;
+    background-blend-mode: color;
 }
 
 .auto-grid.versions .current,
@@ -349,7 +363,7 @@ blockquote {
 .auto-grid.versions.js .current,
 .auto-grid.versions.js .future {
     border: 5px solid hsl(62, 90%, 50%);
-    background: None;
+    /* background: None; */
 }
 
 .auto-grid.versions .future {

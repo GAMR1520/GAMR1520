@@ -1,6 +1,6 @@
 ---
 week: A
-title: Optional extras
+title: Extras
 lang: python
 appendix: true
 ---

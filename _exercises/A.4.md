@@ -30,7 +30,7 @@ So the most sensible thing to do is to create a `__str__` method which allows us
 Later on, we can add things like the score to this as well.
 
 The `__str__` method must return a string.
-A simple approach is to just pass `self.grid` through the built in `str` function.
+A simple approach is to just pass `self.grid` through the built-in `str` function.
 
 ```python
 class Game:
@@ -67,7 +67,7 @@ So we can upgrade our `__str__` method as follows.
 ```
 
 Here we are performing a list comprehension on the grid data, converting each row into a string.
-Then we take the resultant list and pass it into the `string.join` method to join the rows together using a newline character to place each row on a new line.
+Then we take the resultant list and pass it into the `str.join` method to join the rows together using a newline character to place each row on a new line.
 
 The result is much closer to what we need.
 

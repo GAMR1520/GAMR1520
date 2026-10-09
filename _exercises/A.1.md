@@ -66,12 +66,12 @@ It also allows us to know when the code is finished.
 > If the tests pass, it should be **good enough**.
 > Though, there may be a better way to do it, at least we know that our code works.
 >
-> Its worth also noting here that if your tests pass and your code doesn't work, then you probably need to update your testing code or add a new test.
+> It's worth also noting here that if your tests pass and your code doesn't work, then you probably need to update your testing code or add a new test.
 
-The second major benefit, is that the test are always there as your code develops.
-This means you can (and should) run the test regularly as your codebase evolves to catch situations where you accidentally break some aspect of your code (known as regression testing).
+The second major benefit, is that the tests are always there as your code develops.
+This means you can (and should) run the tests regularly as your codebase evolves to catch situations where you accidentally break some aspect of your code (known as regression testing).
 
-Of course, its perfectly possible to write bad or incomplete tests, but if you take as much care over the test code as the functional code of your project, then missing tests can be discovered and added as you go.
+Of course, it's perfectly possible to write bad or incomplete tests, but if you take as much care over the test code as the functional code of your project, then missing tests can be discovered and added as you go.
 
 > When a new bug is discovered, it is common to write a new test to catch the situation and make sure it never happens again.
 
@@ -99,7 +99,7 @@ So, this is an example of a starting position for a game.
 For now, consider a simplification of the game in which we only deal with one row.
 We will use a list to represent the row.
 
-> There is no need to write any code yet, the code examples here are just for illustration
+> There is no need to write any code yet, the code examples here are just for illustration.
 
 An empty row, looks like this.
 
@@ -140,7 +140,7 @@ input = [None, 2, None, 4]
 expected_output = [2, 4, None, None]
 ```
 
-Three values are similar
+Three values are similar.
 
 ```python
 input = [None, 2, 4, 2]
@@ -195,10 +195,10 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-Running the tests is handled by calling `unittest.main()`, so simply executing the `test.py` module will run all the tests.
+Running the tests is handled by calling `unittest.main()`, so simply executing the `tests.py` module will run all the tests.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -239,14 +239,14 @@ if __name__ == '__main__':
 Now, running the tests produces a more detailed output.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .F
 ======================================================================
 FAIL: test_one_value (__main__.TestStackLeft)
 A single non-None tile should be moved to the left
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "test.py", line 17, in test_one_value
+  File "tests.py", line 17, in test_one_value
     self.assertEqual(result, [2, None,  None, None])
 AssertionError: Lists differ: [None, None, None, None] != [2, None, None, None]
 
@@ -347,9 +347,9 @@ Start thinking about how to implement and test the next steps.
 We will cover these next week.
 
 Each week we will build on the code from the previous week.
-So the code from this week will be needed next week and its very important you understand what we are doing here.
+So the code from this week will be needed next week and it's very important you understand what we are doing here.
 We will continue to develop both python modules, `core.py` will include the core functions to handle movement etc. and `tests.py` will include the tests for these functions.
 
-A good approach might be to copy the whole folder each week and rename it (e.g. lab_01, lab_02, etc.) to that each week, you begin with a copy of the previous weeks code.
+A good approach might be to copy the whole folder each week and rename it (e.g. lab_01, lab_02, etc.) so that each week, you begin with a copy of the previous week's code.
 
 

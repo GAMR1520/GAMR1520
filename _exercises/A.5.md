@@ -13,7 +13,7 @@ There are a few wrinkles in this process so pay attention.
 
 ## Upgrading the `__str__` method
 
-First, we will upgrade our __str__ method to center each tile in a four character string.
+First, we will upgrade our `__str__` method to center each tile in a four character string.
 
 ```python
     def __str__(self):
@@ -36,7 +36,7 @@ tiles = [[str(t or ".").center(4) for t in row] for row in self.grid]
 The outer list comprehension (`for row in self.grid`) returns a new list for each row where the new list is the result of the inner list comprehension.
 
 The inner list comprehension (`for t in row`) converts each tile using `str(t or ".").center(4)`.
-Tiles with numeric values will be converted to strings whilst `None` tiles will evaluates to `"."` (which is already a string).
+Tiles with numeric values will be converted to strings whilst `None` tiles will evaluate to `"."` (which is already a string).
 The resultant string is padded with spaces to become four-characters using `center()`.
 
 Then we join all the strings using spaces between tiles and newline characters (`\n`) between rows.
@@ -92,7 +92,7 @@ KeyError: 'K'
 
 We need to handle this `KeyError` which occurs when any command other than "W", "A", "S", or "D" is entered.
 We will do this by using a `try except` construct.
-Rather than handling it where it occurs (on line 35 in `process_command` in my case, your error may differ) we will do this one level up by wrapping the call to `self.process_command` within in the `next_move` method (on line 41 in my case) in a `try` block.
+Rather than handling it where it occurs (on line 35 in `process_command` in my case, your error may differ) we will do this one level up by wrapping the call to `self.process_command` within the `next_move` method (on line 41 in my case) in a `try` block.
 We do this mainly because this is where we handle the user input and it helps to keep our `process_command` method clean.
 
 
@@ -243,12 +243,12 @@ and update the `process_command` method as follows.
 
 So we are now picking randomly from the list `[2, 2, 2, 4]`.
 Which will usually give us a `2` and less often, a `4`.
-Its easy enough to tweak this setting by adding more `2's` to the list.
+It's easy enough to tweak this setting by adding more `2's` to the list.
 
 ## Game over
 
 The last major piece of game logic is to detect when the player can no longer make any legal moves and present the user with a game over message.
-This is very important because if we allow the game to reach this state without detecting it then the game will enter an infinite loop looking for an empty tile.
+This is very important because if we allow the game to reach this state without detecting it then the player will be stuck, with every move having no effect.
 So we need to exit the game when this happens.
 
 The detection is divided into three parts which we will implement in our `core.py` module and test separately.
@@ -265,7 +265,7 @@ def has_gaps(grid):
 
 The function simply loops over each row and checks to see if it contains `None`. If it does find a `None` then it returns `True` immediately. If no rows contain `None` then it returns `False`.
 
-We can add a new test case to `test.py`. 
+We can add a new test case to `tests.py`. 
 
 ```python
 class TestHasGaps(unittest.TestCase):
@@ -288,7 +288,7 @@ class TestHasGaps(unittest.TestCase):
 To detect game over, if there are no gaps, then we need to look for potential merges, i.e. similar tiles next to each other in the grid.
 We will need to look for both vertical and horizontal merges.
 
-The two functions, `has_vertical_gaps` and `has_horizontal_gaps` are very similar.
+The two functions, `has_vertical_merges` and `has_horizontal_merges` are very similar.
 They both loop over the data and look for pairs of similar tiles.
 As soon as they find a pair they return `True`, if no pairs are found, they return `False`.
 
@@ -359,7 +359,7 @@ First, in the main `play` method, we add a `self.game_over` boolean attribute.
 The code will break out of the game loop if this is set to `True` (or if the user quits).
 
 ```python
-   def play(self):
+    def play(self):
         self.game_over = False
         self.playing = True
         while self.playing and not self.game_over:

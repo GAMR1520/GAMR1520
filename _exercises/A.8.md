@@ -62,7 +62,7 @@ The result should be much closer to what we want.
 
 ![step_01]({{ "assets/img/2048/lab_08/step_01.png" | relative_url}})
 
-However, its not quite right. 
+However, it's not quite right. 
 The numbered tiles should each have a different colour. 
 
 ## Setting the tile colours
@@ -111,7 +111,7 @@ The `__init__` method takes a `parent` argument and passes it to the `tk.Label._
 
 The second method, `set` is the key here. 
 It takes a value as an argument (e.g. `None` or `2`) and calls the `tk.Label.configure` method accordingly.
-It sets the `text` property to `value or ""` just as we were doing already.
+It sets the `text` property to `value or " "` just as we were doing already.
 But it also sets the `bg` property to a value drawn from the `tile_colours` dictionary.
 
 >Note that `dict.get()` takes an optional second argument which provides a default value to use if the requested key is not found.
@@ -217,11 +217,13 @@ self.restart()
 self.bind("<KeyPress-r>", lambda ev: self.restart())
 ```
 
+> Replace the `self.update()` call at the end of your `__init__` method with these lines.
+
 You should now be able to restart the game by pressing the `r` key at any time.
 
 ## Detecting and reporting game over
 
-In this final step we will display a labe showing a "game over" message and implement the logic to show the message when the game over state is detected.
+In this final step we will display a label showing a "game over" message and implement the logic to show the message when the game over state is detected.
 
 We can start by creating a label for the message and placing it on the main window.
 
@@ -236,14 +238,15 @@ self.game_over_message = tk.Label(
 self.game_over_message.grid(row=1, column=0, columnspan=2)
 ```
 
->Do this in your `__init__` method.
+>Do this in your `__init__` method, **before** the call to `self.restart()`.
+>Our `update` method will soon refer to `self.game_over_message`, so it must exist before `restart` (and therefore `update`) is called.
 
 Run the game and you should see the message slapped on top of the grid.
 
 ![step_05]({{ "assets/img/2048/lab_08/step_05.png" | relative_url }})
 
 But, obviously, we don't want to show the message unless the game is actually over.
-We can implement this very simply using `widget.remove_grid()` to hide the prepared message.
+We can implement this very simply using `widget.grid_remove()` to hide the prepared message.
 
 Add the following to the end of your update method.
 

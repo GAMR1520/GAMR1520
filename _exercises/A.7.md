@@ -181,7 +181,7 @@ The result is encouraging, but not ideal.
 ![step_05]({{ "assets/img/2048/lab_07/step_05.png" | relative_url }})
 
 We want to leave the `None` tiles empty, just like we did in the command line version.
-We can do this by simply using an `or` statement, so if the tile value os `None` the result will be an empty string.
+We can do this by simply using an `or` expression, so if the tile value is `None` the result will be an empty string.
 
 ```python
     def update(self):
@@ -238,7 +238,7 @@ In each case, we will trigger the event handler, `self.move_handler` which we wi
         self.update()
 ```
 
-The `move_handler` method calls our `process_command` method, passing the symbol which is extracts from the event data.
+The `move_handler` method calls our `process_command` method, passing the symbol which it extracts from the event data.
 This updates our grid data as necessary.
 Then it calls `self.update()` to reflect the changes to the GUI.
 

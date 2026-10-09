@@ -58,7 +58,7 @@ The more generally applicable way to execute code is to simply run the `python` 
 Use `cd` to change directory to a location where you have saved python scripts.
 
 ```console
-cd H:\GAMR1520\GAMR1520-labs\lab-1.1\
+cd H:\GAMR1520-labs\week_1\lab_1.1\
 ```
 
 > Your path might be different
@@ -77,6 +77,12 @@ hello world
 
 
 It doesn't matter which approach you choose but you will need to get familiar with executing python files.
+
+## Interactive shell
+
+You can also start an interactive python shell (like the IDLE shell) by running `python` with no arguments in the terminal.
+This is useful for quickly trying out expressions.
+Type `exit()` to leave the shell.
 
 > If you are stuck and/or confused then this page doesn't explain *your* situation well enough. 
 Let me know and I will update the page.

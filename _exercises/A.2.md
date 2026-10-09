@@ -53,7 +53,7 @@ Finally, after all the input data has been checked and non-None values copied ov
 You should see that they all pass.
 >
 >```
->$ python3 test.py 
+>$ python3 tests.py 
 >.....
 >----------------------------------------------------------------------
 >Ran 5 tests in 0.000s
@@ -137,7 +137,7 @@ As last week, we have started with a placeholder function to fail the tests.
 However, if you run the tests you should find all the tests pass (because we are not testing much yet).
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 ......
 ----------------------------------------------------------------------
 Ran 6 tests in 0.000s

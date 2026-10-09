@@ -195,10 +195,10 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-Running the tests is handled by calling `unittest.main()`, so simply executing the `test.py` module will run all the tests.
+Running the tests is handled by calling `unittest.main()`, so simply executing the `tests.py` module will run all the tests.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -239,14 +239,14 @@ if __name__ == '__main__':
 Now, running the tests produces a more detailed output.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .F
 ======================================================================
 FAIL: test_one_value (__main__.TestStackLeft)
 A single non-None tile should be moved to the left
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "test.py", line 17, in test_one_value
+  File "tests.py", line 17, in test_one_value
     self.assertEqual(result, [2, None,  None, None])
 AssertionError: Lists differ: [None, None, None, None] != [2, None, None, None]
 

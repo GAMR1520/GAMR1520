@@ -265,7 +265,7 @@ def has_gaps(grid):
 
 The function simply loops over each row and checks to see if it contains `None`. If it does find a `None` then it returns `True` immediately. If no rows contain `None` then it returns `False`.
 
-We can add a new test case to `test.py`. 
+We can add a new test case to `tests.py`. 
 
 ```python
 class TestHasGaps(unittest.TestCase):
@@ -359,7 +359,7 @@ First, in the main `play` method, we add a `self.game_over` boolean attribute.
 The code will break out of the game loop if this is set to `True` (or if the user quits).
 
 ```python
-   def play(self):
+    def play(self):
         self.game_over = False
         self.playing = True
         while self.playing and not self.game_over:

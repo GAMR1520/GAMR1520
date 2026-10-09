@@ -107,7 +107,7 @@ def move_left(grid):
 Now, we should be able to run the tests and see that they all pass.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 ................
 ----------------------------------------------------------------------
 Ran 16 tests in 0.001s

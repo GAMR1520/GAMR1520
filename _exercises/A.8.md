@@ -217,6 +217,8 @@ self.restart()
 self.bind("<KeyPress-r>", lambda ev: self.restart())
 ```
 
+> Replace the `self.update()` call at the end of your `__init__` method with these lines.
+
 You should now be able to restart the game by pressing the `r` key at any time.
 
 ## Detecting and reporting game over
@@ -236,14 +238,15 @@ self.game_over_message = tk.Label(
 self.game_over_message.grid(row=1, column=0, columnspan=2)
 ```
 
->Do this in your `__init__` method.
+>Do this in your `__init__` method, **before** the call to `self.restart()`.
+>Our `update` method will soon refer to `self.game_over_message`, so it must exist before `restart` (and therefore `update`) is called.
 
 Run the game and you should see the message slapped on top of the grid.
 
 ![step_05]({{ "assets/img/2048/lab_08/step_05.png" | relative_url }})
 
 But, obviously, we don't want to show the message unless the game is actually over.
-We can implement this very simply using `widget.remove_grid()` to hide the prepared message.
+We can implement this very simply using `widget.grid_remove()` to hide the prepared message.
 
 Add the following to the end of your update method.
 

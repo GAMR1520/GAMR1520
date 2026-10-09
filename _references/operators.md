@@ -16,7 +16,7 @@ For example:
 It is hopefully clear what these expressions mean.
 They will resolve to the integer values `2` and `4` respectively.
 
-A valid expression requires two *operands* with an operator between them.
+A valid expression using a *binary* operator requires two *operands* with the operator between them.
 
 ```plaintext
 <operand> <operator> <operand>
@@ -75,7 +75,7 @@ The following table lists the most common operators.
 </table>
 
 All of these can be used with integers and floats.
-If both of the operands are integers, then the output is usually an integer (except for division, which outputs a float), otherwise its usually a float.
+If both of the operands are integers, then the output is usually an integer (except for division, which outputs a float), otherwise it's usually a float.
 
 <figure>
     <img src="{{"/assets/img/arithmetic-operations.png" | relative_url }}" alt="arithmetic operations in IDLE">
@@ -143,14 +143,14 @@ In the above case, the result is `False`, since `10` is not greater than `10`.
     </tbody>
 </table>
 
-Their application to integers and floats are obvious.
+Their application to integers and floats is obvious.
 
 <figure>
     <img src="{{"/assets/img/logical-operations.png" | relative_url }}" alt="logical operations in IDLE">
-    <figcaption>examples of logical operations</figcaption>
+    <figcaption>examples of comparison operations</figcaption>
 </figure>
 
-When used with strings, the comparison is alphanumeric.
+When used with strings, the comparison is lexicographic (character by character, based on Unicode code points).
 
 ```python
 'b' > 'a'   # True
@@ -158,8 +158,8 @@ When used with strings, the comparison is alphanumeric.
 ```
 
 >Lowercase values are considered greater than uppercase values.
->This is because the unicode codepoints for the uppercase letters are before the lowercase letters.
->We can see this by using the built-in function `ord()` which will return the unicode code point for any one-character string.
+>This is because the Unicode code points for the uppercase letters are before the lowercase letters.
+>We can see this by using the built-in function `ord()` which will return the Unicode code point for any one-character string.
 >```python
 >ord('A')    # 65
 >ord('B')    # 66
@@ -168,7 +168,7 @@ When used with strings, the comparison is alphanumeric.
 >```
 
 For longer sequences, the first elements are compared and only if they are equal will further elements be compared. 
-Substrings are considered less than longer strings. 
+If one string is a prefix of another, the shorter string is considered less than the longer string. 
 
 ```python
 'abc' < 'abca'  # True
@@ -225,7 +225,7 @@ Basically, everything evaluates to `True` unless it is zero or empty.
 >dict(['OK'])   # {'O': 'K'}
 >```
 >[Built-in functions](https://docs.python.org/3/library/functions.html) are part of the basic python toolkit.
->We will introduce a number of other useful built-in functions in this set of exercises.
+>We will introduce a number of other useful built-in functions as we go.
 >
 >*actually, these are not all strictly functions, some are type constructors.
 
@@ -248,7 +248,6 @@ The usual precedence applies (brackets are evaluated first, then exponentiation,
 
 Higher precedence operations are evaluated before lower precedence operations.
 For example, boolean operations are evaluated last unless they are enclosed in brackets.
-So if an expression contains a boolean operator it will determine the meaning of the expression unless there are brackets around the boolean operator.
 
 Study each of these expressions to understand how they are evaluated.
 
@@ -286,7 +285,7 @@ False
 ```
 {: .small-margin}
 
-Adding brackets change the meaning completely.
+Adding brackets changes the meaning completely.
 
 ```python
 200 / (25 != 2) ** 3

@@ -21,7 +21,7 @@ if balanceA >= amount:
 
 The header defines the type of clause with a keyword (one of `if`, `elif`, `else`, `while`, `for`, `def`, `with`, `try`, `except` or `class`).
 
-> There are a few newer compound statements, but we won't cover them in this module
+> There are a few others (e.g. `finally`) and some newer compound statements, but we won't cover them in this module.
 
 Different clauses have different syntax.
 Some (e.g. `try` or `else`) just include the keyword followed by a colon (`:`), whilst others (e.g. `if` or `for`) require additional expressions to be included as part of the header.
@@ -37,7 +37,7 @@ The details are different with different compound statements, but clause headers
 
 ## Indentation
 
-The code block following the header consists of one or more indented statements and must end with a *dedent*, when the code returns to the original indentation level, this indicates the end of the code block.
+The code block following the header consists of one or more indented statements and must end with a *dedent*. When the code returns to the original indentation level, this indicates the end of the code block.
 
 **Be very careful with indentation!**
 It is part of the syntax in python, this keeps the code clean and readable.
@@ -56,7 +56,7 @@ if a > 0:
 print(a)
 ```
 
-has a subtly different behaviour to the this code.
+has a subtly different behaviour to this code.
 
 ```python
 a = 1
@@ -75,11 +75,11 @@ The difference between the two examples is the indentation level of the last lin
 > Try them both after changing the first line to `a = 0`.
 
 
-## Nesting compound statement
+## Nesting compound statements
 
 Compound statements can be nested.
-In the CPython implementation, there used to be a low limit to how deeply nested you could go.
-Reportedly 15 or 20 levels deep.
+In the CPython implementation, there is still a limit of around 20 levels for nested loops (and `try` and `with` blocks).
+Nested `if` statements like this have no such limit.
 I tried an extended version of this in 3.10.6 and could not find any limit.
 
 ```python
@@ -101,7 +101,7 @@ if a:
 
 Nevertheless, if you find your code is three levels deep and you need more levels of nesting you might want to think about refactoring your code for the sake of readability.
 
-> **"Flat is better than nested."** - The zen of python
+> **"Flat is better than nested."** - The Zen of Python
 
 Adding a function is a nice way to break nesting across separate blocks and flatten out code.
 
@@ -119,7 +119,7 @@ for d in data:
 
 ## Compound statements and interactive interpreters
 
-Compound statements can be entered into interactive interpreters such as the IDLE shell, but its a bit tricky and annoying.
+Compound statements can be entered into interactive interpreters such as the IDLE shell, but it's a bit tricky and annoying.
 
 After entering the `if` clause (don't forget the colon), press enter and the prompt should automatically indent.
 Continue typing the code block, line by line, pressing enter at the end of each line.
@@ -130,6 +130,6 @@ Once finished, press enter again to indicate the code block is complete.
     <figcaption>Compound statements in the IDLE shell</figcaption>
 </figure>
 
-Its often easier to write small code snippets into files and add `print()` statements to see what's going on.
+It's often easier to write small code snippets into files and add `print()` statements to see what's going on.
 
 > For more information, check out the python documentation on [compound statements](https://docs.python.org/3/reference/compound_stmts.html).

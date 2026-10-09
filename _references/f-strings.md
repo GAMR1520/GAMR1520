@@ -89,7 +89,7 @@ We can generate an uppercase version of the string using the `upper()` method.
 ```
 {: .small-margin}
 ```plaintext
-HELLO WORLD
+'HELLO WORLD'
 ```
 {: .small-margin}
 
@@ -105,7 +105,7 @@ This capitalises each word.
 ```
 {: .small-margin}
 ```plaintext
-Hello World
+'Hello World'
 ```
 {: .small-margin}
 
@@ -119,7 +119,7 @@ This capitalises only the first word.
 ```
 {: .small-margin}
 ```plaintext
-Hello world
+'Hello world'
 ```
 {: .small-margin}
 
@@ -133,7 +133,7 @@ The new string contains the original string, centered and padded by the specifie
 ```
 {: .small-margin}
 ```plaintext
-====hello world=====
+'====hello world====='
 ```
 {: .small-margin}
 
@@ -225,7 +225,7 @@ print(c)
 ```
 {: .small-margin}
 ```plaintext
-'this will be split into words and then merged back together'
+this will be split into words and then merged back together
 ```
 {: .small-margin}
 

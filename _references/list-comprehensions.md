@@ -20,7 +20,7 @@ for element in range(1, 6):
 ```
 
 The above code will correctly generate our list.
-However, it will also leave a reference to the variable `element` in memory with the value `4`.
+However, it will also leave a reference to the variable `element` in memory with the value `5`.
 
 We can achieve the same result more efficiently, without this side effect with a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions).
 

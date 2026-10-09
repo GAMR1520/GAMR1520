@@ -53,11 +53,11 @@ OK, `a` can be a fine name for a variable.
 However, in most cases a variable should be given a meaningful name, [reflecting its usage in the code](https://peps.python.org/pep-0008/#overriding-principle).
 It is good practice to use [multi_word_names](https://peps.python.org/pep-0008/#function-and-variable-names), separated with underscores as necessary, whilst keeping the [line length](https://peps.python.org/pep-0008/#maximum-line-length) of your code within ~79 characters. 
 
-In older versions of Python, variable names were restricted to all uppercase and lowercase letters [A-Z] and underscores.
+In older versions of Python, variable names were restricted to all uppercase and lowercase letters [A-Za-z] and underscores.
 Digits were also allowed, but not for the first character.
 Keywords, such as `while`, `if`, `def` and `for` are not allowed.
 
-Since Python 3, this scheme was extended to allow unicode characters.
+Since Python 3, this scheme has been extended to allow Unicode characters.
 So this is fine:
 
 ```python
@@ -100,7 +100,7 @@ The classic style guide for python code [PEP8](https://peps.python.org/pep-0008/
 variable_name = function_name()
 ```
 
-Whereas, class names are always capitalised, using upper camel case rather than underscores at word boundaries.
+Class names, on the other hand, are always capitalised, using upper camel case rather than underscores at word boundaries.
 
 ```python
 my_instance = MyClass()
@@ -132,9 +132,9 @@ This error would crash our programme if we did not handle it.
 
 ## Assigning to expressions
 
-We have seen that we need a valid variable name on the left hand side of the assignment operator (`=`).
+We have seen that we need a valid variable name on the left-hand side of the assignment operator (`=`).
 
-The value on the right hand side of the assignment operator can be any valid python expression. 
+The value on the right-hand side of the assignment operator can be any valid python expression. 
 This allows us to store calculated values.
 
 For example:
@@ -146,9 +146,9 @@ a = a * 2
 
 > This is a fundamental operation in programming, we can store values in memory and manipulate them in a stepwise fashion, line by line.
 
-The right hand side is evaluated first and then the result is assigned to the variable on the left hand side.
+The right-hand side is evaluated first and then the result is assigned to the variable on the left-hand side.
 
-For convenience, python also includes augmented assignment expressions which modify the value on the left side directly.
+For convenience, python also includes augmented assignment statements which combine an operation with assignment.
 
 ```python
 a += 1

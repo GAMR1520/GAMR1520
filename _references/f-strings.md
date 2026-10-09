@@ -7,7 +7,7 @@ lang: python
 Python strings are powerful objects with lots of capabilities and methods to learn.
 The [main documentation on string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is long and may be difficult to navigate at first.
 
-This is a quick introduction to the some useful string formatting approaches.
+This is a quick introduction to some useful string formatting approaches.
 
 ## Formatted string literals (*f-strings*)
 
@@ -23,14 +23,13 @@ print(name + ' has ' + str(len(name)) + ' letters.')
 
 This is a bit complicated.
 The code relies on concatenating strings using the `+` operator.
-Concatenating strings like this is not good practice.
-For both efficiency and clarity.
+Concatenating strings like this is not good practice, for both efficiency and clarity.
 We can improve it by using the so-called *f-string* formatting system.
 
 *F-strings* allow python expressions to be embedded within string literals.
 We create them by adding an `f` character *before* the first quotation mark and placing python expressions inside the string within curly braces.
 
-Using f-strings, the above code can be rewritten
+Using f-strings, the above code can be rewritten:
 
 ```python
 name = input('Enter your name: ')
@@ -77,7 +76,7 @@ Strings, like all values, are objects.
 String objects have *a lot* of methods we can use to generate new strings.
 These methods are built into the string object itself.
 
-> Strings are immutable so its not possible to *change* the value of a particular string.
+> Strings are immutable so it's not possible to *change* the value of a particular string.
 All the following methods will generate new strings, based on the current object.
 
 ### `upper()`
@@ -97,7 +96,7 @@ We can generate an uppercase version of the string using the `upper()` method.
 
 ### `title()`
 
-We can generate an titlecase version of the string using the `title()` method.
+We can generate a titlecase version of the string using the `title()` method.
 This capitalises each word.
 
 ```python

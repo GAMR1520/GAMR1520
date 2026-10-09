@@ -3,7 +3,7 @@ week: 1
 title: Get a proper text editor
 ---
 
-Using IDLE for python is OK, but its much more convenient to use a modern text editor.
+Using IDLE for python is OK, but it's much more convenient to use a modern text editor.
 When we move on to javascript, IDLE will no longer suffice.
 So you should start using an editor that can handle both languages.
 There are many to choose from.
@@ -24,7 +24,7 @@ The folder contents should appear on the left panel.
 
 Select a script to edit or create a new one.
 
-> You can close all other tabs
+> You can close all other tabs.
 
 ![hello world script in vscode]({{"assets/img/vscode/hello_world.png" | relative_url }})
 
@@ -39,7 +39,7 @@ Once the installation is complete, you can try it out by opening or creating a *
 
 The editor will make suggestions as you type based on its knowledge of python.
 If you type `print` then the python documentation for the `print()` function is displayed as you type.
-This extremely useful for discovering new parts of the language as well as looking up the precise syntax, argument options and meanings without resorting to the python documentation directly.
+This is extremely useful for discovering new parts of the language as well as looking up the precise syntax, argument options and meanings without resorting to the python documentation directly.
 It is certainly a huge upgrade from using IDLE.
 
 ## Executing code
@@ -50,7 +50,7 @@ This will execute the current file in a terminal.
 
 ![terminal in vscode]({{"assets/img/vscode/terminal.png" | relative_url }})
 
-> See where I have highlighted the output in the terminal panel
+> See where I have highlighted the output in the terminal panel.
 
 The more generally applicable way to execute code is to simply run the `python` executable via a command line interface such as *powershell*, *cmd* or *git bash* which are all installed on the lab machines.
 

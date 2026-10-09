@@ -77,7 +77,7 @@ We then assign `result` to a list comprehension which iterates over `range(10)` 
 
 ### Filtering
 
-Try adding a modified `if` clause to the end of the comprehension.
+Try adding an `if` clause to the end of the comprehension.
 This can be used to filter an iterable, ignoring values that don't meet the specified criteria.
 
 ```python
@@ -165,7 +165,7 @@ data = {value: key for key, value in data.items()}
 ```
 
 > Make sure you understand this.
-Ask if your not sure.
+Ask if you're not sure.
 
 ## Set comprehensions
 

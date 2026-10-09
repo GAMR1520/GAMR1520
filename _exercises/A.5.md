@@ -13,7 +13,7 @@ There are a few wrinkles in this process so pay attention.
 
 ## Upgrading the `__str__` method
 
-First, we will upgrade our __str__ method to center each tile in a four character string.
+First, we will upgrade our `__str__` method to center each tile in a four character string.
 
 ```python
     def __str__(self):
@@ -36,7 +36,7 @@ tiles = [[str(t or ".").center(4) for t in row] for row in self.grid]
 The outer list comprehension (`for row in self.grid`) returns a new list for each row where the new list is the result of the inner list comprehension.
 
 The inner list comprehension (`for t in row`) converts each tile using `str(t or ".").center(4)`.
-Tiles with numeric values will be converted to strings whilst `None` tiles will evaluates to `"."` (which is already a string).
+Tiles with numeric values will be converted to strings whilst `None` tiles will evaluate to `"."` (which is already a string).
 The resultant string is padded with spaces to become four-characters using `center()`.
 
 Then we join all the strings using spaces between tiles and newline characters (`\n`) between rows.
@@ -92,7 +92,7 @@ KeyError: 'K'
 
 We need to handle this `KeyError` which occurs when any command other than "W", "A", "S", or "D" is entered.
 We will do this by using a `try except` construct.
-Rather than handling it where it occurs (on line 35 in `process_command` in my case, your error may differ) we will do this one level up by wrapping the call to `self.process_command` within in the `next_move` method (on line 41 in my case) in a `try` block.
+Rather than handling it where it occurs (on line 35 in `process_command` in my case, your error may differ) we will do this one level up by wrapping the call to `self.process_command` within the `next_move` method (on line 41 in my case) in a `try` block.
 We do this mainly because this is where we handle the user input and it helps to keep our `process_command` method clean.
 
 
@@ -243,7 +243,7 @@ and update the `process_command` method as follows.
 
 So we are now picking randomly from the list `[2, 2, 2, 4]`.
 Which will usually give us a `2` and less often, a `4`.
-Its easy enough to tweak this setting by adding more `2's` to the list.
+It's easy enough to tweak this setting by adding more `2's` to the list.
 
 ## Game over
 

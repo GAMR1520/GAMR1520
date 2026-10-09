@@ -94,7 +94,7 @@ def row_left(row):
     return stack_left(merged)
 ```
 
-Now we can add a new `move_left` function which simply applied our tested logic to each row in the grid.
+Now we can add a new `move_left` function which simply applies our tested logic to each row in the grid.
 
 ```python
 def move_left(grid):
@@ -152,7 +152,7 @@ The code returns a simple list comprehension which flips each row.
 To flip a row, we call the built-in [reversed](https://docs.python.org/3/library/functions.html#reversed) function, but we also need to convert the result back into a list because the `reversed` function actually returns a special reverse iterator object.
 Notice that the rows are kept in the same order, so the impact is to flip the grid in one dimension only.
 
->The new test should now pass
+>The new test should now pass.
 
 Now we can create a `move_right` function which makes use of the existing `move_left` function.
 
@@ -201,7 +201,7 @@ def transpose(grid):
     return [list(col) for col in zip(*grid)]
 ```
 
-> the new test should now pass
+> The new test should now pass.
 
 The method relies on a call to the built-in [zip](https://docs.python.org/3/library/functions.html#zip) function within a list comprehension. 
 

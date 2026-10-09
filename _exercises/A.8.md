@@ -62,7 +62,7 @@ The result should be much closer to what we want.
 
 ![step_01]({{ "assets/img/2048/lab_08/step_01.png" | relative_url}})
 
-However, its not quite right. 
+However, it's not quite right. 
 The numbered tiles should each have a different colour. 
 
 ## Setting the tile colours
@@ -223,7 +223,7 @@ You should now be able to restart the game by pressing the `r` key at any time.
 
 ## Detecting and reporting game over
 
-In this final step we will display a labe showing a "game over" message and implement the logic to show the message when the game over state is detected.
+In this final step we will display a label showing a "game over" message and implement the logic to show the message when the game over state is detected.
 
 We can start by creating a label for the message and placing it on the main window.
 

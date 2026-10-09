@@ -30,7 +30,7 @@ So the most sensible thing to do is to create a `__str__` method which allows us
 Later on, we can add things like the score to this as well.
 
 The `__str__` method must return a string.
-A simple approach is to just pass `self.grid` through the built in `str` function.
+A simple approach is to just pass `self.grid` through the built-in `str` function.
 
 ```python
 class Game:

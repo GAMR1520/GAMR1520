@@ -13,7 +13,7 @@ Last week we looked at a function called `stack_left` in which we moved all the 
 We wrote some tests to define the behaviour we wanted from our function and you were left with a challenge to implement the function and make the tests pass.
 
 This week, we will work on a new function (`merge_left`) that adds the ability to merge to the left.
-But first, lets look at the solution to last week's challenge.
+But first, let's look at the solution to last week's challenge.
 
 >Hopefully you were able to attempt this challenge and perhaps you even succeeded.
 If so, well done.
@@ -93,7 +93,7 @@ def stack_left(row):
 > Again, the tests should still pass.
 
 In the above code, we are passing the input list `row` into the built-in `sorted` function with a custom `key` argument.
-The `key` argument is set to a function that returns `True` is the element is `None` and `False` otherwise.
+The `key` argument is set to a function that returns `True` if the element is `None` and `False` otherwise.
 So the `sorted` function will push all values that return `True` to the end (since `True` or 1 is greater than `False` or 0).
 This keeps our code shorter and simpler and so this is my current preferred approach.
 
@@ -151,7 +151,7 @@ Here are some more tests, check what each is doing and add them to your `TestMer
 
 ```python
     def test_one_value(self):
-        """An single value is unaffected by a merge"""
+        """A single value is unaffected by a merge"""
         result = core.merge_left([2, None, None, None])
         self.assertEqual(result, [2, None, None, None])
 
@@ -187,7 +187,7 @@ When there are three similar tiles, the left-most pair is merged and the third t
         self.assertEqual(result, [64, 128, 512, None])
 ```
 
-> and finally, the case of two pairs to merge.
+> And finally, the case of two pairs to merge.
 
 ```python
     def test_two_pairs(self):

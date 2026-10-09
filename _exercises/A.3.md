@@ -3,7 +3,7 @@ week: A
 lab: 3
 lang: python
 title: Transforming the grid
-description: In this exercise we expand our toolkit to work with a fill 4&times;4 grid enabling moves in all directions.
+description: In this exercise we expand our toolkit to work with a full 4&times;4 grid enabling moves in all directions.
 ---
 
 Last week we completed our basic, fully tested `move_left` function for moving a single row to the left.
@@ -203,7 +203,7 @@ def transpose(grid):
 
 > the new test should now pass
 
-The method relies on a call to the built-in [zip](https://docs.python.org/3.3/library/functions.html#zip) function within a list comprehension. 
+The method relies on a call to the built-in [zip](https://docs.python.org/3/library/functions.html#zip) function within a list comprehension. 
 
 >The `zip` function returns an iterator which aggregates the first item from each row, collected together in a tuple and then the second and third and so on.
 

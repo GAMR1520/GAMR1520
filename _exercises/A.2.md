@@ -40,7 +40,7 @@ def stack_left(row):
 ```
 
 The function starts by creating a list of `None` values (`result`) which will be filled with data as needed and returned.
-It then initialises a variable `stacked_index` to zero.
+It then initialises a variable `stack_index` to zero.
 This represents the index (the position) in the `result` list which should be written next.
 So the idea is that we loop over the input list and write the non-None values out to the result list at the correct position, starting at zero.
 

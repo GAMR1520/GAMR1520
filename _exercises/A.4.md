@@ -67,7 +67,7 @@ So we can upgrade our `__str__` method as follows.
 ```
 
 Here we are performing a list comprehension on the grid data, converting each row into a string.
-Then we take the resultant list and pass it into the `string.join` method to join the rows together using a newline character to place each row on a new line.
+Then we take the resultant list and pass it into the `str.join` method to join the rows together using a newline character to place each row on a new line.
 
 The result is much closer to what we need.
 

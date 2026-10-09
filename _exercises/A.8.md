@@ -111,7 +111,7 @@ The `__init__` method takes a `parent` argument and passes it to the `tk.Label._
 
 The second method, `set` is the key here. 
 It takes a value as an argument (e.g. `None` or `2`) and calls the `tk.Label.configure` method accordingly.
-It sets the `text` property to `value or ""` just as we were doing already.
+It sets the `text` property to `value or " "` just as we were doing already.
 But it also sets the `bg` property to a value drawn from the `tile_colours` dictionary.
 
 >Note that `dict.get()` takes an optional second argument which provides a default value to use if the requested key is not found.

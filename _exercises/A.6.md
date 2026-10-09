@@ -188,7 +188,7 @@ Add the following into your `__init__` method:
         }
 ```
 
-Here we are mapping the "W" and "S" commands to the vertical function and "A" and "S" to the horizontal function.
+Here we are mapping the "W" and "S" commands to the vertical function and "A" and "D" to the horizontal function.
 So, given the user-provided command, we can access the correct function.
 
 The final addition is to calculate the new score in the `process_command` method.

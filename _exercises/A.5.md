@@ -248,7 +248,7 @@ Its easy enough to tweak this setting by adding more `2's` to the list.
 ## Game over
 
 The last major piece of game logic is to detect when the player can no longer make any legal moves and present the user with a game over message.
-This is very important because if we allow the game to reach this state without detecting it then the game will enter an infinite loop looking for an empty tile.
+This is very important because if we allow the game to reach this state without detecting it then the player will be stuck, with every move having no effect.
 So we need to exit the game when this happens.
 
 The detection is divided into three parts which we will implement in our `core.py` module and test separately.
@@ -288,7 +288,7 @@ class TestHasGaps(unittest.TestCase):
 To detect game over, if there are no gaps, then we need to look for potential merges, i.e. similar tiles next to each other in the grid.
 We will need to look for both vertical and horizontal merges.
 
-The two functions, `has_vertical_gaps` and `has_horizontal_gaps` are very similar.
+The two functions, `has_vertical_merges` and `has_horizontal_merges` are very similar.
 They both loop over the data and look for pairs of similar tiles.
 As soon as they find a pair they return `True`, if no pairs are found, they return `False`.
 

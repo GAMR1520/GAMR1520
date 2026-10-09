@@ -36,7 +36,7 @@ print('hello', 'world')
 These are all valid usage. 
 Depending on the implementation, a function may enforce the number of arguments it requires, raising errors if called incorrectly. 
 
-With these so-called *positional* arguments, the position in the argument list often determines the meaning of an arguments.
+With these so-called *positional* arguments, the position in the argument list often determines the meaning of an argument.
 
 Arguments can also be optional, with default values provided.
 A concrete example of positional and default arguments is the `str.center` method.
@@ -62,12 +62,12 @@ If we tried providing an integer or a longer string as the second argument, agai
 
 ## Keyword arguments and default value
 
-Functions and methods can also accept keyword arguments preceded by an identifier (e.g. name="hello") in the list of arguments.
+Functions and methods can also accept keyword arguments preceded by an identifier (e.g. `name="hello"`) in the list of arguments.
 
-> keyword arguments are always added after any positional arguments
+> Keyword arguments are always added after any positional arguments
 
 One example of this is the `str.expandtabs()` method.
-This method will return a copy of a string in which a tab characters (`\t`) are replaced by one or more spaces.
+This method will return a copy of a string in which all tab characters (`\t`) are replaced by one or more spaces.
 [The python documentation](https://docs.python.org/3/library/stdtypes.html#str.expandtabs) shows that this method takes a single argument, `tabsize` which has a default value of `8`.
 
 Values for keyword arguments can be passed by position but can also be passed as keywords.
@@ -85,7 +85,7 @@ twelve = p.expandtabs(tabsize=12) # Set explicitly by keyword
 > Again, the comments are indicating the results.
 Try printing the variables `p`, `default`, `four` and `twelve` to see the results for yourself.
 
-As we shall see, keyword arguments are a great a way to make function arguments optional and to provide default values.
+As we shall see, keyword arguments are a great way to make function arguments optional and to provide default values.
 
 > Now, let's look at how to define our own functions.
 

@@ -17,12 +17,12 @@ b = a[4]
 The first line converts our string into a 2-element list.
 But when python evaluates the second line, it comes across a problem.
 
-We are trying to access the fourth element of `a`, but there are only two elements in the list.
+We are trying to access the fifth element of `a` (index `4`), but there are only two elements in the list.
 
-> Imagine your programme is getting the fourth word from some user input.
+> Imagine your programme is getting the fifth word from some user input.
 This problem could occur if the user enters too few words.
 
-The fourth index position doesn't exist and python can't provide a reasonable result. 
+Index position `4` doesn't exist and python can't provide a reasonable result. 
 So it **raises** an `IndexError`.
 
 >Your output won't be identical to this

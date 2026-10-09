@@ -25,7 +25,7 @@ This problem could occur if the user enters too few words.
 Index position `4` doesn't exist and python can't provide a reasonable result. 
 So it **raises** an `IndexError`.
 
->Your output won't be identical to this
+>Your output won't be identical to this.
 
 ```plaintext
 Traceback (most recent call last):
@@ -145,7 +145,7 @@ SyntaxError: invalid syntax
 ```
 
 In this case you may get a simpler trace because no code was executed.
-The error was caught at *compile-time*, when the code ws parsed.
+The error was caught at *compile-time*, when the code was parsed.
 
 > As opposed to *run-time*, when the code was executed.
 

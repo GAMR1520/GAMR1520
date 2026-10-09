@@ -390,7 +390,7 @@ hello arguments
 ```
 
 So no matter how many positional arguments are provided, they will be merged into a single tuple which will preserve the order in which the arguments were provided.
-Our function can access the third argument using `names[2]`, but this may raise an `indexError` since there is no guarantee that the calling code provided three arguments.
+Our function can access the third argument using `names[2]`, but this may raise an `IndexError` since there is no guarantee that the calling code provided three arguments.
 
 We can see the tuple in the following example:
 
@@ -433,7 +433,7 @@ print('hello world'.center(args))
 This generates an error because the first argument should be an integer, but we passed a tuple.
 
 We can in fact pass any iterable value in this way.
-Going back to the `greet()` and `print_argument_details()` functions we defined earlier.
+Going back to the `greet(*names)` and `print_argument_details()` functions we defined earlier.
 
 
 ```python
@@ -444,11 +444,11 @@ print_argument_details(*'hello')
 This decomposes the string into individual characters which are then passed as separate arguments and recombined into the tuple that is processed by the functions. 
 
 ```plaintext
-hello h!
-hello e!
-hello l!
-hello l!
-hello o!
+hello h
+hello e
+hello l
+hello l
+hello o
 <class 'tuple'> ('h', 'e', 'l', 'l', 'o')
 ```
 

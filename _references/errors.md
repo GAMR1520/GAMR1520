@@ -4,8 +4,8 @@ title: Learning from errors
 lang: python
 ---
 
->This is based on Python 3.10. 
-In the recent Python release, version 3.11, error messages are upgraded to provide even more information.
+>This page was written using Python 3.10. 
+Newer versions provide even more detailed error messages, so your output may look slightly different.
 
 Sometimes we ask python to do something that it just cannot do.
 
@@ -49,7 +49,7 @@ If you look at the result, you can see it actually contains only two things.
 
 The traceback details exactly what the programme was doing when the error occurred, specifically which lines of code were being executed.
 
-> For example, if the error occurs within a function 
+> For example, if the error occurs within a function, the traceback will include an entry for the function call.
 
 The error gives details about what went wrong.
 
@@ -166,7 +166,7 @@ Traceback (most recent call last):
 NameError: name 'hello' is not defined. Did you mean: 'help'?
 ```
 {: .small-margin}
-In recent versions of python the error messages may suggest built-in functions that are close in case of a typo.
+In recent versions of python the error messages may suggest similar names in case of a typo.
 
 ### IndexError
 
@@ -267,7 +267,7 @@ TypeError: a() takes 0 positional arguments but 1 was given
 
 ### AttributeError
 
-An `AttributeError` refers to the attributes of a function, class or module. 
+An `AttributeError` refers to the attributes of an object (e.g. a function, class or module). 
 It will be raised if code tries to access an attribute that doesn't exist.
 
 ```python

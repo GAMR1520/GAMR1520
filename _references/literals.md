@@ -43,6 +43,9 @@ False
 {'a': 1, 'b': 2, 'c': 3}
 ```
 
+> Strictly speaking, python only calls simple values such as numbers and strings literals.
+> The tuple, list and dictionary examples are *displays* which create new objects, but they are often loosely called literals.
+
 When interpreting these simple expressions, python is doing a surprising amount for you under the hood.
 The interpreter evaluates the literal values into complex objects in memory and outputs a representation of the python objects they generate.
 

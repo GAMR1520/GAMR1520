@@ -5,7 +5,7 @@ lang: python
 ---
 
 Python strings are powerful objects with lots of capabilities and methods to learn.
-The [main documentation on string methods](https://docs.python.org/3.3/library/stdtypes.html?highlight=split#string-methods) is long and may be difficult to navigate at first.
+The [main documentation on string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is long and may be difficult to navigate at first.
 
 This is a quick introduction to the some useful string formatting approaches.
 
@@ -112,7 +112,7 @@ This capitalises each word.
 ### `capitalize()`
 
 We can generate a capitalized version of the string using the `capitalize()` method.
-This capitalises only the first word.
+This capitalises only the first character and makes the rest lowercase.
 
 ```python
 'hello world'.capitalize()
@@ -191,7 +191,7 @@ False
 {: .small-margin}
 
 > `isalpha()` returns `False` due to the space character.
-`isalnum()` returns `False` because both `isalpha()` and `isnumeric()` return `False`.
+`isalnum()` also returns `False` due to the space character.
 
 ## Splitting
 

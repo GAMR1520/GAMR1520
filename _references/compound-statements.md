@@ -78,8 +78,8 @@ The difference between the two examples is the indentation level of the last lin
 ## Nesting compound statement
 
 Compound statements can be nested.
-In the CPython implementation, there used to be a low limit to how deeply nested you could go.
-Reportedly 15 or 20 levels deep.
+In the CPython implementation, there is still a limit of around 20 levels for nested loops (and `try` and `with` blocks).
+Nested `if` statements like this have no such limit.
 I tried an extended version of this in 3.10.6 and could not find any limit.
 
 ```python

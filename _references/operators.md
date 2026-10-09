@@ -16,7 +16,7 @@ For example:
 It is hopefully clear what these expressions mean.
 They will resolve to the integer values `2` and `4` respectively.
 
-A valid expression requires two *operands* with an operator between them.
+A valid expression using a *binary* operator requires two *operands* with the operator between them.
 
 ```plaintext
 <operand> <operator> <operand>
@@ -147,10 +147,10 @@ Their application to integers and floats are obvious.
 
 <figure>
     <img src="{{"/assets/img/logical-operations.png" | relative_url }}" alt="logical operations in IDLE">
-    <figcaption>examples of logical operations</figcaption>
+    <figcaption>examples of comparison operations</figcaption>
 </figure>
 
-When used with strings, the comparison is alphanumeric.
+When used with strings, the comparison is lexicographic (character by character, based on unicode code points).
 
 ```python
 'b' > 'a'   # True
@@ -168,7 +168,7 @@ When used with strings, the comparison is alphanumeric.
 >```
 
 For longer sequences, the first elements are compared and only if they are equal will further elements be compared. 
-Substrings are considered less than longer strings. 
+If one string is a prefix of another, the shorter string is considered less than the longer string. 
 
 ```python
 'abc' < 'abca'  # True
@@ -225,7 +225,7 @@ Basically, everything evaluates to `True` unless it is zero or empty.
 >dict(['OK'])   # {'O': 'K'}
 >```
 >[Built-in functions](https://docs.python.org/3/library/functions.html) are part of the basic python toolkit.
->We will introduce a number of other useful built-in functions in this set of exercises.
+>We will introduce a number of other useful built-in functions as we go.
 >
 >*actually, these are not all strictly functions, some are type constructors.
 

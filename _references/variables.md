@@ -10,7 +10,7 @@ When these literal values are interpreted, the data they represent are stored in
 In our very simple, one-line programmes we combined literals with operators and the calculations were also applied in memory before the result was displayed by the interactive interpreter.
 
 Because we no longer have a reference to these values, neither the literal values, nor the results of the calculations are accessible to our programme.
-However, the data remain in memory until the Python *garbage collector* finds them and frees up the memory for reuse.
+However, python keeps track of how many references there are to each object, and when an object has no references left, its memory is freed up for reuse.
 Python automatically does this with any data our programme cannot access.
 
 Variables allow us to access and manipulate values in memory across multiple python expressions.
@@ -38,8 +38,8 @@ The expression `a` evaluates to `1`.
 </figure>
 
 >You may notice that IDLE generates no output for the assignment operation.
->This is because assignment operations evaluate to the special value `None`.
->IDLE outputs nothing when expressions evaluate to `None`
+>This is because assignment is a *statement*, not an expression, so there is no value to display.
+>IDLE also outputs nothing when an expression evaluates to the special value `None`.
 >You can confirm this by entering the `None` literal value into IDLE.
 >```python
 >None

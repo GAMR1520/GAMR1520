@@ -2,9 +2,11 @@ from pathlib import Path
 
 path = Path("./shopping.txt")
 
-# read data from file
-with path.open("r") as f:
-    shopping = f.read().splitlines()
+# read data from file (if it exists)
+shopping = []
+if path.exists():
+    with path.open("r") as f:
+        shopping = f.read().splitlines()
 
 width = 20
 hline = '=' * width

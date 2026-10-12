@@ -6,7 +6,7 @@ title: Unit testing
 description: In this exercise we will introduce the unittest module, develop a data model for our game and start creating tests for the core logic.
 ---
 
-This week, we will introduce tests using the [unittest](https://docs.python.org/3/library/unittest.html) module.
+In this lab, we will introduce tests using the [unittest](https://docs.python.org/3/library/unittest.html) module.
 In python we can write code that calls our functions and methods to check we get the correct result for given inputs.
 
 Imagine we have a simple function like this (in a file `my_module.py`):
@@ -58,7 +58,7 @@ Especially in a simple case like this.
 > The final test fails, which indicates that the function is not quite ready.
 
 There are two major benefits of tests.
-One, which we will see this week, is that it is possible to write the tests **before** we write the actual code.
+One, which we will see in this lab, is that it is possible to write the tests **before** we write the actual code.
 This allows us to get detailed information about which tests pass and which fail.
 So we can see what we need to do to improve our code.
 It also allows us to know when the code is finished.
@@ -66,12 +66,12 @@ It also allows us to know when the code is finished.
 > If the tests pass, it should be **good enough**.
 > Though, there may be a better way to do it, at least we know that our code works.
 >
-> Its worth also noting here that if your tests pass and your code doesn't work, then you probably need to update your testing code or add a new test.
+> It's worth also noting here that if your tests pass and your code doesn't work, then you probably need to update your testing code or add a new test.
 
-The second major benefit, is that the test are always there as your code develops.
-This means you can (and should) run the test regularly as your codebase evolves to catch situations where you accidentally break some aspect of your code (known as regression testing).
+The second major benefit, is that the tests are always there as your code develops.
+This means you can (and should) run the tests regularly as your codebase evolves to catch situations where you accidentally break some aspect of your code (known as regression testing).
 
-Of course, its perfectly possible to write bad or incomplete tests, but if you take as much care over the test code as the functional code of your project, then missing tests can be discovered and added as you go.
+Of course, it's perfectly possible to write bad or incomplete tests, but if you take as much care over the test code as the functional code of your project, then missing tests can be discovered and added as you go.
 
 > When a new bug is discovered, it is common to write a new test to catch the situation and make sure it never happens again.
 
@@ -99,7 +99,7 @@ So, this is an example of a starting position for a game.
 For now, consider a simplification of the game in which we only deal with one row.
 We will use a list to represent the row.
 
-> There is no need to write any code yet, the code examples here are just for illustration
+> There is no need to write any code yet, the code examples here are just for illustration.
 
 An empty row, looks like this.
 
@@ -140,7 +140,7 @@ input = [None, 2, None, 4]
 expected_output = [2, 4, None, None]
 ```
 
-Three values are similar
+Three values are similar.
 
 ```python
 input = [None, 2, 4, 2]
@@ -195,10 +195,10 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-Running the tests is handled by calling `unittest.main()`, so simply executing the `test.py` module will run all the tests.
+Running the tests is handled by calling `unittest.main()`, so simply executing the `tests.py` module will run all the tests.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -239,14 +239,14 @@ if __name__ == '__main__':
 Now, running the tests produces a more detailed output.
 
 ```
-$ python3 test.py 
+$ python3 tests.py 
 .F
 ======================================================================
 FAIL: test_one_value (__main__.TestStackLeft)
 A single non-None tile should be moved to the left
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "test.py", line 17, in test_one_value
+  File "tests.py", line 17, in test_one_value
     self.assertEqual(result, [2, None,  None, None])
 AssertionError: Lists differ: [None, None, None, None] != [2, None, None, None]
 
@@ -334,22 +334,22 @@ Only the first test case passes because our function returns `[None, None, None,
 
 # Challenges
 
-Spend the rest of the session asking questions to make sure you understand what we are doing and writing a function that passes all the tests. 
+Spend some time asking questions to make sure you understand what we are doing and writing a function that passes all the tests. 
 It should convert the input list into a modified list in which all the `None` values are pushed to the end and the numbered tiles are moved to the left.
 
 If you get the tests passing, well done. 
-A solution will be provided next week.
+A solution is provided in [the next lab]({{ "exercises/A.2" | relative_url }}).
 Start thinking about how to implement and test the next steps.
 
 - merge tiles with the same number
 - expand to a 2-dimensional grid
 
-We will cover these next week.
+We will cover these in the next lab.
 
-Each week we will build on the code from the previous week.
-So the code from this week will be needed next week and its very important you understand what we are doing here.
+Each lab builds on the code from the previous lab.
+So the code from this lab will be needed in the next one and it's very important you understand what we are doing here.
 We will continue to develop both python modules, `core.py` will include the core functions to handle movement etc. and `tests.py` will include the tests for these functions.
 
-A good approach might be to copy the whole folder each week and rename it (e.g. lab_01, lab_02, etc.) to that each week, you begin with a copy of the previous weeks code.
+A good approach might be to copy the whole folder for each lab and rename it (e.g. lab_01, lab_02, etc.) so that each time, you begin with a copy of the previous lab's code.
 
 

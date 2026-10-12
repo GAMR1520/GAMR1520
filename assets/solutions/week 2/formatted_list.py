@@ -1,9 +1,9 @@
-def formatted_list(items, title="list", border='*', padding=2):
-    width = max([len(i) for i in items + [title]]) + padding * 2
-    hline = border * width
+def formatted_list(items, title="list", ch='*', pad=4):
+    width = max([len(i) for i in items + [title]]) + pad
+    hline = ch * width
     result = [hline, title, hline] + items + [hline]
-    result = [f"{border}{i.center(width)}{border}" for i in result]
+    result = [f"{ch}{i.center(width)}{ch}" for i in result]
     return "\n".join(result)
 
-items = ["apples", "bananas", "cherries"]
-print(formatted_list(items, title="fruit", border="+", padding=10))
+f = ['apples', 'bananas', 'cherries']
+print(formatted_list(f, title='fruit', ch="+", pad=20))

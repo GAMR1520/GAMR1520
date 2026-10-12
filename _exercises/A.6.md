@@ -58,7 +58,7 @@ We can initialise it to zero in the `__init__` method by just adding a single li
 
 ## Showing the score attribute
 
-Now, in order to see the score, we can update the __str__ method.
+Now, in order to see the score, we can update the `__str__` method.
 Modifying the last line in the method to include the score in the string representation of the game.
 
 ```python
@@ -79,7 +79,7 @@ We need to calculate the additional points earned by each move.
 This is a task for the core module.
 
 Notice that the points are the same for left and right moves and for up and down moves.
-So we only need two function, we will implement `horizontal_points` and `vertical_points` functions in the `core` module.
+So we only need two functions, we will implement `horizontal_points` and `vertical_points` functions in the `core` module.
 These functions will not be used to modify the grid, they will simply calculate the potential points. 
 
 The `horizontal_points` function will do all the work. 
@@ -188,7 +188,7 @@ Add the following into your `__init__` method:
         }
 ```
 
-Here we are mapping the "W" and "S" commands to the vertical function and "A" and "S" to the horizontal function.
+Here we are mapping the "W" and "S" commands to the vertical function and "A" and "D" to the horizontal function.
 So, given the user-provided command, we can access the correct function.
 
 The final addition is to calculate the new score in the `process_command` method.

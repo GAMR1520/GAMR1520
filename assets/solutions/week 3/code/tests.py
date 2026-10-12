@@ -75,7 +75,7 @@ class TestMergeLeft(unittest.TestCase):
         self.assertEqual(result, [64, 128, 512, None])
 
 
-class TestMove(unittest.TestCase):
+class TestMoveLeft(unittest.TestCase):
 
     def test_empty(self):
         "An empty grid is unaffected by a merge"

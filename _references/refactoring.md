@@ -253,7 +253,7 @@ string_to_pad = "hello"
 padded_string = f"*{string_to_pad.center(20)}*"
 ```
 
-In the above code, is doesn't matter what length the original string is, it will be neatly converted to the specified width and have extra characters added.
+In the above code, it doesn't matter what length the original string is, it will be neatly converted to the specified width and have extra characters added.
 
 > Experimenting with a simplified example like this (a *proof-of-concept*) can be helpful when planning an upgrade.
 > The proof-of-concept only deals with the change we want to see, not the whole function.
@@ -573,7 +573,7 @@ Code can start simple and develop incrementally.
 In fact, this is very often a suitable way to solve a coding problem.
 Start by solving the problem in the most basic and naive way possible and incrementally work towards a more sophisticated solution.
 
-As a rough plan, repeat these steps until its *"good enough"* for you.
+As a rough plan, repeat these steps until it's *"good enough"* for you.
 
 1. Start with a simple proof-of-concept (ask, *can* this approach work?)
 1. Produce a very simple prototype
@@ -583,5 +583,5 @@ As a rough plan, repeat these steps until its *"good enough"* for you.
 It can be daunting to consider creating your own functions.
 Using this approach can help to begin the process of writing code.
 
-> When presented with complex and advanced looking code provided by more experienced developers.
-> Remember that the code may have begun life as a much simpler prototype solution that was incrementally improved to become more sophisticated over several iterations.
+> When presented with complex and advanced looking code provided by more experienced developers,
+> remember that the code may have begun life as a much simpler prototype solution that was incrementally improved to become more sophisticated over several iterations.

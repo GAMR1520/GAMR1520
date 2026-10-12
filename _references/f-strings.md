@@ -5,9 +5,9 @@ lang: python
 ---
 
 Python strings are powerful objects with lots of capabilities and methods to learn.
-The [main documentation on string methods](https://docs.python.org/3.3/library/stdtypes.html?highlight=split#string-methods) is long and may be difficult to navigate at first.
+The [main documentation on string methods](https://docs.python.org/3/library/stdtypes.html#string-methods) is long and may be difficult to navigate at first.
 
-This is a quick introduction to the some useful string formatting approaches.
+This is a quick introduction to some useful string formatting approaches.
 
 ## Formatted string literals (*f-strings*)
 
@@ -23,14 +23,13 @@ print(name + ' has ' + str(len(name)) + ' letters.')
 
 This is a bit complicated.
 The code relies on concatenating strings using the `+` operator.
-Concatenating strings like this is not good practice.
-For both efficiency and clarity.
+Concatenating strings like this is not good practice, for both efficiency and clarity.
 We can improve it by using the so-called *f-string* formatting system.
 
 *F-strings* allow python expressions to be embedded within string literals.
 We create them by adding an `f` character *before* the first quotation mark and placing python expressions inside the string within curly braces.
 
-Using f-strings, the above code can be rewritten
+Using f-strings, the above code can be rewritten:
 
 ```python
 name = input('Enter your name: ')
@@ -77,7 +76,7 @@ Strings, like all values, are objects.
 String objects have *a lot* of methods we can use to generate new strings.
 These methods are built into the string object itself.
 
-> Strings are immutable so its not possible to *change* the value of a particular string.
+> Strings are immutable so it's not possible to *change* the value of a particular string.
 All the following methods will generate new strings, based on the current object.
 
 ### `upper()`
@@ -89,7 +88,7 @@ We can generate an uppercase version of the string using the `upper()` method.
 ```
 {: .small-margin}
 ```plaintext
-HELLO WORLD
+'HELLO WORLD'
 ```
 {: .small-margin}
 
@@ -97,7 +96,7 @@ HELLO WORLD
 
 ### `title()`
 
-We can generate an titlecase version of the string using the `title()` method.
+We can generate a titlecase version of the string using the `title()` method.
 This capitalises each word.
 
 ```python
@@ -105,21 +104,21 @@ This capitalises each word.
 ```
 {: .small-margin}
 ```plaintext
-Hello World
+'Hello World'
 ```
 {: .small-margin}
 
 ### `capitalize()`
 
 We can generate a capitalized version of the string using the `capitalize()` method.
-This capitalises only the first word.
+This capitalises only the first character and makes the rest lowercase.
 
 ```python
 'hello world'.capitalize()
 ```
 {: .small-margin}
 ```plaintext
-Hello world
+'Hello world'
 ```
 {: .small-margin}
 
@@ -133,7 +132,7 @@ The new string contains the original string, centered and padded by the specifie
 ```
 {: .small-margin}
 ```plaintext
-====hello world=====
+'====hello world====='
 ```
 {: .small-margin}
 
@@ -191,7 +190,7 @@ False
 {: .small-margin}
 
 > `isalpha()` returns `False` due to the space character.
-`isalnum()` returns `False` because both `isalpha()` and `isnumeric()` return `False`.
+`isalnum()` also returns `False` due to the space character.
 
 ## Splitting
 
@@ -225,7 +224,7 @@ print(c)
 ```
 {: .small-margin}
 ```plaintext
-'this will be split into words and then merged back together'
+this will be split into words and then merged back together
 ```
 {: .small-margin}
 

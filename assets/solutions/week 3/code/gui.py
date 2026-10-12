@@ -7,6 +7,7 @@ normal = ("Helvetica", 24, "bold")
 
 bg1 = "#faf8ef"
 bg2 = "#bbada0"
+bg3 = "#cdc1b4"
 fg1 = "#776e65"
 
 tile_colours = {
@@ -77,7 +78,6 @@ class Game(tk.Tk):
 
         self.game_over_message = tk.Label(text="GAME OVER\n'r' to restart", font=normal, bg="white", padx=20, pady=20)
         self.game_over_message.grid(row=1, column=0, columnspan=2)
-        # self.game_over_message.grid_remove()
 
         self.moves = {
             "Left": core.move_left,
@@ -88,7 +88,7 @@ class Game(tk.Tk):
         for key in self.moves:
             self.bind(f"<{key}>", self.move_handler)
 
-        self.bind(f"<KeyPress-r>", lambda ev: self.restart())
+        self.bind("<KeyPress-r>", lambda ev: self.restart())
 
         self.point_functions = {
             "Left": core.horizontal_points,
@@ -98,7 +98,6 @@ class Game(tk.Tk):
         }
 
         self.restart()
-        self.update()
 
 
     def restart(self):
@@ -111,13 +110,13 @@ class Game(tk.Tk):
         self.set_random_empty_tile(2)
         self.score.set(0)
         self.game_over = False
-        self.update()
+        self.update_tiles()
 
     def move_handler(self, ev):
         self.process_command(ev.keysym)
-        self.update()
+        self.update_tiles()
 
-    def update(self):
+    def update_tiles(self):
         for row in range(4):
             for col in range(4):
                 self.tiles[(row, col)].set(self.grid[row][col] or "")

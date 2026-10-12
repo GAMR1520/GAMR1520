@@ -8,7 +8,7 @@ description: In this exercise we will make our 2048 GUI more attractive using be
 # Lab 8: Refining the GUI
 
 
-This week we will make our 2048 GUI more attractive using better colours.
+In this lab we will make our 2048 GUI more attractive using better colours.
 We will also implement "game over" and "well done" messages and allow the user to restart.
 
 ## Setting the basic background colours

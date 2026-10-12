@@ -6,7 +6,7 @@ title: A fully working game
 description: In this exercise we will convert our basic playable system into a fully working implementation of the 2048 game.
 ---
 
-This week we will convert our basic playable system into a fully working implementation of the 2048 game.
+In this lab we will convert our basic playable system into a fully working implementation of the 2048 game.
 This requires us to add random tiles after each move and to detect the game over state where no more moves are possible.
 
 There are a few wrinkles in this process so pay attention.

@@ -6,14 +6,14 @@ title: Merging left
 description: OK, so we have a function that will stack the elements to the left. The next thing we will create is a function that will take the stacked elements and merge any pairs from right to left.
 ---
 
-This week, we will add some more code to build on what we created last week.
-Before you begin, copy the code from last week into a new folder `lab_02` and keep the original safe.
+In this lab, we will add some more code to build on what we created in [the previous lab]({{ "exercises/A.1" | relative_url }}).
+Before you begin, copy the code from the previous lab into a new folder `lab_02` and keep the original safe.
 
-Last week we looked at a function called `stack_left` in which we moved all the non-empty tiles to the left as the first basic stage in implementing our 2048 game.
+Previously, we looked at a function called `stack_left` in which we moved all the non-empty tiles to the left as the first basic stage in implementing our 2048 game.
 We wrote some tests to define the behaviour we wanted from our function and you were left with a challenge to implement the function and make the tests pass.
 
-This week, we will work on a new function (`merge_left`) that adds the ability to merge to the left.
-But first, let's look at the solution to last week's challenge.
+In this lab, we will work on a new function (`merge_left`) that adds the ability to merge to the left.
+But first, let's look at the solution to the previous lab's challenge.
 
 >Hopefully you were able to attempt this challenge and perhaps you even succeeded.
 If so, well done.
@@ -133,7 +133,7 @@ def merge_left(stacked_row):
     return [None, None, None, None]
 ```
 
-As last week, we have started with a placeholder function to fail the tests.
+As in the previous lab, we have started with a placeholder function to fail the tests.
 However, if you run the tests you should find all the tests pass (because we are not testing much yet).
 
 ```

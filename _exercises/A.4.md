@@ -3,10 +3,10 @@ week: A
 lab: 4
 lang: python
 title: A rudimentary game
-description: In this exercise we create a rough draft of a working game and (hopefully) by the end of this session we will have our first (very basic) playable version.
+description: In this exercise we create a rough draft of a working game and (hopefully) by the end of this lab we will have our first (very basic) playable version.
 ---
 
-This week we will create a rough draft of a working game and (hopefully) by the end of this session we will have our first (very basic) playable version.
+In this lab we will create a rough draft of a working game and (hopefully) by the end of it we will have our first (very basic) playable version.
 
 We will do this by creating a `class` which will manage a grid of tile data for us.
 The core of the class looks like this:
@@ -87,7 +87,7 @@ Adding an extra line break to the beginning creates a space above the grid which
         return f"\n{grid}"
 ```
 
-> We will extend this method a bit more next week.
+> We will extend this method a bit more in the next lab.
 
 ## Initialising the game
 
@@ -181,7 +181,7 @@ Otherwise, it tries again with another randomly selected tile.
 
 ## Giving the player control
 
-The final step this week is to give the player control of the game.
+The final step in this lab is to give the player control of the game.
 We will do this with an infinite loop in which we ask the user for their next move.
 
 To keep the code simple, we will split it across a few methods.
@@ -341,7 +341,7 @@ if __name__ == "__main__":
 
 # Challenges
 
-We wrote a lot of code this week.
+We wrote a lot of code in this lab.
 Make sure you take some time to review the whole `Game` class and see how it fits together.
 Think about what features are missing. 
 

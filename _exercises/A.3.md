@@ -6,8 +6,8 @@ title: Transforming the grid
 description: In this exercise we expand our toolkit to work with a full 4&times;4 grid enabling moves in all directions.
 ---
 
-Last week we completed our basic, fully tested `move_left` function for moving a single row to the left.
-This week we will work on expanding that core functionality.
+In [the previous lab]({{ "exercises/A.2" | relative_url }}) we completed our basic, fully tested `move_left` function for moving a single row to the left.
+In this lab we will work on expanding that core functionality.
 
 1. We need it to work with a 4 &times; 4 grid.
 1. We need to be able to move in all four directions.

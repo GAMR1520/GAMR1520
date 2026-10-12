@@ -6,7 +6,7 @@ title: Unit testing
 description: In this exercise we will introduce the unittest module, develop a data model for our game and start creating tests for the core logic.
 ---
 
-This week, we will introduce tests using the [unittest](https://docs.python.org/3/library/unittest.html) module.
+In this lab, we will introduce tests using the [unittest](https://docs.python.org/3/library/unittest.html) module.
 In python we can write code that calls our functions and methods to check we get the correct result for given inputs.
 
 Imagine we have a simple function like this (in a file `my_module.py`):
@@ -58,7 +58,7 @@ Especially in a simple case like this.
 > The final test fails, which indicates that the function is not quite ready.
 
 There are two major benefits of tests.
-One, which we will see this week, is that it is possible to write the tests **before** we write the actual code.
+One, which we will see in this lab, is that it is possible to write the tests **before** we write the actual code.
 This allows us to get detailed information about which tests pass and which fail.
 So we can see what we need to do to improve our code.
 It also allows us to know when the code is finished.
@@ -334,22 +334,22 @@ Only the first test case passes because our function returns `[None, None, None,
 
 # Challenges
 
-Spend the rest of the session asking questions to make sure you understand what we are doing and writing a function that passes all the tests. 
+Spend some time asking questions to make sure you understand what we are doing and writing a function that passes all the tests. 
 It should convert the input list into a modified list in which all the `None` values are pushed to the end and the numbered tiles are moved to the left.
 
 If you get the tests passing, well done. 
-A solution will be provided next week.
+A solution is provided in [the next lab]({{ "exercises/A.2" | relative_url }}).
 Start thinking about how to implement and test the next steps.
 
 - merge tiles with the same number
 - expand to a 2-dimensional grid
 
-We will cover these next week.
+We will cover these in the next lab.
 
-Each week we will build on the code from the previous week.
-So the code from this week will be needed next week and it's very important you understand what we are doing here.
+Each lab builds on the code from the previous lab.
+So the code from this lab will be needed in the next one and it's very important you understand what we are doing here.
 We will continue to develop both python modules, `core.py` will include the core functions to handle movement etc. and `tests.py` will include the tests for these functions.
 
-A good approach might be to copy the whole folder each week and rename it (e.g. lab_01, lab_02, etc.) so that each week, you begin with a copy of the previous week's code.
+A good approach might be to copy the whole folder for each lab and rename it (e.g. lab_01, lab_02, etc.) so that each time, you begin with a copy of the previous lab's code.
 
 

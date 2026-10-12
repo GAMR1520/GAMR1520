@@ -6,7 +6,7 @@ title: Sketching a GUI
 description: In this exercise we will finally start building a GUI version of our 2048 game.
 ---
 
-This week we will finally start building a GUI version of our 2048 game.
+In this lab we will finally start building a GUI version of our 2048 game.
 The code will be very similar to the command line version of the game and several parts will be copied directly.
 We will focus mainly on developing the widget layout and connecting keyboard events to make the game work within the `tkinter` event loop.
 

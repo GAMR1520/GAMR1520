@@ -2,7 +2,7 @@
 
 print("\n===================================")
 print("Think of a number between 1 and 100")
-print("Don't tell me".center(35))
+print("(Don't tell me)".center(35))
 print("===================================")
 input("Press ENTER when you are ready.")
 

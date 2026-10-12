@@ -134,7 +134,7 @@ Now, try to run the game and you should see the tiles change colour automaticall
 ![step_02]({{ "assets/img/2048/lab_08/step_02.png" | relative_url}})
 
 
->Surprised? This works because we are already calling `set` on the tiles in the `update` method.
+>Surprised? This works because we are already calling `set` on the tiles in the `update_tiles` method.
 
 ## Fonts and foreground colours
 
@@ -201,7 +201,7 @@ Create a new `restart` method as follows.
         self.set_random_empty_tile(2)
         self.score.set(0)
         self.game_over = False
-        self.update()
+        self.update_tiles()
 
 ```
 
@@ -217,7 +217,7 @@ self.restart()
 self.bind("<KeyPress-r>", lambda ev: self.restart())
 ```
 
-> Replace the `self.update()` call at the end of your `__init__` method with these lines.
+> Replace the `self.update_tiles()` call at the end of your `__init__` method with these lines.
 
 You should now be able to restart the game by pressing the `r` key at any time.
 
@@ -239,7 +239,7 @@ self.game_over_message.grid(row=1, column=0, columnspan=2)
 ```
 
 >Do this in your `__init__` method, **before** the call to `self.restart()`.
->Our `update` method will soon refer to `self.game_over_message`, so it must exist before `restart` (and therefore `update`) is called.
+>Our `update_tiles` method will soon refer to `self.game_over_message`, so it must exist before `restart` (and therefore `update_tiles`) is called.
 
 Run the game and you should see the message slapped on top of the grid.
 
@@ -248,7 +248,7 @@ Run the game and you should see the message slapped on top of the grid.
 But, obviously, we don't want to show the message unless the game is actually over.
 We can implement this very simply using `widget.grid_remove()` to hide the prepared message.
 
-Add the following to the end of your update method.
+Add the following to the end of your `update_tiles` method.
 
 ```python
 if self.game_over:

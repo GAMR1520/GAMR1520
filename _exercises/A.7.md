@@ -164,17 +164,18 @@ We will use a dictionary with the keys set to two-tuples like this.
 We should now see that the labels are now all empty.
 To update the labels we need to loop over the grid and set the value of each `tk.StringVar` object in `self.tiles`.
 We will use a method to do this, so we can call it after every move.
+We call it `update_tiles` rather than `update`, to avoid hiding tkinter's built-in `update()` method.
 
 Add the following method
 
 ```python
-    def update(self):
+    def update_tiles(self):
         for row in range(4):
             for col in range(4):
                 self.tiles[(row, col)].set(self.grid[row][col])
 ```
 
->Make sure you call the new `self.update()` method at the end of the `__init__` method
+>Make sure you call the new `self.update_tiles()` method at the end of the `__init__` method
 
 The result is encouraging, but not ideal.
 
@@ -184,7 +185,7 @@ We want to leave the `None` tiles empty, just like we did in the command line ve
 We can do this by simply using an `or` expression, so if the tile value is `None` the result will be an empty string.
 
 ```python
-    def update(self):
+    def update_tiles(self):
         for row in range(4):
             for col in range(4):
                 self.tiles[(row, col)].set(self.grid[row][col] or "")
@@ -235,12 +236,12 @@ In each case, we will trigger the event handler, `self.move_handler` which we wi
 ```python
     def move_handler(self, ev):
         self.process_command(ev.keysym)
-        self.update()
+        self.update_tiles()
 ```
 
 The `move_handler` method calls our `process_command` method, passing the symbol which it extracts from the event data.
 This updates our grid data as necessary.
-Then it calls `self.update()` to reflect the changes to the GUI.
+Then it calls `self.update_tiles()` to reflect the changes to the GUI.
 
 The result should be that you can now play the game using the arrow keys!
 

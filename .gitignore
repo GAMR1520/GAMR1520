@@ -1,2 +1,3 @@
 drafts
-_site
+_site__pycache__/
+*.pyc
